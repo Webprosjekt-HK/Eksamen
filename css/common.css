@@ -2,3 +2,9 @@
     background: #faece4;
     border-radius: 6px;
 }
+
+nav {
+    background: #faece4;
+    width: 40px;
+    height: 100%;
+}
