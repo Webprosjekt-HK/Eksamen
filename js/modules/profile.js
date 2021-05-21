@@ -6,7 +6,10 @@ const profile = (() => {
     body.id = "main-body";
 
     const init = () => {
-        document.getElementById("main").append(body);
+        const mainElement = document.getElementById("main");
+        mainElement.innerHTML = "";
+        mainElement.append(body);
+
         let makeTile = new MakeTile("main-body");
         for (let i = 0; i < 20; i++) {
             makeTile.apply(
