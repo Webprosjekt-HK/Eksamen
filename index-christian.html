@@ -9,12 +9,52 @@
         <script src="js/app.js" type="module"></script>
     </head>
     <body>
-        <nav></nav>
-
         <div id="viewport" class="columns">
-            <section id="side-menu" class="column is-1"></section>
+            <section class="column is-1">
+                <nav id="side-menu" class="has-text-centered">
+                    <img src="/images/logo_enkel.svg" />
+                </nav>
+            </section>
             <section class="column is-11">
-                <div id="main" class="columns is-multiline"></div>
+                <nav
+                    class="navbar"
+                    role="navigation"
+                    aria-label="main navigation"
+                >
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="https://bulma.io">
+                            <p
+                                width="112"
+                                height="28"
+                                class="has-text-weight-bold"
+                            >
+                                SIDENAVN
+                            </p>
+                        </a>
+                        <!-- mobil-meny -->
+                        <a
+                            role="button"
+                            class="navbar-burger"
+                            aria-label="menu"
+                            aria-expanded="false"
+                            data-target="navbarBasicExample"
+                        >
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start"></div>
+
+                        <div class="navbar-end"></div>
+                    </div>
+                </nav>
+                <hr id="navbar-divider" />
+                <div>
+                    <div id="main" class="container columns is-multiline"></div>
+                </div>
             </section>
         </div>
     </body>
