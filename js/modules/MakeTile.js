@@ -5,17 +5,20 @@ export default class MakeTile {
     }
 
     apply = (icon, header, text, size) => {
-        console.log("ping");
         let html = `
-        <div class="card column">
-            <header class="card-header">
-                <p class="card-header-title">${header}</p>
-                <span class="icon">${icon}</span>
-            </header>
-            <div class="card-content ${size}">
-                <p class="content">${text}</p>
+        <div class="column ${size}">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">${header}</p>
+                    <span class="card-header-icon">${icon}</span>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <p>${text}</p>    
+                    </div>
+                </div>
             </div>
         </div>`;
-        document.getElementById(this.elementID).innerHTML = html;
+        document.getElementById(this.elementID).innerHTML += html;
     };
 }

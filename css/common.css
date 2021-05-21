@@ -1,9 +1,9 @@
 .card {
     background: #faece4;
-    border-radius: 6px;
 }
-
-nav {
+#side-menu {
     background: #faece4;
+}
+#viewport {
     height: 100%;
 }
