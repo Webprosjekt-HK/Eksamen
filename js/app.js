@@ -1,4 +1,4 @@
-import profile from "/js/modules/profile.js";
+import profile from "/js/pages/profile.js";
 import * as setup from "/js/tools/setup.js";
 import checkCredentials from "/js/tools/login.js";
 const state = {
