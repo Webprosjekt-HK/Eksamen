@@ -3,13 +3,13 @@ let tempSet = new Set();
 
 const checkCredentials = (userName,password) => {
     const employees = new EmployeeCollection();
+    let loggedInUser = null;
     employees.fetchEmployees().forEach((e) => {
         if (e.username === userName && e.password === password) {
             console.info("found match, logging in...");
-            console.log(e);
-            return e;
+            loggedInUser = e;
         }
     });
-    return null;
+    return loggedInUser;
 }
 export default checkCredentials;
