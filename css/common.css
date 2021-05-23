@@ -21,3 +21,6 @@
 .card-header {
     box-shadow: none;
 }
+#table {
+    position: left;
+}
