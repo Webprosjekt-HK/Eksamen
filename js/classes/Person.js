@@ -36,7 +36,6 @@ export class Employee extends Person {
         this.departmentID = departmentID;
         this.adminPrivileges = adminPrivileges;
         this.salary = salary;
-        this.adminPrivileges;
         this.pictureUrl = pictureUrl;
     }
     setSalary = (amount) => (this.salary = amount);

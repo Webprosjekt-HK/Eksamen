@@ -4,8 +4,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gylne Pizza</title>
-        <link rel="stylesheet" href="/css/Bulma/bulma-rtl.min.css" />
-        <link rel="stylesheet" href="/css/common.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/Bulma/bulma-rtl.min.css"
+        />
+        <link rel="stylesheet" type="text/css" href="/css/common.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="css/calendar/tui-calendar.min.css"
+        />
+        <!-- TODO: bruke .min versjonen-->
+        <!-- <script src="js/calendar/tui-calendar.js"></script> -->
+        <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+        <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
         <script src="js/app.js" type="module"></script>
     </head>
     <body>
@@ -53,7 +68,9 @@
                 </nav>
                 <hr id="navbar-divider" />
                 <div>
-                    <div id="main" class="container columns is-multiline"></div>
+                    <div id="main" class="container columns is-multiline">
+                        <!-- <div id="calendar"></div> -->
+                    </div>
                 </div>
             </section>
         </div>

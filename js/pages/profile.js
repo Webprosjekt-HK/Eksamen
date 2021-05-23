@@ -4,14 +4,28 @@ const profile = (() => {
     const body = document.createElement("div");
     body.classList.add("container", "columns", "is-multiline");
     body.id = "main-body";
+    const Calendar = tui.Calendar;
 
-    const init = () => {
+    const init = (userObject) => {
+        body.innerHTML = `<h1 class="header column is-12 title">
+            ${userObject.firstName + " " + userObject.lastName}
+        </h1>`;
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = "";
+
+        const calendarDiv = document.createElement("div");
+        calendarDiv.id = "calendar";
+        calendarDiv.classList.add("column", "is-10");
+
         mainElement.append(body);
+        mainElement.append(calendarDiv);
+        const calendar = new Calendar("#calendar", {
+            defaultView: "month",
+            taskView: true,
+        });
 
         let makeTile = new MakeTile("main-body");
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 3; i++) {
             makeTile.apply(
                 "ikon",
                 `headertest ${i + 1}`,

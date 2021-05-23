@@ -1,4 +1,5 @@
 import { Employee } from "/js/classes/Person.js";
+import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 
 const employees = [
     new Employee(

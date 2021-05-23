@@ -4,6 +4,7 @@ export default class EmployeeCollection {
     // Helper method to cast an object literal to an Employee object.
     castToEmployee = (userObject) =>
         new Employee(
+            userObject.id,
             userObject.firstName,
             userObject.lastName,
             userObject.username,
@@ -28,8 +29,10 @@ export default class EmployeeCollection {
     addEmployee = (userObject) => {
         const employees = this.fetchEmployees();
         for (let i = 0; i < employees.length; i++) {
-            if (employees[i].username === userObject.username)
+            if (employees[i].username === userObject.username) {
+                console.error("User already exists!");
                 return { status: "User already exists", code: 400 };
+            }
         }
         employees.push(userObject);
         localStorage.setItem("employees", JSON.stringify(employees));

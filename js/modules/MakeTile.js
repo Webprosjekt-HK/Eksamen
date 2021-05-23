@@ -9,9 +9,9 @@ export default class MakeTile {
         <div class="column ${size}">
             <div class="card">
                 <header class="card-header">
-                    <span class="card-header-icon">${icon}</span>
                     <p class="card-header-title has-text-right">${header}</p>
-                </header>
+                    <span class="card-header-icon">${icon}</span>
+                    </header>
                 <div class="card-content">
                     <div class="content">
                         <p>${text}</p>    

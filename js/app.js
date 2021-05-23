@@ -8,7 +8,6 @@ const state = {
     loggedInUser: {},
 };
 // profilknapp onclick - kjør denne.. osv
-profile.init();
 
 // Denne importerer brukerene våre ved første kjøring
 // TODO: Lage tilsvarende funksjonalitet for pizza-avdelinger og salg
@@ -17,7 +16,9 @@ if (!localStorage.getItem("employees")) setup.saveEmployees();
 // mot en state, og et form;
 
 const user = checkCredentials("ola@gylnepizza.no", "1234");
+console.log(user);
 if (user !== null) state.loggedInUser = user;
+profile.init(user);
 const newUser = new Employee(
     5,
     "Christian",
@@ -26,6 +27,8 @@ const newUser = new Employee(
     "qwerty",
     "",
     50000000,
-    ""
+    "",
+    [],
+    []
 );
 signup(newUser);
