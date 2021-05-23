@@ -18,10 +18,10 @@ export class Employee extends Person {
     adminPrivileges;
     salary;
     pictureUrl;
-    constructor(firstName, lastName, username, password, address, salary,pictureUrl) {
+    constructor(firstName, lastName, username, password, address, salary, pictureUrl, departmentID, adminPrivileges) {
         super(firstName, lastName, username, password, address);
-        this.departmentID = [];
-        this.adminPrivileges = [];
+        this.departmentID = departmentID;
+        this.adminPrivileges = adminPrivileges;
         this.salary = salary;
         this.adminPrivileges;
         this.pictureUrl = pictureUrl;

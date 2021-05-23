@@ -1,9 +1,10 @@
 
-const employees = [
-    {firstName: "Ola", lastName: "Nordmann", userName: "ola@gylnepizza.no", password: "1234", salary: 420000, 
-    pictureUrl: "", address: "", departmentID: [1,2,3,4], adminPrivileges: [1,2,3,4]}
-];
+import { Employee } from "/js/classes/Person.js";
 
+const employees = [new Employee(
+    "Ola","Nordmann","ola@gylnepizza.no","1234",
+    "pizzaveien 1",420000,"images/picture.jpg",[1,2,3,4],[1,2,3,4])
+];
 const departments = [{}];
 
 export function saveEmployees() {
