@@ -1,0 +1,190 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Bulma/bulma-rtl.min.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <title>Gylne Pizza</title>
+</head>
+<body>
+    <!---sidebar-->
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="logo">
+                <img src="/images/logo_enkel.svg" />
+            </div>
+            <i class='bx bx-menu' id="burger-btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-time-five' ></i>
+                    <span class="links-name">Skift</span>
+                </a>
+                <span class="tooltip">Skift</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links-name">Min Side</span>
+                </a>
+                <span class="tooltip">Min Side</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-data' ></i>
+                    <span class="links-name">Vareoversikt</span>
+                </a>
+                <span class="tooltip">Vareoversikt</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pie-chart-alt-2' ></i>
+                    <span class="links-name">Omsetting</span>
+                </a>
+                <span class="tooltip">Omsetting</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pizza' ></i>
+                    <span class="links-name">Meny</span>
+                </a>
+                <span class="tooltip">Meny</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-map' ></i>
+                    <span class="links-name">Avdelinger</span>
+                </a>
+                <span class="tooltip">Avdelinger</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog' ></i>
+                    <span class="links-name">Innstillinger</span>
+                </a>
+                <span class="tooltip">Innstillinger</span>
+            </li>
+        </ul>
+        <div class="logout-field">
+            <div class="logout">
+                <div class="logout-details">
+                    <div class="name-job">
+                        <div class="name">Navn Navnesen</div>
+                        <div class="job">Restaurantsjef</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="logout"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let burgerBtn = document.querySelector('#burger-btn');
+        let sidebar = document.querySelector('.sidebar');
+
+        burgerBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+        }
+    </script>
+    <!--end of sidebar-->
+
+    <!---Table-->
+    <div class="container" style="margin-top: 10px">
+        <table class="table" width="90%">
+            <thead>
+                <tr>
+                    <th>Navn</th>
+                    <th>Ingredienser</th>
+                    <th>Innkjøpspris</th>
+                    <th>Utsalgspris</th>
+                    <th>Profitt</th>
+                    <th>Ta bort</th>
+                    <th></th>
+                 </tr>   
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Margarita</td>
+                    <td>Mozzarella, tomatsaus</td>
+                    <td>30,-</td>
+                    <td>95,-</td>
+                    <td>65,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Hawaii</td>
+                    <td>Mozzarella, tomatsaus, skinke, ananas</td>
+                    <td>40,-</td>
+                    <td>105,-</td>
+                    <td>65,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Pepperoni</td>
+                    <td>Mozzarella, tomatsaus, Pepperoni</td>
+                    <td>35,-</td>
+                    <td>105,-</td>
+                    <td>60,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Ham</td>
+                    <td>Osteblanding, tomatsaus, skinke</td>
+                    <td>40,-</td>
+                    <td>95,-</td>
+                    <td>55,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>The Tropical</td>
+                    <td>Tomatsaus, pepperoni, osteblanding, ananas, oregano</td>
+                    <td>45,-</td>
+                    <td>128,-</td>
+                    <td>83,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Californian Dream</td>
+                    <td>Tomatsaus, rømmedressing, osteblanding, skinke, ruccolasalat</td>
+                    <td>60,-</td>
+                    <td>138,-</td>
+                    <td>78</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Thai Chicken</td>
+                    <td>Sataykylling, paprika, rødløk, ananas, sataysaus, peanøtter</td>
+                    <td>60,-</td>
+                    <td>158,-</td>
+                    <td>98,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+                <tr>
+                    <td>Green Garden</td>
+                    <td>Avokado, rødløk, osteblanding, cherrytomater, limezest</td>
+                    <td>45,-</td>
+                    <td>158,-</td>
+                    <td>113,-</td>
+                    <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                    <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--end of table-->
+
+</body>
+</html>
