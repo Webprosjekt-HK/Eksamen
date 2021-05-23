@@ -1,10 +1,12 @@
 export default class Person {
+    id;
     firstName;
     lastName;
     username;
     password;
     address;
-    constructor(firstName, lastName, username, password, address) {
+    constructor(id, firstName, lastName, username, password, address) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -18,8 +20,19 @@ export class Employee extends Person {
     adminPrivileges;
     salary;
     pictureUrl;
-    constructor(firstName, lastName, username, password, address, salary, pictureUrl, departmentID, adminPrivileges) {
-        super(firstName, lastName, username, password, address);
+    constructor(
+        id,
+        firstName,
+        lastName,
+        username,
+        password,
+        address,
+        salary,
+        pictureUrl,
+        departmentID,
+        adminPrivileges
+    ) {
+        super(id, firstName, lastName, username, password, address);
         this.departmentID = departmentID;
         this.adminPrivileges = adminPrivileges;
         this.salary = salary;
@@ -28,6 +41,7 @@ export class Employee extends Person {
     }
     setSalary = (amount) => (this.salary = amount);
     setAdmin = (departmentID) => this.adminPrivileges.push(departmentID);
+    setDepartment = (departmentID) => this.departmentID.push(departmentID);
     removeAdmin = (departmentID) => {
         const departmentIndex = this.adminPrivileges.indexOf(departmentID);
         this.departmentID.splice(departmentIndex, 1);
