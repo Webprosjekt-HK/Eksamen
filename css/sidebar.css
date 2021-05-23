@@ -30,6 +30,7 @@ body {
 
 .sidebar.active {
     width: 230px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar .logo-content .logo {
@@ -58,6 +59,7 @@ body {
     line-height: 50px;
     transform: translateX(-50%);
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .sidebar.active #burger-btn {
@@ -121,6 +123,7 @@ body {
 
 .sidebar ul li i {
     height: 50px;
+    font-size: 20px;
     min-width: 50px;
     border-radius: 12px;
     line-height: 50px;
@@ -130,7 +133,7 @@ body {
 .sidebar .links-name {
     pointer-events: none;
     opacity: 0;
-    transition: all 0.5s 0.2s ease;
+    transition: all 0.2s ease;
     margin: 0 -100px;
 }
 
@@ -138,6 +141,7 @@ body {
     pointer-events: auto;
     opacity: 1;
     margin: 0;
+    transition: all 0.5s 0.2s ease;
 }
 
 .sidebar .logout-field {
@@ -203,3 +207,4 @@ body {
     left: 88%;
     background: none;
 }
+
