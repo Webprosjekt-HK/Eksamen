@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/Bulma/bulma-rtl.min.css" />
     <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/Bulma/bulma.css" />
     <link rel="stylesheet" href="css/sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -12,7 +13,7 @@
     <title>Gylne Pizza</title>
 </head>
 <body>
-    <!--
+    <div id="viewport" class="columns">
     <!--sidebar-->
     <section class="column is-1">
     <div class="sidebar">
@@ -96,21 +97,20 @@
 
     </script>
     </section>
-
     <!--end of sidebar-->
--->
-        
-
-    <!--header-->
-
-    <!--end of header-->
-
-
-    <!---Table-->
-    <section>
+    <section class="column is-10,5">
         <div class="container">
-            <table class="table is-striped" width="100%">
+            <!--sitename-->
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <p class="has-text-weight-bold">MENY</p>
+                </a>
+            </div>
+            <hr id="navbar-divider" />
 
+            <!--end of sitename-->
+            <!---Table-->
+            <table class="table is-striped" width="100%">
                 <thead>
                     <tr>
                         <th>Navn</th>
@@ -200,6 +200,6 @@
         </div>
     </section> 
     <!--end of table-->
-
+</div>
 </body>
 </html>
