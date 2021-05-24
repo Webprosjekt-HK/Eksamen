@@ -22,8 +22,33 @@ const profile = (() => {
         const calendar = new Calendar("#calendar", {
             defaultView: "month",
             taskView: true,
+            disableDblClick: true,
+            calendars: [
+                {
+                    id: "1",
+                    name: "shifts",
+                },
+            ],
         });
 
+        // Mal for å lage vakter:
+        // console.log(new Date().toISOString());
+        calendar.createSchedules([
+            {
+                id: "1",
+                calendarId: "1",
+                title: "Ola Nordmann",
+                category: "",
+                dueDateClass: "",
+                start: "2021-05-24T09:18:54.621",
+                end: "2021-05-24T21:18:54.621",
+                body: "test",
+                category: "shift",
+            },
+        ]);
+        calendar.render();
+        let schedule = calendar.getSchedule("1", "1");
+        console.log(schedule);
         let makeTile = new MakeTile("main-body");
         for (let i = 0; i < 3; i++) {
             makeTile.apply(

@@ -1,12 +1,25 @@
 export default class Person {
     id;
+    role;
+    phoneNumber;
     firstName;
     lastName;
     username;
     password;
     address;
-    constructor(id, firstName, lastName, username, password, address) {
+    constructor(
+        id,
+        role,
+        phoneNumber,
+        firstName,
+        lastName,
+        username,
+        password,
+        address
+    ) {
         this.id = id;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -22,6 +35,8 @@ export class Employee extends Person {
     pictureUrl;
     constructor(
         id,
+        role,
+        phoneNumber,
         firstName,
         lastName,
         username,
@@ -32,7 +47,16 @@ export class Employee extends Person {
         departmentID,
         adminPrivileges
     ) {
-        super(id, firstName, lastName, username, password, address);
+        super(
+            id,
+            role,
+            phoneNumber,
+            firstName,
+            lastName,
+            username,
+            password,
+            address
+        );
         this.departmentID = departmentID;
         this.adminPrivileges = adminPrivileges;
         this.salary = salary;

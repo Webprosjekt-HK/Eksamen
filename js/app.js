@@ -21,6 +21,8 @@ if (user !== null) state.loggedInUser = user;
 profile.init(user);
 const newUser = new Employee(
     5,
+    "Kjøkkensjef",
+    45533312,
     "Christian",
     "Gregersen",
     "christian@gylnepizza.no",

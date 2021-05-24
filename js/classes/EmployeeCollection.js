@@ -5,6 +5,8 @@ export default class EmployeeCollection {
     castToEmployee = (userObject) =>
         new Employee(
             userObject.id,
+            userObject.role,
+            userObject.phoneNumber,
             userObject.firstName,
             userObject.lastName,
             userObject.username,

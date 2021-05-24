@@ -4,6 +4,8 @@ import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 const employees = [
     new Employee(
         1,
+        "Kjøkkensjef",
+        45533312,
         "Ola",
         "Nordmann",
         "ola@gylnepizza.no",
@@ -16,6 +18,8 @@ const employees = [
     ),
     new Employee(
         2,
+        "Kjøkkensjef",
+        45533312,
         "Gjerdmunn",
         "Hanssen",
         "gjerdmunn@gylnepizza.no",
@@ -28,6 +32,8 @@ const employees = [
     ),
     new Employee(
         3,
+        "Kjøkkensjef",
+        45533312,
         "Brage",
         "Morgenstierne",
         "brage@gylnepizza.no",
@@ -40,6 +46,8 @@ const employees = [
     ),
     new Employee(
         4,
+        "Kjøkkensjef",
+        45533312,
         "Hege",
         "Svendsen",
         "hege@gylnepizza.no",
