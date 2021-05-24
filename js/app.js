@@ -19,6 +19,11 @@ setup.saveEmployees();
 const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
 profile.init(user);
+
+// Legger inn info i sidemenyen.. flytte et annet sted etterhvert
+document.querySelector(".logout .name").innerHTML =
+    state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
+document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
 const newUser = new Employee(
     5,
     "Kjøkkensjef",
