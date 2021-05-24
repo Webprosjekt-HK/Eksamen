@@ -8,7 +8,7 @@ export default class MakeProfileBanner {
                 <h2>${employeeName}</h2>
                 <p>${role}</p>
                 <p>${phoneNumber}</p>
-                <p>${emailAdress}</p>
+                <a href="mailto:${emailAdress}">${emailAdress}</a>
             </div>
         `;
 
