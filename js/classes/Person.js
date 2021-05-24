@@ -1,4 +1,4 @@
-export class Person {
+export default class Person {
     id;
     role;
     phoneNumber;
@@ -28,7 +28,7 @@ export class Person {
     }
 }
 
-export default class Employee extends Person {
+export class Employee extends Person {
     departmentID;
     adminPrivileges;
     salary;
