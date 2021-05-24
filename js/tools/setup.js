@@ -12,7 +12,7 @@ const employees = [
         "1234",
         "pizzaveien 1",
         420000,
-        "images/picture.jpg",
+        "images/ansatt_1.png",
         [1, 2, 3, 4],
         [1, 2, 3, 4]
     ),

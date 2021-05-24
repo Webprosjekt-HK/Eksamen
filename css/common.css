@@ -2,25 +2,24 @@
 .card {
     background: #faece4;
 }
-#side-menu {
-    background: #faece4;
-    border-radius: 0 15px 15px 0;
-    height: 100%;
-    width: 50%;
+#profile-info {
+    margin-top: 80px;
 }
-#side-menu img {
-    margin-top: 20px;
-}
-#viewport {
-    height: 100%;
-}
-
-.vertical-divider {
-    width: 1px;
-    height: 10px;
+#profile-info .card {
+    background-color: #f1f1f1;
 }
 .card-header {
     box-shadow: none;
+}
+#calendar {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    top: 64px;
+}
+#profile-text {
+    top: 50%;
 }
 /* --------------------------------- */
 
