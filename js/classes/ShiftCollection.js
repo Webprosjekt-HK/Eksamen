@@ -58,4 +58,25 @@ export default class ShiftCollection {
         }
         return lowestDate;
     };
+    getHoursWorkedByUserId = (userId) => {
+        const today = new Date();
+        const shiftsThisMonth = this.fetchShifts().filter((d) => {
+            const shiftDate = new Date(d.start);
+            if (
+                today.getFullYear() === shiftDate.getFullYear() &&
+                today.getMonth() === shiftDate.getMonth() &&
+                today.getDate() >= shiftDate.getDate()
+            )
+                return d;
+        });
+
+        let sumHours = 0;
+
+        for (let i = 0; i < shiftsThisMonth.length; i++) {
+            const currentShift = shiftsThisMonth[i];
+            sumHours +=
+                new Date(currentShift.end) - new Date(currentShift.start);
+        }
+        return sumHours / 3600000;
+    };
 }

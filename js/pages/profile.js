@@ -101,15 +101,35 @@ const profile = (() => {
         // Legg til tiles
         const makeTile = new MakeTile("main-body");
         const nextShift = shiftCollection.getNextShiftByUserId(userObject.id);
-        makeTile.apply("Ikon", "Neste vakt", nextShift.toUTCString(), "is-3");
-        for (let i = 0; i < 2; i++) {
-            makeTile.apply(
-                "ikon",
-                `headertest ${i + 1}`,
-                `bodytest ${i + 1}`,
-                "is-3"
-            );
-        }
+        const hoursWorked = shiftCollection.getHoursWorkedByUserId(
+            userObject.id
+        );
+        const today = new Date();
+        const previousMonth = new Date();
+        previousMonth.setMonth(today.getMonth() - 1);
+        const lastPaycheck = today.getDate() >= 15 ? today : previousMonth;
+
+        console.log(lastPaycheck);
+        makeTile.apply(
+            "Ikon",
+            "Neste vakt",
+            nextShift.toLocaleString("nb-NO", {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+            }),
+            "is-3"
+        );
+        makeTile.apply("Ikon", "Timer jobbet", hoursWorked, "is-3");
+        makeTile.apply(
+            "Ikon",
+            "Siste lønnsslipp",
+            "15. " +
+                lastPaycheck.toLocaleString("nb-NO", { month: "long" }) +
+                "." +
+                today.getFullYear(),
+            "is-3"
+        );
     };
     return { init };
 })();
