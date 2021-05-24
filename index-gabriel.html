@@ -1,0 +1,79 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gylne Pizza</title>
+        <link rel="stylesheet" href="/css/Bulma/bulma-rtl.min.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <script src="/js/testApp.js" type="module"></script>
+    </head>
+    <body>
+        <div id="viewport" class="columns">
+            <section class="column is-1">
+                <nav id="side-menu" class="has-text-centered">
+                    <img src="/images/logo_enkel.svg" />
+                </nav>
+            </section>
+            <section class="column is-11">
+                <nav
+                    class="navbar"
+                    role="navigation"
+                    aria-label="main navigation"
+                >
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="https://bulma.io">
+                            <p
+                                width="112"
+                                height="28"
+                                class="has-text-weight-bold"
+                            >
+                                SIDENAVN
+                            </p>
+                        </a>
+                        <!-- mobil-meny -->
+                        <a
+                            role="button"
+                            class="navbar-burger"
+                            aria-label="menu"
+                            aria-expanded="false"
+                            data-target="navbarBasicExample"
+                        >
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start"></div>
+
+                        <div class="navbar-end"></div>
+                    </div>
+                </nav>
+                <hr id="navbar-divider" />
+                <div>
+                    <div id="main" class="container columns is-multiline">
+                        <div class="tile is-ancestor">
+                            <div class="tile is-4 is-vertical is-parent">
+                              <div class="tile is-child box">
+                                <p class="title">Oslo - Majorstuen</p>
+                              </div>
+                              <div class="tile is-child box">
+                                <p class="title">Two</p>
+                              </div>
+                            </div>
+                            <div class="tile is-parent">
+                              <div class="is-child box">
+                                <p class="title">Ansatte</p>
+                                <div id="employees" class="columns is-multiline is-gapless"></div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>
