@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/button.css">
+    <title>En Fancy knapp om dere liker</title>
+</head>
+<body>
+
+    <button class="fancy-btn">Click Meg</span></button>
+
+    <script>
+        const button = document.querySelectorAll('.fancy-btn');
+
+        button.forEach(button => {
+            button.addEventListener('click', function (e) {
+                const x = e.clientX;
+                const y = e.clientY;
+
+                const buttonTop = e.target.offsetTop;
+                const buttonLeft = e.target.offsetLeft;
+
+                const xInButton = x - buttonLeft;
+                const yInButton = y - buttonTop;
+
+                const circle = document.createElement('span');
+                circle.classList.add('circle');
+                circle.style.top = yInButton + 'px';
+                circle.style.left = xInButton + 'px';
+
+                this.appendChild(circle);
+
+                setTimeout(() => circle.remove(), 500);
+            })
+        })
+    </script>
+    
+</body>
+</html>
