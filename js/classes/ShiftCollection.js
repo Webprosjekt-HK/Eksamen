@@ -31,7 +31,7 @@ export default class ShiftCollection {
     };
     // Returns all shifts that matches the employee's ID.
     filterShiftsEmployeeID = (employeeID) => {
-        return this.shifts.filter((el) => el.employeeID === employeeID);
+        return this.fetchShifts().filter((el) => el.employeeID === employeeID);
     };
     // Returns index of the updated item. -1 if there wasn't a matching item to update.
     updateShift = (shift) => {
@@ -46,7 +46,7 @@ export default class ShiftCollection {
         return -1;
     };
     getNextShiftByUserId = (userId) => {
-        const shifts = this.fetchShifts().filter((d) => {
+        const shifts = this.filterShiftsEmployeeID(userId).filter((d) => {
             const today = new Date();
             if (new Date(d.start) >= today) return d;
         });
@@ -56,19 +56,22 @@ export default class ShiftCollection {
             if (new Date(shifts[i].start) < lowestDate)
                 lowestDate = new Date(shifts[i].start);
         }
+        console.log(lowestDate);
         return lowestDate;
     };
     getHoursWorkedByUserId = (userId) => {
         const today = new Date();
-        const shiftsThisMonth = this.fetchShifts().filter((d) => {
-            const shiftDate = new Date(d.start);
-            if (
-                today.getFullYear() === shiftDate.getFullYear() &&
-                today.getMonth() === shiftDate.getMonth() &&
-                today.getDate() >= shiftDate.getDate()
-            )
-                return d;
-        });
+        const shiftsThisMonth = this.filterShiftsEmployeeID(userId).filter(
+            (d) => {
+                const shiftDate = new Date(d.start);
+                if (
+                    today.getFullYear() === shiftDate.getFullYear() &&
+                    today.getMonth() === shiftDate.getMonth() &&
+                    today.getDate() >= shiftDate.getDate()
+                )
+                    return d;
+            }
+        );
 
         let sumHours = 0;
 
