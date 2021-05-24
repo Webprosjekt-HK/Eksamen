@@ -88,6 +88,7 @@ const profile = (() => {
         mainElement.append(body);
         mainElement.append(calendarDiv);
         const calendar = makeCalendar(calendarDiv, calendarOptions, schedules);
+
         // Legg til tiles
         let makeTile = new MakeTile("main-body");
         for (let i = 0; i < 3; i++) {
