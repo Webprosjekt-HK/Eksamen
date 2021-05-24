@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gylden Pizza</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+        <link rel="stylesheet" href="/css/landingpage.css">
+
+    </head>
+    <body>
+
+        <img src="/images/logo.svg" alt="logo" height="132px" width="160px" class="my-6 mx-6" id="logo">
+
+        <section class="section" id="hero">
+            <div class="container">
+                <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                  
+                    <div id="navbarBasicExample" class="navbar-menu">
+                      <div class="navbar-start">
+                        <a class="navbar-item has-text-white">
+                          Meny
+                        </a>
+                        <div class="underline"></div>
+                  
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link has-text-white">
+                                Restauranter
+                            </a>
+                            <div class="underline"></div>
+                  
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item">
+                                    Oslo
+                                </a>
+                                <a class="navbar-item">
+                                    Bergen
+                                </a>
+                                <a class="navbar-item">
+                                    Trondheim
+                                </a>
+                                <a class="navbar-item">
+                                    Kristiansand
+                                </a>
+                            </div>
+                        </div>
+                            <a class="navbar-item has-text-white">
+                                Kontakt oss
+                            </a>
+                            <div class="underline"></div>
+                      </div>
+                  
+                      <div class="navbar-end">
+                        <div class="navbar-item">
+                            <span>
+                                <img src="/images/icons/user.svg" alt="" style="color: white;">
+                            </span>
+                            <a class="navbar-item has-text-white">
+                                Ansatte
+                            </a>
+                            <div class="underline"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+
+                    <div class="columns pt-6">
+                        <div class="column mt-6">
+                            <h1 class="is-size-1 has-text-white">
+                                Bestill din gyldne <br>pizza i dag!
+                            </h1>
+                            <div class="mt-4">
+                                <button class="fancy-btn">Bestill nå</button>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+        <section class="section" id="meny">
+
+        </section>
+        <section class="section" id="restauranter">
+
+        </section>
+
+
+        <div class="bg-img"></div>
+
+
+    <script>
+
+        //BUTTON SCRIPT
+
+        const button = document.querySelectorAll('.fancy-btn');
+
+        button.forEach(button => {
+            button.addEventListener('click', function (e) {
+                const x = e.clientX;
+                const y = e.clientY;
+
+                const buttonTop = e.target.offsetTop;
+                const buttonLeft = e.target.offsetLeft;
+
+                const xInButton = x - buttonLeft;
+                const yInButton = y - buttonTop;
+
+                const circle = document.createElement('span');
+                circle.classList.add('circle');
+                circle.style.top = yInButton + 'px';
+                circle.style.left = xInButton + 'px';
+
+                this.appendChild(circle);
+
+                setTimeout(() => circle.remove(), 500);
+            })
+        })
+
+    </script>
+    </body>
+</html>

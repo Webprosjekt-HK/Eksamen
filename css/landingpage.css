@@ -1,0 +1,77 @@
+/* 
+FARGER:
+Mørk: #e3d5cd
+Lys: #faece4
+*/
+
+#logo{
+    position: absolute;
+}
+
+#hero {
+    background: url(/images/landing_page_cropped.jpg);
+    height: 1024px;
+    background-position-x: center ;
+    background-size: cover;
+}
+
+#hero .navbar.is-transparent {
+    background-color: transparent;
+}
+
+.navbar-start {
+    margin-left: 20%;
+}
+.navbar-item.has-text-white {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.columns.pt-6{
+    margin-top: 12%;
+}
+
+h1 {
+    font-size: 64pt;
+}
+
+.navbar-item:hover {
+    color: #F9932F;
+}
+
+
+.fancy-btn {
+    position: relative;
+    background-color: #F9932F;
+    color: #000;
+    border: 0px #e3d5cd solid;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 15px 30px;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: 0 2.5px 5px rgba(0, 0, 0, .2);
+    transition: all 0.2s ease;
+}
+
+.fancy-btn .circle {
+    position: absolute;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(255, 168, 38, 0.8), 
+        rgba(73, 56, 11, 0.8));
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(-75%, -75%) scale(0);
+    animation: scale 0.4s ease-out;
+}
+
+@keyframes scale {
+    to {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
