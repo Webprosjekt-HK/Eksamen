@@ -122,7 +122,7 @@
 
             <!--end of dropdown-->
             <!---Table-->
-            <table class="table is-striped" width="100%">
+            <table id="table" class="table is-striped" width="100%">
                 <thead>
                     <tr>
                         <th>Navn</th>
@@ -198,7 +198,7 @@
                         <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
                         <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
                     </tr>
-                    <tr>
+                    <tr id="row6">
                         <td>Green Garden</td>
                         <td>Avokado, rødløk, osteblanding, cherrytomater, limezest</td>
                         <td>45,-</td>
@@ -214,4 +214,19 @@
     <!--end of table-->
 </div>
 </body>
+<script>
+    //remove row    
+    var index, table = document.getElementById('table');
+    for(var i = 1; i < table.rows.length; i++){
+        table.rows[i].cells[5].onclick = function(){
+            var c = confirm("Er du sikker på at du vil slette denne raden?");
+            if( c === true){
+                index = this.parentElement.rowIndex;
+                table.deleteRow(index);
+            }
+        };
+    }
+
+
+</script>
 </html>
