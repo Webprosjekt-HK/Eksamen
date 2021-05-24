@@ -11,8 +11,32 @@
 body {
     position: relative;
     min-height: 100vh;
+    margin: 3rem 0 0 0;
+    padding: 0 1rem;
     width: 100%;
     overflow: hidden;
+}
+
+.header {
+    width: 100vw;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 70%;
+    display: flex;
+    align-items: center;
+    z-index: -99;
+    padding: 0 1rem;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5px solid #e3d5cd;
 }
 
 .sidebar {
@@ -41,12 +65,15 @@ body {
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.6s ease;
+    transition: all 0.4s ease;
+    margin: 0 -100px;
 }
 
 .sidebar.active .logo-content .logo {
     opacity: 1;
     pointer-events: none;
+    margin: 0;
+    transition: all 0.5s 0.2s ease;
 }
 
 .sidebar #burger-btn {
