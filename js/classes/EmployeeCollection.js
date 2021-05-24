@@ -40,6 +40,9 @@ export default class EmployeeCollection {
         localStorage.setItem("employees", JSON.stringify(employees));
         return { status: "User added ", code: 200 };
     };
+    findEmployeeById = (id) => {
+        this.fetchEmployees().filter((el) => el.id === id);
+    };
     removeEmployee = (username) => {
         const employees = this.fetchEmployees();
         const indexOfEmployee = employees.indexOf(username);
