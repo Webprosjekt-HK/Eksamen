@@ -19,38 +19,87 @@ const profile = (() => {
 
         mainElement.append(body);
         mainElement.append(calendarDiv);
-        const calendar = new Calendar("#calendar", {
+        var calendar = new tui.Calendar(calendarDiv, {
             defaultView: "month",
-            taskView: true,
-            disableDblClick: true,
-            disableClick: true,
-            calendars: [
-                {
-                    id: "1",
-                    name: "shifts",
+            scheduleView: true, // Can be also ['allday', 'time']
+            template: {
+                milestone: function (schedule) {
+                    return (
+                        '<span style="color:red;"><i class="fa fa-flag"></i> ' +
+                        schedule.title +
+                        "</span>"
+                    );
                 },
-            ],
+                milestoneTitle: function () {
+                    return "Milestone";
+                },
+                task: function (schedule) {
+                    return "&nbsp;&nbsp;#" + schedule.title;
+                },
+                taskTitle: function () {
+                    return '<label><input type="checkbox" />Task</label>';
+                },
+                allday: function (schedule) {
+                    return schedule.title + ' <i class="fa fa-refresh"></i>';
+                },
+                alldayTitle: function () {
+                    return "All Day";
+                },
+                time: function (schedule) {
+                    return (
+                        schedule.title +
+                        ' <i class="fa fa-refresh"></i><br />' +
+                        new Date(schedule.start).getHours() +
+                        " - " +
+                        new Date(schedule.end).getHours()
+                    );
+                },
+            },
+            month: {
+                daynames: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+                startDayOfWeek: 0,
+                narrowWeekend: true,
+            },
+            week: {
+                daynames: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+                startDayOfWeek: 0,
+                narrowWeekend: true,
+            },
         });
 
         // Mal for å lage vakter:
         // console.log(new Date().toISOString());
-        calendar.createSchedules([
-            {
-                id: "1",
-                calendarId: "1",
-                title: "Ola Nordmann",
-                category: "",
-                dueDateClass: "",
-                start: "2021-05-24T09:18:54.621",
-                end: "2021-05-24T21:18:54.621",
-                body: "test",
-                category: "shift",
-            },
-        ]);
+        calendar.clear();
+        calendar.createSchedules(
+            [
+                {
+                    id: "3",
+                    calendarId: "1",
+                    title: "Ola Nordmann",
+                    category: "time",
+                    dueDateClass: "",
+                    body: "Dett er en test",
+                    start: "2021-05-24T10:30:00",
+                    end: "2021-05-24T12:30:00",
+                },
+                {
+                    id: "4",
+                    calendarId: "1",
+                    title: "Christian Gregersen",
+                    category: "time",
+                    dueDateClass: "",
+                    body: "",
+                    start: "2021-05-25T08:30:00",
+                    end: "2021-05-25T16:30:00",
+                },
+            ],
+            false
+        );
         calendar.render();
-        console.log(calendar);
-        let schedule = calendar.getSchedule("1", "1");
+        let schedule = calendar.getSchedule("3", "1");
         console.log(schedule);
+
+        // Legg til tiles
         let makeTile = new MakeTile("main-body");
         for (let i = 0; i < 3; i++) {
             makeTile.apply(
