@@ -16,7 +16,6 @@ if (!localStorage.getItem("employees")) setup.saveEmployees();
 // mot en state, og et form;
 
 const user = checkCredentials("ola@gylnepizza.no", "1234");
-console.log(user);
 if (user !== null) state.loggedInUser = user;
 profile.init(user);
 const newUser = new Employee(

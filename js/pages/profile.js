@@ -23,6 +23,7 @@ const profile = (() => {
             defaultView: "month",
             taskView: true,
             disableDblClick: true,
+            disableClick: true,
             calendars: [
                 {
                     id: "1",
@@ -47,6 +48,7 @@ const profile = (() => {
             },
         ]);
         calendar.render();
+        console.log(calendar);
         let schedule = calendar.getSchedule("1", "1");
         console.log(schedule);
         let makeTile = new MakeTile("main-body");
