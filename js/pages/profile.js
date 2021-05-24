@@ -1,7 +1,16 @@
 import MakeTile from "/js/modules/MakeTile.js";
 import makeCalendar from "/js/modules/MakeCalendar.js";
+import ShiftCollection from "/js/classes/ShiftCollection.js";
+import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 
 const profile = (() => {
+    const shiftCollection = new ShiftCollection();
+    const shifts = shiftCollection.fetchShifts();
+    const employeeCollection = new EmployeeCollection();
+
+    // The container in the index-file
+    const mainElement = document.getElementById("main");
+    // Container to hold the cards on the profile-page
     const body = document.createElement("div");
     body.classList.add("container", "columns", "is-multiline");
     body.id = "main-body";
@@ -52,46 +61,48 @@ const profile = (() => {
             narrowWeekend: true,
         },
     };
-    const schedules = [
-        {
-            id: "3",
-            calendarId: "1",
-            title: "Ola Nordmann",
-            category: "time",
-            dueDateClass: "",
-            body: "Dett er en test",
-            start: "2021-05-24T10:30:00",
-            end: "2021-05-24T12:30:00",
-        },
-        {
-            id: "4",
-            calendarId: "1",
-            title: "Christian Gregersen",
-            category: "time",
-            dueDateClass: "",
-            body: "",
-            start: "2021-05-25T08:30:00",
-            end: "2021-05-25T16:30:00",
-        },
-    ];
+
     const init = (userObject) => {
+        // Sets the title for the page
         body.innerHTML = `<h1 class="header column is-12 title">
             ${userObject.firstName + " " + userObject.lastName}
         </h1>`;
-        const mainElement = document.getElementById("main");
         mainElement.innerHTML = "";
 
+        // Container for the calendar
         const calendarDiv = document.createElement("div");
         calendarDiv.id = "calendar";
         calendarDiv.classList.add("column", "is-10");
 
+        // Get the shifts from logged in user, and format them for
+        // further use in the calendar. Should probably move this
+        const schedules = [];
+        shifts
+            .filter((s) => s.employeeID === userObject.id)
+            .forEach((shift) => {
+                schedules.push({
+                    id: shift.id,
+                    calendarId: "1",
+                    title: userObject.firstName + " " + userObject.lastName,
+                    category: "time",
+                    dueDateClass: "",
+                    body: "test",
+                    start: shift.start,
+                    end: shift.end,
+                });
+            });
+
         mainElement.append(body);
         mainElement.append(calendarDiv);
+        // Gets the object reference to the calendar back from the
+        // function-call. Might get usefull
         const calendar = makeCalendar(calendarDiv, calendarOptions, schedules);
 
         // Legg til tiles
-        let makeTile = new MakeTile("main-body");
-        for (let i = 0; i < 3; i++) {
+        const makeTile = new MakeTile("main-body");
+        const nextShift = shiftCollection.getNextShiftByUserId(userObject.id);
+        makeTile.apply("Ikon", "Neste vakt", nextShift.toUTCString(), "is-3");
+        for (let i = 0; i < 2; i++) {
             makeTile.apply(
                 "ikon",
                 `headertest ${i + 1}`,

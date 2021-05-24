@@ -11,7 +11,8 @@ const state = {
 
 // Denne importerer brukerene våre ved første kjøring
 // TODO: Lage tilsvarende funksjonalitet for pizza-avdelinger og salg
-if (!localStorage.getItem("employees")) setup.saveEmployees();
+setup.saveEmployees();
+setup.saveShifts();
 // TODO: legge til en initiator for alle sider, koble de opp mot onclick på lenkene. Koble opp login
 // mot en state, og et form;
 

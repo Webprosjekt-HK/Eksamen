@@ -1,19 +1,32 @@
 export default class ShiftCollection {
-    shifts = [];
-
+    fetchShifts = () => {
+        return JSON.parse(localStorage.getItem("shifts"));
+    };
     addShift = (shift) => {
-        this.shifts.push(shift);
+        const shifts = this.fetchShifts();
+
+        for (let i = 0; i < shifts.length; i++) {
+            if (shifts[i].id === shift.id) {
+                return { status: "Shift already exists", code: 400 };
+            }
+        }
+
+        shifts.push(shift);
+        localStorage.setItem("shifts", JSON.stringify(shifts));
+        return { status: "Shift added", code: 200 };
     };
     // returns the index of the removed item. If none is found returns -1
     removeShift = (shiftID) => {
         let shiftIndex = -1;
-        for (let i = 0; i < this.shifts.length; i++) {
-            if (this.shifts[i].id === shiftID) {
+        const shifts = this.fetchShifts();
+        for (let i = 0; i < shifts.length; i++) {
+            if (shifts[i].id === shiftID) {
                 shiftIndex = i;
                 this.shifts = this.shifts.splice(i, 1);
                 break;
             }
         }
+        localStorage.setItem("shifts", JSON.stringify(shifts));
         return shiftIndex;
     };
     // Returns all shifts that matches the employee's ID.
@@ -22,12 +35,27 @@ export default class ShiftCollection {
     };
     // Returns index of the updated item. -1 if there wasn't a matching item to update.
     updateShift = (shift) => {
-        for (let i = 0; i < this.shifts.length; i++) {
-            if (shift.id == this.shifts[i].id) {
-                this.shifts = this.shifts.splice(i, 1, shift);
+        const shifts = this.fetchShifts();
+        for (let i = 0; i < shifts.length; i++) {
+            if (shift.id == shifts[i].id) {
+                this.shifts = shifts.splice(i, 1, shift);
+                localStorage.setItem("shifts", JSON.stringify(shifts));
                 return i;
             }
         }
         return -1;
+    };
+    getNextShiftByUserId = (userId) => {
+        const shifts = this.fetchShifts().filter((d) => {
+            const today = new Date();
+            if (new Date(d.start) >= today) return d;
+        });
+        let lowestDate = new Date(shifts[0].start);
+
+        for (let i = 1; i < shifts.length; i++) {
+            if (new Date(shifts[i].start) < lowestDate)
+                lowestDate = new Date(shifts[i].start);
+        }
+        return lowestDate;
     };
 }

@@ -99,6 +99,7 @@ const shifts = [
 const departments = [{}];
 
 export function saveEmployees() {
+    if (localStorage.getItem("employees")) return;
     localStorage.setItem("employees", JSON.stringify(employees));
 }
 
@@ -107,5 +108,6 @@ export function saveDepartments() {
 }
 
 export function saveShifts() {
+    if (localStorage.getItem("shifts")) return;
     localStorage.setItem("shifts", JSON.stringify(shifts));
 }
