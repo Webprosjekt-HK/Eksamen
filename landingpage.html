@@ -15,50 +15,56 @@
             <div class="container">
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                         </a>
                     </div>
                   
-                    <div id="navMenu" class="navbar-menu">
+                    <div id="navbarBasicExample" class="navbar-menu">
                       <div class="navbar-start">
-                        <a class="navbar-item underline" href="#">
+                        <a class="navbar-item has-text-white">
                           Meny
                         </a>
+                        <div class="underline"></div>
                   
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link underline" href="#">
+                            <a class="navbar-link has-text-white">
                                 Restauranter
                             </a>
+                            <div class="underline"></div>
                   
                             <div class="navbar-dropdown">
-                                <a class="navbar-item has-text-black">
+                                <a class="navbar-item">
                                     Oslo
                                 </a>
-                                <a class="navbar-item has-text-black">
+                                <a class="navbar-item">
                                     Bergen
                                 </a>
-                                <a class="navbar-item has-text-black">
+                                <a class="navbar-item">
                                     Trondheim
                                 </a>
-                                <a class="navbar-item has-text-black">
+                                <a class="navbar-item">
                                     Kristiansand
                                 </a>
                             </div>
                         </div>
-                            <a class="navbar-item underline" href="#">
+                            <a class="navbar-item has-text-white">
                                 Kontakt oss
                             </a>
+                            <div class="underline"></div>
                       </div>
                   
                       <div class="navbar-end">
-                        <div>
-                            <i class="far fa-user"></i>
-                            <a class="navbar-item underline" id="openLogin">
+                        <div class="navbar-item">
+                            <span>
+                                <img src="/images/icons/user.svg" alt="" style="color: white;">
+                            </span>
+                            <a class="navbar-item has-text-white">
                                 Ansatte
                             </a>
+                            <div class="underline"></div>
                         </div>
                       </div>
                     </div>
@@ -85,76 +91,12 @@
         </section>
 
 
-        <div id="loginBox" class="box">
-            <!-- Login box content -->
-            <div class="box-content">
-                <span class="close">&times;</span>
-                <input type="text" class="input-field" id="login" name="login" placeholder="Brukernavn"><br><br>
-                <input type="text" class="input-field" id="password" name="password" placeholder="Passord"><br><br>
-                <button class="fancy-btn">Login</button>
-            </div>
-        </div>
+        <div class="bg-img"></div>
 
 
     <script>
 
-        // Burger menu script
-
-        document.addEventListener('DOMContentLoaded', function () {
-
-        // Get all "navbar-burger" elements
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(function ($el) {
-            $el.addEventListener('click', function () {
-
-            // Get the target from the "data-target" attribute
-            var target = $el.dataset.target;
-            var $target = document.getElementById(target);
-
-            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-            $el.classList.toggle('is-active', 'has-black-text');
-            $target.classList.toggle('is-active', 'has-black-text');
-
-            });
-        });
-        }
-
-        });
-
-        // OPEN LOGIN BOX SCRIPT
-
-        // Get the modal
-        var modal = document.getElementById("loginBox");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("openLogin");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-        }
-
-        // BUTTON SCRIPT
+        //BUTTON SCRIPT
 
         const button = document.querySelectorAll('.fancy-btn');
 

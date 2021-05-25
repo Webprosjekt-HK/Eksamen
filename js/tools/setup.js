@@ -12,13 +12,13 @@ const employees = [
         "1234",
         "pizzaveien 1",
         420000,
-        "images/ansatt_1.png",
+        "images/picture.jpg",
         [1, 2, 3, 4],
         [1, 2, 3, 4]
     ),
     new Employee(
         2,
-        "Soussjef",
+        "Kjøkkensjef",
         45533312,
         "Gjerdmunn",
         "Hanssen",
@@ -26,13 +26,13 @@ const employees = [
         "1234",
         "pizzaveien 1",
         420000,
-        "images/ansatt_2.png",
+        "images/picture.jpg",
         [1, 2, 3, 4],
         [1, 2, 3, 4]
     ),
     new Employee(
         3,
-        "Pizzakokk",
+        "Kjøkkensjef",
         45533312,
         "Brage",
         "Morgenstierne",
@@ -40,13 +40,13 @@ const employees = [
         "1234",
         "pizzaveien 1",
         420000,
-        "images/ansatt_3.png",
+        "images/picture.jpg",
         [1, 2, 3, 4],
         [1, 2, 3, 4]
     ),
     new Employee(
         4,
-        "Pizzakokk",
+        "Kjøkkensjef",
         45533312,
         "Hege",
         "Svendsen",
@@ -54,19 +54,12 @@ const employees = [
         "1234",
         "pizzaveien 1",
         420000,
-        "images/ansatt_4.png",
+        "images/picture.jpg",
         [1, 2, 3, 4],
         [1, 2, 3, 4]
     ),
 ];
 const shifts = [
-    new Shift(
-        "2-2021-05-02T08:30:00",
-        "2021-05-02T08:30:00",
-        "2021-05-02T16:30:00",
-        1,
-        2
-    ),
     new Shift(
         "1-2021-05-25T08:30:00",
         "2021-05-25T08:30:00",
@@ -116,34 +109,12 @@ const shifts = [
         1,
         1
     ),
-    new Shift(
-        "2-2021-06-01T08:30:00",
-        "2021-06-01T08:30:00",
-        "2021-06-01T16:30:00",
-        1,
-        2
-    ),
-    new Shift(
-        "2-2021-06-02T08:30:00",
-        "2021-06-02T08:30:00",
-        "2021-06-02T16:30:00",
-        1,
-        2
-    ),
-    new Shift(
-        "3-2021-06-03T08:30:00",
-        "2021-06-03T08:30:00",
-        "2021-06-03T16:30:00",
-        1,
-        3
-    ),
 ];
 const departments = [{}];
 
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
     localStorage.setItem("employees", JSON.stringify(employees));
-    window.location.reload();
 }
 
 export function saveDepartments() {
@@ -153,5 +124,4 @@ export function saveDepartments() {
 export function saveShifts() {
     if (localStorage.getItem("shifts")) return;
     localStorage.setItem("shifts", JSON.stringify(shifts));
-    window.location.reload();
 }
