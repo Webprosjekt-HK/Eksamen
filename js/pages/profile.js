@@ -37,11 +37,11 @@ const profile = (() => {
             },
             time: function (schedule) {
                 return (
-                    schedule.title +
-                    ' <i class="fa fa-refresh"></i><br />' +
+                    '<div class="calendar-mark" >' +
                     new Date(schedule.start).getHours() +
                     " - " +
-                    new Date(schedule.end).getHours()
+                    new Date(schedule.end).getHours() +
+                    "</div>"
                 );
             },
         },

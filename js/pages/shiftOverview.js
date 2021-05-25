@@ -78,7 +78,7 @@ const shiftOverview = ((state) => {
     }
     function generatePopupMenu(calendar, users, schedule, update) {
         const containerElement = document.createElement("div");
-
+        window._calendar = calendar;
         const htmlContent = `
             <nav class="panel is-primary">
                 <p class="panel-heading">Legg til vakt</p>
@@ -186,7 +186,6 @@ const shiftOverview = ((state) => {
             picker1.setDate(new Date(schedule.schedule.start));
             picker2.setDate(new Date(schedule.schedule.end));
             containerElement.querySelector(".button").innerHTML = "Oppdater";
-            console.log(shiftCollection.getShiftById(schedule.schedule.id));
             containerElement.querySelector(".button").onclick = () => {
                 const newSchedule = {
                     start: picker1.getDate(),
@@ -196,7 +195,6 @@ const shiftOverview = ((state) => {
                     ),
                 };
                 updateSchedule(calendar, schedule.schedule.id, newSchedule);
-                console.info(newSchedule);
             };
         }
         return containerElement;
@@ -207,8 +205,7 @@ const shiftOverview = ((state) => {
             "-" +
             startDate.getFullYear() +
             "-" +
-            startDate.getMonth() +
-            1 +
+            (parseInt(startDate.getMonth()) + 1) +
             "-" +
             startDate.getDate() +
             "T" +
@@ -237,8 +234,25 @@ const shiftOverview = ((state) => {
             "depID",
             schedule.employeeID
         );
+        const userObject = employeeCollection.findEmployeeById(
+            shift.employeeID
+        );
         const status = shiftCollection.addShift(shift);
-        console.log(status);
+
+        calendar.createSchedules([
+            {
+                id: newID,
+                employeeID: shift.employeeID,
+                calendarId: "1",
+                title: userObject.firstName + " " + userObject.lastName,
+                category: "time",
+                dueDateClass: "",
+                body: "",
+                start: shift.start.toISOString(),
+                end: shift.end.toISOString(),
+            },
+        ]);
+        calendar.render();
     }
 
     const init = (state) => {
@@ -256,7 +270,7 @@ const shiftOverview = ((state) => {
                 title: userObject.firstName + " " + userObject.lastName,
                 category: "time",
                 dueDateClass: "",
-                body: "test",
+                body: "",
                 start: shift.start,
                 end: shift.end,
             });

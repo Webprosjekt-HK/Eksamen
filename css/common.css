@@ -2,9 +2,14 @@
 nav.panel {
     position: absolute;
     left: 50%;
+    top: 20%;
     z-index: 400;
     background-color: white;
 }
+.tui-full-calendar-weekday-schedule-bullet {
+    display: none;
+}
+
 .card {
     background: #faece4;
 }

@@ -14,6 +14,7 @@ const state = {
 // Denne importerer brukerene våre ved første kjøring
 setup.saveShifts();
 setup.saveEmployees();
+setup.saveDepartments();
 
 const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
