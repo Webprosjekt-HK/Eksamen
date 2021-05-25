@@ -1,6 +1,7 @@
 import makeCalendar from "/js/modules/makeCalendar.js";
 import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 import ShiftCollection from "/js/classes/ShiftCollection.js";
+import Shift from "/js/classes/Shift.js";
 
 const shiftOverview = ((state) => {
     const shiftCollection = new ShiftCollection();
@@ -57,24 +58,29 @@ const shiftOverview = ((state) => {
     };
     const mainContainer = document.getElementById("main");
     function generateScaffold(state) {
-        mainContainer.innerHTML = `
+        mainContainer.innerHTML = html`
             <div class="container column">
                 <div id="shift-menu">
-                <button id="prev-btn" class="button is-info" data-action="move-prev">Previous</button>
-                <button id="today-btn" class="button is-info">Today</button>
-                <button id="next-btn" class="button is-info">Next</button>
+                    <button
+                        id="prev-btn"
+                        class="button is-info"
+                        data-action="move-prev"
+                    >
+                        Previous
+                    </button>
+                    <button id="today-btn" class="button is-info">Today</button>
+                    <button id="next-btn" class="button is-info">Next</button>
                 </div>
                 <div id="calendar"></div>
             </div>
             <div class="column is-2"></div>
         `;
     }
-    function generatePopupMenu(users, schedule, update) {
+    function generatePopupMenu(calendar, users, schedule, update) {
         const containerElement = document.createElement("div");
 
         const htmlContent = `
             <nav class="panel is-primary">
-                
                 <p class="panel-heading">Legg til vakt</p>
                 <div class="panel-block">
                     <div class="control has-icons-left">
@@ -153,8 +159,13 @@ const shiftOverview = ((state) => {
                         "#datepicker-start-target"
                     ),
                 },
+                timePicker: {
+                    showMeridiem: false,
+                    inputType: "spinBox",
+                },
             }
         );
+
         const picker2 = new tui.DatePicker(
             containerElement.querySelector("#datepicker-end"),
             {
@@ -163,14 +174,68 @@ const shiftOverview = ((state) => {
                         "#datepicker-end-target"
                     ),
                 },
+                timePicker: {
+                    showMeridiem: false,
+                    inputType: "spinBox",
+                },
             }
         );
         if (update) {
+            containerElement.querySelector("select").value =
+                schedule.schedule.id[0];
             picker1.setDate(new Date(schedule.schedule.start));
             picker2.setDate(new Date(schedule.schedule.end));
             containerElement.querySelector(".button").innerHTML = "Oppdater";
+            console.log(shiftCollection.getShiftById(schedule.schedule.id));
+            containerElement.querySelector(".button").onclick = () => {
+                const newSchedule = {
+                    start: picker1.getDate(),
+                    end: picker2.getDate(),
+                    employeeID: containerElement.querySelector("select").value,
+                };
+                updateSchedule(calendar, schedule.schedule.id, newSchedule);
+                console.info(newSchedule);
+            };
         }
+
         return containerElement;
+    }
+    function createScheduleId(employeeID, startDate) {
+        return (
+            employeeID +
+            "-" +
+            startDate.getFullYear() +
+            "-" +
+            startDate.getMonth() +
+            1 +
+            "-" +
+            startDate.getDate() +
+            "T" +
+            startDate.getHours() +
+            ":" +
+            startDate.getMinutes() +
+            ":" +
+            startDate.getSeconds()
+        );
+    }
+    function updateSchedule(calendar, oldID, schedule) {
+        // Since I used the date as an ID, i dont want to use the
+        // available update method. Instead I'll just delete the schedule and
+        // create another one, with a fresh ID.
+
+        const newID = createScheduleId(schedule.employeeID, schedule.start);
+
+        calendar.deleteSchedule(schedule.id, oldID);
+        shiftCollection.removeShift(oldID);
+        const shift = new Shift(
+            newID,
+            schedule.start,
+            schedule.end,
+            "depID",
+            schedule.employeeID
+        );
+        const status = shiftCollection.addShift(shift);
+        console.log(status);
     }
     const init = (state) => {
         generateScaffold(state);
@@ -198,10 +263,12 @@ const shiftOverview = ((state) => {
             calendarOption,
             schedules
         );
+
         calendar.on({
             clickSchedule: function (e) {
                 console.log("clickSchedule", e);
                 const popupBar = generatePopupMenu(
+                    calendar,
                     employeeCollection.fetchEmployees(),
                     e,
                     true

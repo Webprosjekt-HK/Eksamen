@@ -15,6 +15,9 @@ export default class ShiftCollection {
         localStorage.setItem("shifts", JSON.stringify(shifts));
         return { status: "Shift added", code: 200 };
     };
+    getShiftById = (shiftID) =>
+        this.fetchShifts().find((e) => e.id === shiftID);
+
     // returns the index of the removed item. If none is found returns -1
     removeShift = (shiftID) => {
         let shiftIndex = -1;
