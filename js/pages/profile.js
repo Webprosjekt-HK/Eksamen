@@ -56,8 +56,7 @@ const profile = (() => {
             narrowWeekend: false,
         },
     };
-
-    const init = (userObject) => {
+    function generateScaffold(userObject) {
         mainElement.innerHTML = `
             <div id="outer-shift-container" class="column is-9">
                 <div class="columns is-multiline">
@@ -103,7 +102,7 @@ const profile = (() => {
                             </div>
                         </div>
                         <div class="content">
-                            <p class="italic">Fødselsdato:<br />FIKS MEG</p>
+                            <p class="italic" style="color: red;">Fødselsdato:<br />FIKS MEG</p>
                             <p class="italic">Telefon:<br />${
                                 userObject.phoneNumber
                             }</p>
@@ -118,7 +117,9 @@ const profile = (() => {
                 </div>
             </div>
         `;
-
+    }
+    const init = (userObject) => {
+        generateScaffold(userObject);
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this
         const schedules = [];

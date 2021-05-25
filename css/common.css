@@ -14,7 +14,12 @@
     left: 0;
     right: 0;
     bottom: 5px;
-    top: 64px;
+    top: 0px;
+}
+#calendar-menu {
+    background: #faece4;
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
 }
 #profile-info .card {
     box-shadow: none;
