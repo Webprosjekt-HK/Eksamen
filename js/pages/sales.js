@@ -1,7 +1,7 @@
 
 import MakeTile from "/js/modules/MakeTile.js";
 
-makeTile = new MakeTile("total-sales");
+const makeTile = new MakeTile("total-sales");
 
 const salesInfo = (() => {
 
@@ -11,22 +11,22 @@ const salesInfo = (() => {
         makeTile.apply(
             "May 2021",
             "Oslo",
-            <div id="oslo"></div>
+            '<div id="oslo"></div>'
         );
         makeTile.apply(
             "May 2021",
             "Bergen",
-            <div id="bergen"></div>
+            '<div id="bergen"></div>'
         );
         makeTile.apply(
             "May 2021",
             "Trondheim",
-            <div id="trondheim"></div>
+            '<div id="trondheim"></div>'
         );
         makeTile.apply(
             "May 2021",
             "Kristiansand",
-            <div id="kristiansand"></div>
+            '<div id="kristiansand"></div>'
         );
 
         // CREATE "PIE" CHARTS
