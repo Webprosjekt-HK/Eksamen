@@ -1,5 +1,6 @@
 import { Employee } from "/js/classes/Person.js";
 import Shift from "/js/classes/Shift.js";
+import Department from "/js/classes/Department.js";
 
 const employees = [
     new Employee(
@@ -138,7 +139,48 @@ const shifts = [
         3
     ),
 ];
-const departments = [{}];
+const departments = [
+    new Department(
+        1,
+        "Majorstuen",
+        "Majagata 17, 3232 Oslo",
+        "06:00 - 23:00",
+        "10:00 - 03:00",
+        "+47 303030",
+        "post@gylnepizza.no",
+        "majorstuen.png"
+    ),
+    new Department(
+        2,
+        "Storo",
+        "GSV 666, 4825 Oslo",
+        "06:00 - 23:00",
+        "10:00 - 03:00",
+        "+47 404040",
+        "post@gylnepizza.no",
+        "storo.png"
+    ),
+    new Department(
+        3,
+        "Skippergata",
+        "Skippergata, 1111 Oslo",
+        "06:00 - 23:00",
+        "10:00 - 03:00",
+        "+47 505050",
+        "post@gylnepizza.no",
+        "skippergata.png"
+    ),
+    new Department(
+        4,
+        "Ensjø",
+        "Ensjøveien 33, 9292 Oslo",
+        "06:00 - 23:00",
+        "10:00 - 03:00",
+        "+47 606060",
+        "post@gylnepizza.no",
+        "ensjo.png"
+    ),
+];
 
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
