@@ -58,7 +58,7 @@ const shiftOverview = ((state) => {
     };
     const mainContainer = document.getElementById("main");
     function generateScaffold(state) {
-        mainContainer.innerHTML = html`
+        mainContainer.innerHTML = `
             <div class="container column">
                 <div id="shift-menu">
                     <button
@@ -191,13 +191,14 @@ const shiftOverview = ((state) => {
                 const newSchedule = {
                     start: picker1.getDate(),
                     end: picker2.getDate(),
-                    employeeID: containerElement.querySelector("select").value,
+                    employeeID: parseInt(
+                        containerElement.querySelector("select").value
+                    ),
                 };
                 updateSchedule(calendar, schedule.schedule.id, newSchedule);
                 console.info(newSchedule);
             };
         }
-
         return containerElement;
     }
     function createScheduleId(employeeID, startDate) {
@@ -218,6 +219,7 @@ const shiftOverview = ((state) => {
             startDate.getSeconds()
         );
     }
+
     function updateSchedule(calendar, oldID, schedule) {
         // Since I used the date as an ID, i dont want to use the
         // available update method. Instead I'll just delete the schedule and
@@ -225,7 +227,8 @@ const shiftOverview = ((state) => {
 
         const newID = createScheduleId(schedule.employeeID, schedule.start);
 
-        calendar.deleteSchedule(schedule.id, oldID);
+        calendar.deleteSchedule(oldID, "1");
+        console.log(oldID);
         shiftCollection.removeShift(oldID);
         const shift = new Shift(
             newID,
@@ -237,6 +240,7 @@ const shiftOverview = ((state) => {
         const status = shiftCollection.addShift(shift);
         console.log(status);
     }
+
     const init = (state) => {
         generateScaffold(state);
         const shifts = shiftCollection.fetchShifts();

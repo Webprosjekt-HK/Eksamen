@@ -21,14 +21,16 @@ export default class ShiftCollection {
     // returns the index of the removed item. If none is found returns -1
     removeShift = (shiftID) => {
         let shiftIndex = -1;
-        const shifts = this.fetchShifts();
+        let shifts = this.fetchShifts();
         for (let i = 0; i < shifts.length; i++) {
             if (shifts[i].id === shiftID) {
                 shiftIndex = i;
-                this.shifts = this.shifts.splice(i, 1);
+                shifts.splice(i, 1);
                 break;
             }
         }
+        console.log("shifts:");
+        console.log(shifts);
         localStorage.setItem("shifts", JSON.stringify(shifts));
         return shiftIndex;
     };
@@ -41,7 +43,7 @@ export default class ShiftCollection {
         const shifts = this.fetchShifts();
         for (let i = 0; i < shifts.length; i++) {
             if (shift.id == shifts[i].id) {
-                this.shifts = shifts.splice(i, 1, shift);
+                shifts.splice(i, 1, shift);
                 localStorage.setItem("shifts", JSON.stringify(shifts));
                 return i;
             }

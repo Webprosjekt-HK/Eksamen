@@ -21,9 +21,9 @@ if (user !== null) state.loggedInUser = user;
 try {
     profile.init(state);
 } catch (error) {
-    localStorage.removeItem("employees");
-    window.location.reload();
-    console.error(e);
+    // localStorage.removeItem("employees");
+    // window.location.reload();
+    console.error(error);
     console.error("Attempting to reinstall data");
 }
 // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
@@ -34,18 +34,3 @@ document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
 // Event handler for links
 document.getElementById("profile-link").onclick = () => profile.init(state);
 document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
-const newUser = new Employee(
-    5,
-    "Kjøkkensjef",
-    45533312,
-    "Christian",
-    "Gregersen",
-    "christian@gylnepizza.no",
-    "qwerty",
-    "",
-    50000000,
-    "",
-    [],
-    []
-);
-signup(newUser);

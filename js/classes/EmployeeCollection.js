@@ -47,9 +47,8 @@ export default class EmployeeCollection {
         const employees = this.fetchEmployees();
         const indexOfEmployee = employees.indexOf(username);
         if (indexOfEmployee !== -1) {
-            localStorage.setItem(
-                JSON.parse(employees.splice(indexOfEmployee, 1))
-            );
+            employees.splice(indexOfEmployee, 1);
+            localStorage.setItem(JSON.parse(employees));
             return { status: "User removed ", code: 200 };
         }
         return { status: "User not found", code: 400 };
