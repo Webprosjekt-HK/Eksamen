@@ -16,9 +16,14 @@ setup.saveEmployees();
 // TODO: legge til en initiator for alle sider, koble de opp mot onclick på lenkene. Koble opp login
 // mot en state, og et form;
 
-const user = checkCredentials("ola@gylnepizza.no", "1234");
+const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
 profile.init(user);
+
+// Legger inn info i sidemenyen.. flytte et annet sted etterhvert
+document.querySelector(".logout .name").innerHTML =
+    state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
+document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
 const newUser = new Employee(
     5,
     "Kjøkkensjef",
