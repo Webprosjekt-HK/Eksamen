@@ -14,7 +14,7 @@ export default class MakeTile {
                     </header>
                 <div class="card-content">
                     <div class="content">
-                        <p>${text}</p>    
+                        ${text}    
                     </div>
                 </div>
             </div>
