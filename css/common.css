@@ -1,4 +1,10 @@
 /* Christian testing */
+nav.panel {
+    position: absolute;
+    left: 50%;
+    z-index: 400;
+    background-color: white;
+}
 .card {
     background: #faece4;
 }

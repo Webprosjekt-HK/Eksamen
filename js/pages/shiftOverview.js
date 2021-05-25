@@ -8,8 +8,14 @@ const shiftOverview = ((state) => {
 
     const calendarOption = {
         defaultView: "week",
-        scheduleView: true, // Can be also ['allday', 'time']
+        taskView: ["task"],
+        useCreationPopup: true,
+        useDetailPopup: true,
         template: {
+            popupSave: (schedule) => {
+                console.log(schedule);
+                return "save";
+            },
             milestone: function (schedule) {
                 return (
                     '<span style="color:red;"><i class="fa fa-flag"></i> ' +
@@ -58,7 +64,7 @@ const shiftOverview = ((state) => {
         mainContainer.innerHTML = `
             <div class="container column">
                 <div id="shift-menu">
-                <button id="prev-btn" class="button is-info">Previous</button>
+                <button id="prev-btn" class="button is-info" data-action="move-prev">Previous</button>
                 <button id="today-btn" class="button is-info">Today</button>
                 <button id="next-btn" class="button is-info">Next</button>
                 </div>
