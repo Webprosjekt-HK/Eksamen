@@ -9,7 +9,16 @@ makeTile.apply();
 makeTile.apply();
 */
 
-var osloData = [{
+    var layout = {
+    height: 300,
+    width: 300,
+    margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+    showlegend: false
+    };
+
+    var config = {responsive: true}
+
+    var osloData = [{
     type: "pie",
     values: [20000, 95000, 30000, 65000],
     labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
@@ -18,16 +27,7 @@ var osloData = [{
     automargin: true
     }];
 
-    var osloLayout = {
-    height: 300,
-    width: 300,
-    margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-    showlegend: false
-    };
-
-    var osloConfig = {responsive: true}
-
-    Plotly.newPlot('oslo', osloData, osloLayout, osloConfig);
+    Plotly.newPlot('oslo', osloData, layout, config);
 
     var bergenData = [{
     type: "pie",
@@ -38,16 +38,7 @@ var osloData = [{
     automargin: true
     }];
 
-    var bergenLayout = {
-    height: 300,
-    width: 300,
-    margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-    showlegend: false
-    };
-
-    var bergenConfig = {responsive: true}
-
-    Plotly.newPlot('bergen', bergenData, bergenLayout, bergenConfig);
+    Plotly.newPlot('bergen', bergenData, layout, config);
 
     var trondheimData = [{
     type: "pie",
@@ -58,16 +49,7 @@ var osloData = [{
     automargin: true
     }];
 
-    var trondheimLayout = {
-    height: 300,
-    width: 300,
-    margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-    showlegend: false
-    };
-
-    var trondheimConfig = {responsive: true}
-
-    Plotly.newPlot('trondheim', trondheimData, trondheimLayout, trondheimConfig);
+    Plotly.newPlot('trondheim', trondheimData, layout, config);
 
     var kristiansandData = [{
     type: "pie",
@@ -78,13 +60,4 @@ var osloData = [{
     automargin: true
     }];
 
-    var kristiansandLayout = {
-    height: 300,
-    width: 300,
-    margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-    showlegend: false
-    };
-
-    var kristiansandConfig = {responsive: true}
-
-    Plotly.newPlot('kristiansand', kristiansandData, kristiansandLayout, kristiansandConfig);
+    Plotly.newPlot('kristiansand', kristiansandData, layout, config);
