@@ -1,13 +1,30 @@
-/*
+
 import MakeTile from "/js/modules/MakeTile.js";
 
-makeTile = new MakeTile("total-sales")
+makeTile = new MakeTile("total-sales");
 
-const salesObject = () => 
-makeTile.apply();
-makeTile.apply();
-makeTile.apply();
-*/
+const salesObjects = () => {
+
+makeTile.apply(
+    "May 2021",
+    "Oslo",
+    <div id="oslo"></div>
+);
+makeTile.apply(
+    "May 2021",
+    "Bergen",
+    <div id="bergen"></div>
+);
+makeTile.apply(
+    "May 2021",
+    "Trondheim",
+    <div id="trondheim"></div>
+);
+makeTile.apply(
+    "May 2021",
+    "Kristiansand",
+    <div id="kristiansand"></div>
+);
 
     var layout = {
     height: 300,
@@ -31,7 +48,7 @@ makeTile.apply();
 
     var bergenData = [{
     type: "pie",
-    values: [20000, 95000, 30000, 65000],
+    values: [15000, 80000, 15000, 60000],
     labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
     textinfo: "label+percent",
     textposition: "outside",
@@ -42,7 +59,7 @@ makeTile.apply();
 
     var trondheimData = [{
     type: "pie",
-    values: [20000, 95000, 30000, 65000],
+    values: [10000, 75000, 10000, 50000],
     labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
     textinfo: "label+percent",
     textposition: "outside",
@@ -53,7 +70,7 @@ makeTile.apply();
 
     var kristiansandData = [{
     type: "pie",
-    values: [20000, 95000, 30000, 65000],
+    values: [10000, 85000, 25000, 60000],
     labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
     textinfo: "label+percent",
     textposition: "outside",
@@ -61,3 +78,7 @@ makeTile.apply();
     }];
 
     Plotly.newPlot('kristiansand', kristiansandData, layout, config);
+
+    };
+
+    export default salesObjects;
