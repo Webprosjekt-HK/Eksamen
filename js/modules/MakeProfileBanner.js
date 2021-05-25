@@ -2,6 +2,7 @@ export default class MakeProfileBanner {
 
     apply = (employeeNum, employeeName, role, phoneNumber, emailAdress) => {
         console.log("Tester");
+        
         let html = `
             <div class="column is-5">
                 <img src="images/ansatt_${employeeNum}.png" width="150" height="150">

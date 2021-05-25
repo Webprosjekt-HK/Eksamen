@@ -10,6 +10,8 @@ const departments = (() => {
 
 
     const init = () => {
+        const mainElement = document.getElementById("main");
+        mainElement.innerHTML = ``;
         if(!localStorage.getItem("employees")) setup.saveEmployees();
         let employeeList = new EmployeeCollection().fetchEmployees();
         let makeProfileBanner = new MakeProfileBanner("main-body");

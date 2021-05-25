@@ -4,6 +4,7 @@ import * as setup from "/js/tools/setup.js";
 import checkCredentials from "/js/tools/login.js";
 import signup from "/js/tools/signupService.js";
 import { Employee } from "/js/classes/Person.js";
+import departments from "/js/pages/departments.js";
 
 const state = {
     loggedInUser: {},
@@ -34,3 +35,4 @@ document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
 // Event handler for links
 document.getElementById("profile-link").onclick = () => profile.init(state);
 document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
+document.getElementById("department-link").onclick = () => departments.init();

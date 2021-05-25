@@ -13,6 +13,23 @@ export default class makeInfoPage {
         <img src="/images/locations/${mapImage}">
         `;
 
+        let infoSection = `
+        <div class="tile is-4 is-vertical is-parent">
+                              <div class="tile is-child box">
+                                <div id="resturant-info"></div>
+                              </div>
+                              <div class="tile is-child box">
+                                <div id="map-image"></div>
+                              </div>
+                            </div>
+                            <div class="tile is-parent">
+                              <div class="is-child box">
+                                <p class="title">Ansatte</p>
+                                <div id="employees" class="columns is-multiline is-gapless"></div>
+                              </div>
+                            </div>
+        `;
+        document.getElementById("main").innerHTML += infoSection;
         document.getElementById("resturant-info").innerHTML += info;
         document.getElementById("map-image").innerHTML += map;
     };
