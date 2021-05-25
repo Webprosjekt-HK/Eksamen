@@ -70,10 +70,10 @@ const profile = (() => {
                         <div class="columns is-multiline" id="work-info"></div>
                     </div>
                     <div class="column is-12" id="outer-calendar">
-                            <div id="calendar-menu">
-                                <button id="prev-btn" class="button">Previous</button>
-                                <button id="next-btn" class="button">Next</button>
-                            </div>
+                        <div id="calendar-menu">
+                            <button id="prev-btn" class="button">Previous</button>
+                            <button id="next-btn" class="button">Next</button>
+                        </div>
                         <div class="container" id="calendar"></div>
                     </div>
                 </div>
@@ -118,7 +118,8 @@ const profile = (() => {
             </div>
         `;
     }
-    const init = (userObject) => {
+    const init = (state) => {
+        const userObject = state.loggedInUser;
         generateScaffold(userObject);
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this

@@ -1,4 +1,5 @@
 import profile from "/js/pages/profile.js";
+import shiftOverview from "/js/pages/shiftOverview.js";
 import * as setup from "/js/tools/setup.js";
 import checkCredentials from "/js/tools/login.js";
 import signup from "/js/tools/signupService.js";
@@ -10,18 +11,15 @@ const state = {
 // profilknapp onclick - kjør denne.. osv
 
 // Denne importerer brukerene våre ved første kjøring
-// TODO: Lage tilsvarende funksjonalitet for pizza-avdelinger og salg
 setup.saveShifts();
 setup.saveEmployees();
-// TODO: legge til en initiator for alle sider, koble de opp mot onclick på lenkene. Koble opp login
-// mot en state, og et form;
 
 const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
 
 // Midlertidig fiks på ødelagt localStorage-objekter
 try {
-    profile.init(user);
+    profile.init(state);
 } catch (error) {
     localStorage.removeItem("employees");
     window.location.reload();
@@ -32,6 +30,10 @@ try {
 document.querySelector(".logout .name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
 document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
+
+// Event handler for links
+document.getElementById("profile-link").onclick = () => profile.init(state);
+document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
 const newUser = new Employee(
     5,
     "Kjøkkensjef",

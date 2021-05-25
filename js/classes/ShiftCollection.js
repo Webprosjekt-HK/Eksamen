@@ -56,7 +56,6 @@ export default class ShiftCollection {
             if (new Date(shifts[i].start) < lowestDate)
                 lowestDate = new Date(shifts[i].start);
         }
-        console.log(lowestDate);
         return lowestDate;
     };
     getHoursWorkedByUserId = (userId) => {
