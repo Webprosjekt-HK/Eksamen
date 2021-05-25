@@ -107,7 +107,9 @@ const profile = (() => {
                             <p class="italic">Telefon:<br />${
                                 userObject.phoneNumber
                             }</p>
-                            <p class="italic">E-post: <br />FIKS MEG</p>
+                            <p class="italic">E-post: <br />${
+                                userObject.username
+                            }</p>
                             <p class="italic">Adresse:<br />${
                                 userObject.address
                             }</p>
