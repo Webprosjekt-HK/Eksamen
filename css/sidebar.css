@@ -11,32 +11,8 @@
 body {
     position: relative;
     min-height: 100vh;
-    margin: 3rem 0 0 0;
-    padding: 0 1rem;
     width: 100%;
     overflow: hidden;
-}
-
-.header {
-    width: 100vw;
-    height: 3rem;
-    position: fixed;
-    top: 0;
-    left: 70%;
-    display: flex;
-    align-items: center;
-    z-index: -99;
-    padding: 0 1rem;
-}
-
-.profile-img {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 0.5px solid #e3d5cd;
 }
 
 .sidebar {
@@ -233,4 +209,57 @@ body {
 .sidebar.active .logout #logout {
     left: 88%;
     background: none;
+}
+
+/* Dashboard Nav */
+
+.dashboard-section {
+    background: #f5f5f5;
+    position: relative;
+    min-height: 100vh;
+    width: calc(100% - 230px);
+    left: 230px;
+}
+
+.dashboard-section nav {
+    height: 80px;
+    background: #fff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-title {
+    font-size: 24px;
+}
+
+.dashboard-section nav .department-details {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    min-width: 190px;
+    background: #f5f6fa;
+    border: 2px solid #efeef1;
+    border-radius: 6px;
+    padding: 0 15px 0 2px;
+}
+
+nav .department-details img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+nav .department-details .department-name {
+    font-size: 16px;
+    color: #26211f;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+nav .department-details i {
+    color: #26211f;
+    font-size: 24px;
 }
