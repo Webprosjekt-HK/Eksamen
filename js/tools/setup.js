@@ -142,7 +142,7 @@ const shifts = [
 const departments = [
     new Department(
         1,
-        "Majorstuen",
+        "Oslo - Majorstuen",
         "Majagata 17, 3232 Oslo",
         "06:00 - 23:00",
         "10:00 - 03:00",
@@ -152,7 +152,7 @@ const departments = [
     ),
     new Department(
         2,
-        "Storo",
+        "Oslo - Storo",
         "GSV 666, 4825 Oslo",
         "06:00 - 23:00",
         "10:00 - 03:00",
@@ -162,7 +162,7 @@ const departments = [
     ),
     new Department(
         3,
-        "Skippergata",
+        "Oslo - Skippergata",
         "Skippergata, 1111 Oslo",
         "06:00 - 23:00",
         "10:00 - 03:00",
@@ -172,7 +172,7 @@ const departments = [
     ),
     new Department(
         4,
-        "Ensjø",
+        "Oslo - Ensjø",
         "Ensjøveien 33, 9292 Oslo",
         "06:00 - 23:00",
         "10:00 - 03:00",
