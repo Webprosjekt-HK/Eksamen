@@ -30,13 +30,11 @@ try {
     console.error("Attempting to reinstall data");
 }
 // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
-document.querySelector(".logout .name").innerHTML =
+document.querySelector(".profile-name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
-document.querySelector(".logout .job").innerHTML = state.loggedInUser.role;
 
 // Event handler for links
 document.getElementById("profile-link").onclick = () => profile.init(state);
 document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
 document.getElementById("department-link").onclick = () => departments.init();
 document.getElementById("sales-link").onclick = () => salesInfo.init();
-
