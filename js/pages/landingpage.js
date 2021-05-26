@@ -4,7 +4,7 @@ function login(username, password) {
     const user = checkCredentials(username, password);
     console.log("click");
     if (user !== null) {
-        localStorage.setItem("user", user);
+        localStorage.setItem("user", JSON.stringify(user));
         window.location.replace("/index-christian.html");
         console.log("Logging in");
     } else {
