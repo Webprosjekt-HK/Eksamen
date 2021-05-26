@@ -1,5 +1,5 @@
 import MakeTile from "/js/modules/MakeTile.js";
-import makeCalendar from "/js/modules/MakeCalendar.js";
+import makeCalendar from "/js/modules/makeCalendar.js";
 import ShiftCollection from "/js/classes/ShiftCollection.js";
 
 const profile = (() => {
