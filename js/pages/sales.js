@@ -7,7 +7,14 @@ const salesInfo = (() => {
     //const mainElement = document.getElementById("main");
 
     const init = () => {
-        const makeTile = new MakeTile("main");
+        const containerElement = document.createElement("div");
+        containerElement.classList.add("columns")
+        containerElement.id = "sales-container";
+        
+        document.getElementById("main").innerHTML = "";
+        document.getElementById("main").append(containerElement);
+        
+        const makeTile = new MakeTile("sales-container");
         //const mainElement = document.getElementById("main-sales");
 
         // Apply info to "MakeTile" module
@@ -15,21 +22,25 @@ const salesInfo = (() => {
             "Mai 2021",
             "Oslo",
             '<div id="oslo"></div>',
+            "is-3"
         );
         makeTile.apply(
             "Mai 2021",
             "Bergen",
             '<div id="bergen"></div>',
+            "is-3"
         );
         makeTile.apply(
             "Mai 2021",
             "Trondheim",
             '<div id="trondheim"></div>',
+            "is-3"
         );
         makeTile.apply(
             "Mai 2021",
             "Kristiansand",
             '<div id="kristiansand"></div>',
+            "is-3"
         );
 
         
@@ -91,6 +102,7 @@ const salesInfo = (() => {
 
         Plotly.newPlot('kristiansand', kristiansandData, layout, config);
 
+        
     };
     return { init };
 })();
