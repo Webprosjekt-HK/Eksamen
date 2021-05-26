@@ -1,34 +1,42 @@
-
 import MakeTile from "/js/modules/MakeTile.js";
 
-const makeTile = new MakeTile("total-sales");
+
 
 const salesInfo = (() => {
 
+    //const mainElement = document.getElementById("main");
+
     const init = () => {
+        const makeTile = new MakeTile("main-sales");
+        //const mainElement = document.getElementById("main-sales");
 
         // Apply info to "MakeTile" module
         makeTile.apply(
-            "May 2021",
+            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
             "Oslo",
-            '<div id="oslo"></div>'
+            '<div id="oslo"></div>',
+            "is-4"
         );
         makeTile.apply(
-            "May 2021",
+            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
             "Bergen",
-            '<div id="bergen"></div>'
+            '<div id="bergen"></div>',
+            "is-4"
         );
         makeTile.apply(
-            "May 2021",
+            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
             "Trondheim",
-            '<div id="trondheim"></div>'
+            '<div id="trondheim"></div>',
+            "is-4"
         );
         makeTile.apply(
-            "May 2021",
+            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
             "Kristiansand",
-            '<div id="kristiansand"></div>'
+            '<div id="kristiansand"></div>',
+            "is-4"
         );
 
+        
         // CREATE "PIE" CHARTS
         var layout = {
         height: 300,

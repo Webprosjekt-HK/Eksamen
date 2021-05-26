@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="logo">
+                <img src="/images/logo_enkel.svg" />
+            </div>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-time-five' ></i>
+                    <span class="links-name">Skift</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links-name">Min Side</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-data' ></i>
+                    <span class="links-name">Vareoversikt</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pie-chart-alt-2' ></i>
+                    <span class="links-name">Omsetting</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pizza' ></i>
+                    <span class="links-name">Meny</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-map' ></i>
+                    <span class="links-name">Avdelinger</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog' ></i>
+                    <span class="links-name">Innstillinger</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="log-out" id="log-out">
+                    <i class='bx bx-log-out' id="logout"></i>
+                    <span class="links-name">Logg ut</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- top bar -->
+    <section class="dashboard-section">
+        <nav>
+            <div class="burger-btn">
+                <i class='bx bx-menu burgerBtn'></i>
+                <span class="dashboard">Min Side</span>
+            </div>
+            <div class="avdeling-box">
+                <select name="avdelinger" id="avdelinger">
+                    <option value="avdeling1">Oslo</option>
+                    <option value="avdeling2">Oslo</option>
+                    <option value="avdeling3">Oslo</option>
+                    <option value="avdeling4">Oslo</option>
+                  </select>
+                  <i class='bx bxs-map' ></i>
+            </div>
+            <div class="profile-details">
+                <img src="images/ansatt_1.png" alt="">
+                <span class="profile-name">Navn Navn</span>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+
+        </div>
+    </section>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
