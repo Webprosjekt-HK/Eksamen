@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gylne Pizza</title>
-
         <link
             rel="stylesheet"
             type="text/css"
@@ -17,6 +16,7 @@
             href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"
         />
         <!-- If you use the default popups, use this. -->
+        <link href="/css/common.css" rel="stylesheet" />
         <link
             rel="stylesheet"
             type="text/css"
@@ -27,7 +27,6 @@
             type="text/css"
             href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css"
         />
-
         <!-- TODO: bruke .min versjonen-->
         <!-- <script src="js/calendar/tui-calendar.js"></script> -->
         <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
@@ -41,7 +40,8 @@
             href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
             rel="stylesheet"
         />
-        <link href="/css/common.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <script src="js/app.js" type="module"></script>
     </head>
 
@@ -113,12 +113,7 @@
                         <span class="dashboard">Min Side</span>
                     </div>
                     <div class="avdeling-box">
-                        <select name="avdelinger" id="avdelinger">
-                            <option value="avdeling1">Oslo</option>
-                            <option value="avdeling2">Oslo</option>
-                            <option value="avdeling3">Oslo</option>
-                            <option value="avdeling4">Oslo</option>
-                        </select>
+                        <select name="avdelinger" id="avdelinger"></select>
                         <i class="bx bxs-map"></i>
                     </div>
                     <div class="profile-details">
@@ -126,7 +121,9 @@
                         <span class="profile-name">Navn Navn</span>
                     </div>
                 </nav>
-                <main id="main" class="columns"></main>
+                <div class="dashboard-content column">
+                    <main id="main" class="columns"></main>
+                </div>
             </section>
         </div>
 
