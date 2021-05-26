@@ -21,7 +21,7 @@ const departments = (() => {
         console.log(departmentList);
 
         profileInfo.deploy(
-            `${departmentList[0].locationName}`,
+            `${departmentList[0].name}`,
             `${departmentList[0].address}`,
             `${departmentList[0].weekHours}`,
             `${departmentList[0].weekendHours}`,
