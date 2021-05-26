@@ -1,7 +1,7 @@
 import profile from "/js/pages/profile.js";
 import shiftOverview from "/js/pages/shiftOverview.js";
 import * as setup from "/js/tools/setup.js";
-import checkCredentials from "/js/tools/login.js";
+import checkCredentials from "/js/tools/loginService.js";
 import signup from "/js/tools/signupService.js";
 import { Employee } from "/js/classes/Person.js";
 import departments from "/js/pages/departments.js";
@@ -40,7 +40,7 @@ try {
     console.error("Attempting to reinstall data");
 }
 // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
-//document.querySelector(".profile-name").innerHTML =
+document.querySelector(".profile-name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
 
 // Event handler for links
