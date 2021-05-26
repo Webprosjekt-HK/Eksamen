@@ -13,6 +13,14 @@ const shiftOverview = ((state) => {
         useCreationPopup: false,
         useDetailPopup: false,
         template: {
+            timegridDisplayPrimaryTime: function (time) {
+                console.log(time);
+                return time.hour + " : " + time.minutes;
+            },
+            timegridDisplayTime: function (time) {
+                console.log(this);
+                return getPadStart(time.hour) + ":" + getPadStart(time.hour);
+            },
             milestone: function (schedule) {
                 return (
                     '<span style="color:red;"><i class="fa fa-flag"></i> ' +
@@ -57,7 +65,7 @@ const shiftOverview = ((state) => {
         },
     };
     const mainContainer = document.getElementById("main");
-    function generateScaffold(state) {
+    function generateScaffold() {
         mainContainer.innerHTML = `
             <div class="container column">
                 <div id="shift-menu">
@@ -78,7 +86,7 @@ const shiftOverview = ((state) => {
     }
     function generatePopupMenu(calendar, users, schedule, update) {
         const containerElement = document.createElement("div");
-        window._calendar = calendar;
+
         const htmlContent = `
             <nav class="panel is-primary">
                 <div class="panel-heading">
@@ -197,12 +205,16 @@ const shiftOverview = ((state) => {
         );
         const headerText = containerElement.querySelector("#popup-header-text");
         const confirmButton = containerElement.querySelector("#popup-confirm");
+        let start = schedule.start;
+        let end = schedule.end;
         if (update) {
+            start = schedule.schedule.start;
+            end = schedule.schedule.end;
             headerText.innerText = "Oppdater vakt";
             containerElement.querySelector("select").value =
                 schedule.schedule.id[0];
-            picker1.setDate(new Date(schedule.schedule.start));
-            picker2.setDate(new Date(schedule.schedule.end));
+            picker1.setDate(new Date(start));
+            picker2.setDate(new Date(end));
             confirmButton.innerHTML = "Oppdater";
             confirmButton.onclick = () => {
                 const newSchedule = {
@@ -216,6 +228,8 @@ const shiftOverview = ((state) => {
                 containerElement.remove();
             };
         }
+        picker1.setDate(new Date(start));
+        picker2.setDate(new Date(end));
         return containerElement;
     }
     function createScheduleId(employeeID, startDate) {
@@ -273,9 +287,11 @@ const shiftOverview = ((state) => {
         ]);
         calendar.render();
     }
+    function createSchedule(calendar, schedule) {}
 
     const init = (state) => {
-        generateScaffold(state);
+        generateScaffold();
+
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
         shifts.forEach((shift) => {
@@ -303,7 +319,6 @@ const shiftOverview = ((state) => {
 
         calendar.on({
             clickSchedule: function (e) {
-                console.log("clickSchedule", e);
                 const popupBar = generatePopupMenu(
                     calendar,
                     employeeCollection.fetchEmployees(),
@@ -314,6 +329,14 @@ const shiftOverview = ((state) => {
             },
             beforeCreateSchedule: function (e) {
                 console.log("beforeCreateSchedule", e);
+                mainContainer.append(
+                    generatePopupMenu(
+                        calendar,
+                        employeeCollection.fetchEmployees(),
+                        e,
+                        false
+                    )
+                );
                 // open a creation popup
             },
             beforeUpdateSchedule: function (e) {
@@ -332,6 +355,12 @@ const shiftOverview = ((state) => {
                 cal.deleteSchedule(e.schedule.id, e.schedule.calendarId);
             },
         });
+        mainContainer.querySelector("#next-btn").onclick = () =>
+            calendar.next();
+        mainContainer.querySelector("#prev-btn").onclick = () =>
+            calendar.prev();
+        mainContainer.querySelector("#today-btn").onclick = () =>
+            calendar.today();
     };
     return { init };
 })();
