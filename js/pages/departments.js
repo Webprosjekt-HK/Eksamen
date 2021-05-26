@@ -5,25 +5,29 @@ import Department from "/js/classes/Department.js";
 import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 import makeInfoPage from "/js/modules/makeInfoPage.js";
 
+
 const departments = (() => {
-    const init = () => {
+    const init = (department) => {
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
         let employeeList = new EmployeeCollection().fetchEmployees();
         let makeProfileBanner = new MakeProfileBanner("main-body");
         let departmentList = new DepartmentCollection().fetchDepartments();
+        let selectedDepartment = document.getElementById('avdelinger').value;
+        let currentDepartment = new DepartmentCollection().filterDepartmentsById(selectedDepartment);
         let profileInfo = new makeInfoPage("info-page");
+
 
         console.log(departmentList);
 
         profileInfo.deploy(
-            `${departmentList[0].name}`,
-            `${departmentList[0].address}`,
-            `${departmentList[0].weekHours}`,
-            `${departmentList[0].weekendHours}`,
-            `${departmentList[0].phoneNumber}`,
-            `${departmentList[0].emailAddress}`,
-            `${departmentList[0].mapLocation}`
+            `${currentDepartment.name}`,
+            `${currentDepartment.address}`,
+            `${currentDepartment.weekHours}`,
+            `${currentDepartment.weekendHours}`,
+            `${currentDepartment.phoneNumber}`,
+            `${currentDepartment.emailAddress}`,
+            `${currentDepartment.mapLocation}`
         );
 
         for (let i = 1; i < 4; i++) {
