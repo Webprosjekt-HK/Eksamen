@@ -40,7 +40,7 @@ try {
     console.error("Attempting to reinstall data");
 }
 // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
-document.querySelector(".profile-name").innerHTML =
+//document.querySelector(".profile-name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
 
 // Event handler for links
