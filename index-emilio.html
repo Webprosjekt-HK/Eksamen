@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gylne Pizza</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/css/Bulma/bulma-rtl.min.css"
+        />
+        <link rel="stylesheet" type="text/css" href="/css/common.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"
+        />
+
+        <!-- If you use the default popups, use this. -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css"
+        />
+        <!-- TODO: bruke .min versjonen-->
+        <!-- <script src="js/calendar/tui-calendar.js"></script> -->
+        <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+        <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+        <script src="/js/sales charts/plotly-latest.min.js"></script>
+
+        <link rel="stylesheet" href="css/sidebar.css" />
+        <!-- Boxicons CDN Link -->
+        <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script src="js/app.js" type="module"></script>
+    </head>
+    <body>
+        <div class="columns">
+            <div class="column is-2">
+                <div class="sidebar">
+                    <div class="logo-content">
+                        <div class="logo">
+                            <img src="/images/logo_enkel.svg" />
+                        </div>
+                        <i class="bx bx-menu" id="burger-btn"></i>
+                    </div>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#" id="shift-link">
+                                <i class="bx bxs-time-five"></i>
+                                <span class="links-name">Skift</span>
+                            </a>
+                            <span class="tooltip">Skift</span>
+                        </li>
+                        <li>
+                            <a href="#" id="profile-link">
+                                <i class="bx bxs-user"></i>
+                                <span class="links-name">Min Side</span>
+                            </a>
+                            <span class="tooltip">Min Side</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bx bxs-data"></i>
+                                <span class="links-name">Vareoversikt</span>
+                            </a>
+                            <span class="tooltip">Vareoversikt</span>
+                        </li>
+                        <li>
+                            <a href="#" id="sales-link">
+                                <i class="bx bxs-pie-chart-alt-2"></i>
+                                <span class="links-name">Omsetting</span>
+                            </a>
+                            <span class="tooltip">Omsetting</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bx bxs-pizza"></i>
+                                <span class="links-name">Meny</span>
+                            </a>
+                            <span class="tooltip">Meny</span>
+                        </li>
+                        <li>
+                            <a href="#" id="department-link">
+                                <i class="bx bxs-map"></i>
+                                <span class="links-name">Avdelinger</span>
+                            </a>
+                            <span class="tooltip">Avdelinger</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bx bxs-cog"></i>
+                                <span class="links-name">Innstillinger</span>
+                            </a>
+                            <span class="tooltip">Innstillinger</span>
+                        </li>
+                    </ul>
+                    <div class="logout-field">
+                        <div class="logout">
+                            <div class="logout-details">
+                                <div class="name-job">
+                                    <div class="name">Navn Navnesen</div>
+                                    <div class="job">Restaurantsjef</div>
+                                </div>
+                            </div>
+                            <i class="bx bx-log-out" id="logout"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="column is-10">
+                <div id="main" class="columns is-multiline"></div>
+            </section>
+        </div>
+
+        <script>
+            /* SIDEBAR SCRIPT */
+            let burgerBtn = document.querySelector("#burger-btn");
+            let sidebar = document.querySelector(".sidebar");
+
+            burgerBtn.onclick = function () {
+                sidebar.classList.toggle("active");
+            };
+        </script>
+    </body>
+</html>
