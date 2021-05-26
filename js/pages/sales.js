@@ -7,33 +7,29 @@ const salesInfo = (() => {
     //const mainElement = document.getElementById("main");
 
     const init = () => {
-        const makeTile = new MakeTile("main-sales");
+        const makeTile = new MakeTile("main");
         //const mainElement = document.getElementById("main-sales");
 
         // Apply info to "MakeTile" module
         makeTile.apply(
-            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
+            "Mai 2021",
             "Oslo",
             '<div id="oslo"></div>',
-            "is-4"
         );
         makeTile.apply(
-            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
+            "Mai 2021",
             "Bergen",
             '<div id="bergen"></div>',
-            "is-4"
         );
         makeTile.apply(
-            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
+            "Mai 2021",
             "Trondheim",
             '<div id="trondheim"></div>',
-            "is-4"
         );
         makeTile.apply(
-            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
+            "Mai 2021",
             "Kristiansand",
             '<div id="kristiansand"></div>',
-            "is-4"
         );
 
         
@@ -42,7 +38,7 @@ const salesInfo = (() => {
         height: 300,
         width: 300,
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-        showlegend: false
+        showlegend: false,
         };
 
         var config = {responsive: true}
