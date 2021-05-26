@@ -23,6 +23,14 @@ body {
     border-top-right-radius: 12px;
 }
 
+.sidebar.column {
+    padding: 0;
+}
+
+.columns {
+    margin: 0;
+}
+
 .sidebar.active {
     width: 60px;
 }
@@ -95,6 +103,7 @@ body {
     width: calc(100% - 230px);
     left: 230px;
     height: 80px;
+    top: 0;
     background: #fff;
     padding: 0 20px;
     display: flex;
@@ -174,6 +183,11 @@ nav .profile-details .profile-name {
     font-size: 15px;
     margin: 0 20px;
     white-space: nowrap;
+}
+
+.dashboard-section .dashboard-content {
+    padding-top: 100px;
+    justify-content: center;
 }
 
 @media (max-width: 1216px) {
