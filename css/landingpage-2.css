@@ -115,7 +115,7 @@ h1 {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
   }
   
   /* Modal Content/Box */
@@ -134,7 +134,7 @@ h1 {
     width: 100%;
     max-width: 380px;
     padding: 80px 40px 40px;
-    background: hsla(22, 28%, 85%, .8);
+    background: rgb(255, 255, 255);
     border-radius: 10px;
     color: #26211f;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -150,6 +150,10 @@ h1 {
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     pointer-events: none;
+}
+
+.form button {
+    left: -30px;
 }
 
 .form img {
@@ -197,10 +201,10 @@ h1 {
 .form .input-group input:focus + label,
 .form .input-group input:valid + label {
     transform: translateY(-16px);
-    color: #F9932F;
+    color: #26211f;
     font-size: 12px;
 }
-  
+
   /* The Close Button */
   .close {
     color: #26211f;
