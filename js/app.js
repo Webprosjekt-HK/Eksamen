@@ -8,6 +8,7 @@ import departments from "/js/pages/departments.js";
 import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 
 import salesInfo from "/js/pages/sales.js";
+import menu from "/js/pages/menu.js";
 
 const state = {
     loggedInUser: {},
@@ -48,3 +49,4 @@ document.getElementById("profile-link").onclick = () => profile.init(state);
 document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
 document.getElementById("department-link").onclick = () => departments.init();
 document.getElementById("sales-link").onclick = () => salesInfo.init();
+document.getElementById("menu-link").onclick = () => menu.init();

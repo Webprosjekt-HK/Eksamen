@@ -1,6 +1,7 @@
 import { Employee } from "/js/classes/Person.js";
 import Shift from "/js/classes/Shift.js";
 import Department from "/js/classes/Department.js";
+import Pizza from "/js/classes/Pizza.js";
 
 const employees = [
     new Employee(
@@ -182,6 +183,93 @@ const departments = [
     ),
 ];
 
+const menuItems = [
+    new Pizza(
+        "Margarita",
+        "Mozarella og tomatsaus",
+        30,
+        94,
+        64
+    ),
+    new Pizza(
+        "Hawaii",
+        "Mozarella, tomatsaus, ananas og skinke",
+        40,
+        104,
+        64
+    ),
+    new Pizza(
+        "Pepperoni",
+        "Mozarella, tomatsaus og pepperoni",
+        35,
+        114,
+        79
+    ),
+    new Pizza(
+        "Ham",
+        "Mozarella, tomatsaus og skinke",
+        40,
+        94,
+        54
+    ),
+    new Pizza(
+        "The Tropical",
+        "Mozarella, tomatsaus, osteblanding, ananas og oregano",
+        45,
+        128,
+        83
+    ),
+    new Pizza(
+        "Californian Dream",
+        "Rømmedressing, tomatsaus, osteblanding, skinke og ruccola",
+        60,
+        138,
+        78
+    ),
+    new Pizza(
+        "Thai Chicken",
+        "Sataysaus, paprika, rødløk, sataykylling, ananas, peanøtter og koriander",
+        60,
+        158,
+        98
+    ),
+    new Pizza(
+        "Green Garden",
+        "Avokado, rødløk, osteblanding, cherrytomater og limezest",
+        56,
+        168,
+        112
+    ),
+    new Pizza(
+        "Big Shot",
+        "BBQ-kylling, bacon, pepperoni, cherrytomater og oregano",
+        60,
+        168,
+        108
+    ),
+    new Pizza(
+        "Rio Grande",
+        "Spicy tacokrydret kjøttdeig, spicy salsa, fersk paprika, lime, jalapeno og tortilla chips",
+        63,
+        168,
+        105
+    ),
+    new Pizza(
+        "Spicy Chicken",
+        "Spicy marinert kylling, rødløk, osteblanding, jalapeno og limezest",
+        50,
+        168,
+        118
+    ),
+    new Pizza(
+        "Pepper Steak",
+        "Marinert biffkjøtt, rødløk, paprika og oregano",
+        45,
+        158,
+        113
+    )
+];
+
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
     localStorage.setItem("employees", JSON.stringify(employees));
@@ -190,6 +278,10 @@ export function saveEmployees() {
 
 export function saveDepartments() {
     localStorage.setItem("departments", JSON.stringify(departments));
+}
+
+export function savePizzas(){
+    localStorage.setItem("pizzas", JSON.stringify(menuItems));
 }
 
 export function saveShifts() {
