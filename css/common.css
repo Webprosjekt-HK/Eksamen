@@ -1,4 +1,11 @@
 /* Christian testing */
+
+/*  Kan noen se på denne */
+#popup-close {
+    position: relative;
+    left: 94%;
+    top: -30px;
+}
 nav.panel {
     position: absolute;
     left: 50%;
@@ -10,8 +17,12 @@ nav.panel {
     display: none;
 }
 
-.card {
-    background: #faece4;
+/* Svartfargen er muligens feil på denne */
+.card,
+.panel-heading,
+.button {
+    background: #faece4 !important;
+    color: black !important;
 }
 
 #profile-info .card {

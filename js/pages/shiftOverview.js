@@ -81,7 +81,19 @@ const shiftOverview = ((state) => {
         window._calendar = calendar;
         const htmlContent = `
             <nav class="panel is-primary">
-                <p class="panel-heading">Legg til vakt</p>
+                <div class="panel-heading">
+                    <div class="block">
+                        <p id="popup-header-text">Legg til vakt</p>
+                        <button
+                            id="popup-close"
+                            aria-label="Close"
+                            class="delete is-right"
+                        >
+                            close
+                        </button>                       
+                    </div>
+                </div>
+
                 <div class="panel-block">
                     <div class="control has-icons-left">
                         <div class="select">
@@ -144,13 +156,16 @@ const shiftOverview = ((state) => {
                 </div>
                 <div class="panel-block">
                     <div class="control has-icons-left">
-                        <button class="button is-primary">Legg til</button>
+                        <button id="popup-confirm" class="button is-primary">Legg til</button>
                     </div>
                 </div>
             </nav>
         `;
-
         containerElement.innerHTML = htmlContent;
+
+        containerElement.querySelector("#popup-close").onclick = () =>
+            containerElement.remove();
+
         const picker1 = new tui.DatePicker(
             containerElement.querySelector("#datepicker-start"),
             {
@@ -180,13 +195,16 @@ const shiftOverview = ((state) => {
                 },
             }
         );
+        const headerText = containerElement.querySelector("#popup-header-text");
+        const confirmButton = containerElement.querySelector("#popup-confirm");
         if (update) {
+            headerText.innerText = "Oppdater vakt";
             containerElement.querySelector("select").value =
                 schedule.schedule.id[0];
             picker1.setDate(new Date(schedule.schedule.start));
             picker2.setDate(new Date(schedule.schedule.end));
-            containerElement.querySelector(".button").innerHTML = "Oppdater";
-            containerElement.querySelector(".button").onclick = () => {
+            confirmButton.innerHTML = "Oppdater";
+            confirmButton.onclick = () => {
                 const newSchedule = {
                     start: picker1.getDate(),
                     end: picker2.getDate(),
@@ -195,6 +213,7 @@ const shiftOverview = ((state) => {
                     ),
                 };
                 updateSchedule(calendar, schedule.schedule.id, newSchedule);
+                containerElement.remove();
             };
         }
         return containerElement;
