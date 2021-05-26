@@ -61,12 +61,6 @@ const profile = (() => {
             <div id="outer-shift-container" class="column is-9">
                 <div class="columns is-multiline">
                     <div class="column is-12">
-                        <h1 class="title">${
-                            userObject.firstName + " " + userObject.lastName
-                        }</h1>
-                    </div>
-
-                    <div class="column is-12">
                         <div class="columns is-multiline" id="work-info"></div>
                     </div>
                     <div class="column is-12" id="outer-calendar">

@@ -88,7 +88,7 @@ const shiftOverview = ((state) => {
         const containerElement = document.createElement("div");
 
         const htmlContent = `
-            <nav class="panel is-primary">
+            <div class="panel is-primary">
                 <div class="panel-heading">
                     <div class="block">
                         <p id="popup-header-text">Legg til vakt</p>
@@ -167,9 +167,10 @@ const shiftOverview = ((state) => {
                         <button id="popup-confirm" class="button is-primary">Legg til</button>
                     </div>
                 </div>
-            </nav>
+            </div>
         `;
         containerElement.innerHTML = htmlContent;
+        containerElement.id = "popup-panel";
 
         containerElement.querySelector("#popup-close").onclick = () =>
             containerElement.remove();
