@@ -28,6 +28,9 @@ export default class EmployeeCollection {
     findEmployee = (username) => {
         return this.fetchEmployees().filter((e) => username === e.username);
     };
+    findEmployeesByDepartmentId = (departmentID) =>
+        this.fetchEmployees().filter((e) => e.departmentID == departmentID);
+
     addEmployee = (userObject) => {
         const employees = this.fetchEmployees();
         for (let i = 0; i < employees.length; i++) {
