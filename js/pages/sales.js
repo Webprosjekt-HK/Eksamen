@@ -50,6 +50,7 @@ const salesInfo = (() => {
         width: 300,
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
         showlegend: false,
+        paper_bgcolor:'rgba(0,0,0,0)'
         };
 
         var config = {responsive: true}
