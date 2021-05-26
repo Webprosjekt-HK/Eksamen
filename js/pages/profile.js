@@ -118,8 +118,13 @@ const profile = (() => {
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this
         const schedules = [];
+        let selectedDepartment = document.getElementById("avdelinger").value;
         shifts
-            .filter((s) => s.employeeID === userObject.id)
+            .filter(
+                (s) =>
+                    s.employeeID === userObject.id &&
+                    s.departmentID == selectedDepartment
+            )
             .forEach((shift) => {
                 schedules.push({
                     id: shift.id,

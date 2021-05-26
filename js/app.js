@@ -5,7 +5,10 @@ import checkCredentials from "/js/tools/login.js";
 import signup from "/js/tools/signupService.js";
 import { Employee } from "/js/classes/Person.js";
 import departments from "/js/pages/departments.js";
+import DepartmentCollection from "/js/classes/DepartmentCollection.js";
+
 import salesInfo from "/js/pages/sales.js";
+import menu from "/js/pages/menu.js";
 
 const state = {
     loggedInUser: {},
@@ -20,12 +23,20 @@ setup.saveDepartments();
 const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
 
+// kanskje kjøre denne på profiles siden det er den første som kjører..
+const depColl = new DepartmentCollection();
+document.getElementById("avdelinger").innerHTML +=
+    state.loggedInUser.departmentID.map((e) => {
+        const dep = depColl.filterDepartmentsById(e);
+        return `<option value="${dep.id}">${dep.name}</option>`;
+    });
+
 // Midlertidig fiks på ødelagt localStorage-objekter
 try {
     profile.init(state);
 } catch (error) {
-    // localStorage.removeItem("employees");
-    // window.location.reload();
+    localStorage.removeItem("employees");
+    window.location.reload();
     console.error(error);
     console.error("Attempting to reinstall data");
 }
@@ -38,3 +49,4 @@ document.getElementById("profile-link").onclick = () => profile.init(state);
 document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
 document.getElementById("department-link").onclick = () => departments.init();
 document.getElementById("sales-link").onclick = () => salesInfo.init();
+document.getElementById("menu-link").onclick = () => menu.init();

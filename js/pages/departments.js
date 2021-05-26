@@ -5,14 +5,10 @@ import Department from "/js/classes/Department.js";
 import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 import makeInfoPage from "/js/modules/makeInfoPage.js";
 
-
 const departments = (() => {
-
-
     const init = () => {
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
-        if(!localStorage.getItem("employees")) setup.saveEmployees();
         let employeeList = new EmployeeCollection().fetchEmployees();
         let makeProfileBanner = new MakeProfileBanner("main-body");
         let departmentList = new DepartmentCollection().fetchDepartments();
@@ -27,16 +23,18 @@ const departments = (() => {
             `${departmentList[0].weekendHours}`,
             `${departmentList[0].phoneNumber}`,
             `${departmentList[0].emailAddress}`,
-            `${departmentList[0].mapLocation}`,
+            `${departmentList[0].mapLocation}`
         );
-        
-        for(let i = 1; i < 4; i++){
-            for(let j = 0; i < 4; j++){
-                makeProfileBanner.apply(`${j + 1}`,
-                 `${employeeList[j].firstName} ${employeeList[j].lastName}`, 
-                 `${employeeList[j].role}`, 
-                 `${employeeList[j].phoneNumber}`, 
-                 `${employeeList[j].username}`);
+
+        for (let i = 1; i < 4; i++) {
+            for (let j = 0; i < 4; j++) {
+                makeProfileBanner.apply(
+                    `${j + 1}`,
+                    `${employeeList[j].firstName} ${employeeList[j].lastName}`,
+                    `${employeeList[j].role}`,
+                    `${employeeList[j].phoneNumber}`,
+                    `${employeeList[j].username}`
+                );
             }
         }
     };

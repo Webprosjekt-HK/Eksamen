@@ -2,10 +2,12 @@ import makeCalendar from "/js/modules/makeCalendar.js";
 import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 import ShiftCollection from "/js/classes/ShiftCollection.js";
 import Shift from "/js/classes/Shift.js";
+import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 
 const shiftOverview = ((state) => {
     const shiftCollection = new ShiftCollection();
     const employeeCollection = new EmployeeCollection();
+    const departmentCollection = new DepartmentCollection();
 
     const calendarOption = {
         defaultView: "week",
@@ -15,7 +17,13 @@ const shiftOverview = ((state) => {
         template: {
             timegridDisplayPrimaryTime: function (time) {
                 console.log(time);
-                return time.hour + " : " + time.minutes;
+                const hour =
+                    parseInt(time.hour) > 9 ? time.hour : "0" + time.hour;
+                const minutes =
+                    parseInt(time.minutes) > 9
+                        ? time.minutes
+                        : "0" + time.minutes;
+                return hour + " : " + minutes;
             },
             timegridDisplayTime: function (time) {
                 console.log(this);
