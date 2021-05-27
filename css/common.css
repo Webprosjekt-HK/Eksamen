@@ -16,6 +16,10 @@
 .tui-full-calendar-weekday-schedule-bullet {
     display: none;
 }
+#outer-shift-container .cards-container {
+    padding-left: 0 !important;
+    padding-right: 0;
+}
 
 /* Svartfargen er muligens feil på denne */
 .card,
