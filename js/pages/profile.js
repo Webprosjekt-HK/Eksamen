@@ -130,6 +130,7 @@ const profile = (() => {
     const init = (state) => {
         const userObject = state.loggedInUser;
         generateScaffold(userObject);
+        document.getElementById("avdelinger").disabled = true;
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this
         const schedules = [];
