@@ -24,8 +24,8 @@ const salesInfo = (() => {
         );
         makeTile.apply(
             "2021",
-            "Omsetning 2021",
-            '<div id="myDiv"></div>',
+            "Salg og Kostnader 2021",
+            '<div id="sales-vs-expenses"></div>',
             "is-6"
         );
         
@@ -55,25 +55,57 @@ const salesInfo = (() => {
             "is-3"
         );
 
-        // TEST
+        // TOTAL SALES vs EXPENSES
 
         var config = {responsive: true}
 
-
-        var data = [
-            {
-              x: ['2021-01-01', '2021-02-01', '2021-03-01','2021-04-01',
-              '2021-05-01', '2021-06-01','2021-07-01', '2021-08-01',
-              '2021-09-01','2021-10-01', '2021-11-01', '2021-12-31',],
-              y: [4000000, 3600000, 5000000, 4300000, 3300000, 4100000,
-                4300000, 3600000, 4700000, 4900000, 5900000, 6000000],
-              type: 'scatter'
+        var salesData = {
+            type: 'scatter',
+            x: ['2021-01-01', '2021-02-01', '2021-03-01','2021-04-01',
+            '2021-05-01', '2021-06-01','2021-07-01', '2021-08-01',
+            '2021-09-01','2021-10-01', '2021-11-01', '2021-12-31'],
+            y: [4200000, 3800000, 4200000, 4300000,
+                3800000, 4100000, 4300000, 4200000,
+                4700000, 4900000, 5400000, 5800000],
+            mode: 'lines',
+            name: 'Salg',
+            line: {
+                color: 'rgb(55, 128, 191)',
+                width: 3
             }
-          ];
-          
-          Plotly.newPlot('myDiv', data, config);
+        };
 
-        // CREATE SALES vs. GOALS
+        var expensesData = {
+            type: 'scatter',
+            x: ['2021-01-01', '2021-02-01', '2021-03-01','2021-04-01',
+            '2021-05-01', '2021-06-01','2021-07-01', '2021-08-01',
+            '2021-09-01','2021-10-01', '2021-11-01', '2021-12-31'],
+            y: [4500000, 3900000, 4000000, 4500000,
+                4100000, 4000000, 4100000, 4000000,
+                4400000, 4100000, 4900000, 5300000],
+            mode: 'lines',
+            name: 'Kostnader',
+            line: {
+                color: 'rgb(219, 64, 82)',
+                width: 1
+            }
+        };
+
+
+        var layoutTotalSales = {
+            paper_bgcolor:'rgba(0,0,0,0)',
+            xaxis: {
+                title: 'Klikk og dra til sidene.',
+                showgrid: false,
+                zeroline: false
+            }
+        };
+
+        var data = [salesData, expensesData];
+          
+          Plotly.newPlot('sales-vs-expenses', data, layoutTotalSales, config);
+
+        // SALES vs. GOALS
 
         var sales = {
             x: ['Majorstuen', 'Storo', 'Skippergata', 'Ensjø'],
@@ -95,14 +127,16 @@ const salesInfo = (() => {
             barmode: 'group',
             //height: 400,
             //width: 700
+            paper_bgcolor:'rgba(0,0,0,0)',
+            //margin: {"t": 0, "b": 0, "l": 0, "r": 0}
         };
 
         Plotly.newPlot('sales-vs-goals', data, layoutSales, config);
-
         
-        // CREATE "PIE" CHARTS
+        // "PIE" CHARTS
         var layoutPie = {
-            //height: 300,
+            title: 'Total salg. Hold over kategoriene.',
+            height: 400,
             //width: 300,
             //margin: {"t": 0, "b": 0, "l": 0, "r": 0},
             showlegend: false,
@@ -115,7 +149,7 @@ const salesInfo = (() => {
         values: [20000, 95000, 30000, 65000],
         labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
         textinfo: "label+percent",
-        textposition: "inside",
+        textposition: "outside",
         margin: {"t": -10, "b": -10, "l": -10, "r": -10}
         }];
 
