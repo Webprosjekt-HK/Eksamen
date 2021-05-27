@@ -25,14 +25,14 @@ const salesInfo = (() => {
         makeTile.apply(
             "2021",
             "Tittel",
-            '<div id="tittel"></div>',
+            '<div id="myDiv"></div>',
             "is-6"
         );
         
         makeTile.apply(
             "Mai 2021",
             "Oslo - Majorstuen",
-            '<div id="majorstuen"></div>',
+            '<div id="majorstuen" ></div>',
             "is-3"
         );
         makeTile.apply(
@@ -41,8 +41,7 @@ const salesInfo = (() => {
             '<div id="storo"></div>',
             "is-3"
         );
-        makeTile.apply("Mai 2021", "Oslo", '<div id="oslo"></div>', "is-3");
-        makeTile.apply("Mai 2021", "Bergen", '<div id="bergen"></div>', "is-3");
+
         makeTile.apply(
             "Mai 2021",
             "Oslo - Skippergata",
@@ -56,9 +55,33 @@ const salesInfo = (() => {
             "is-3"
         );
 
-        // CREATE SALES vs. GOALS
+        // TEST
 
-        var config = {responsive: true};
+        var config = {responsive: true}
+        var trace1 = {
+            type: 'bar',
+            x: [1, 2, 3, 4],
+            y: [5, 10, 2, 8],
+            marker: {
+                color: '#faece4',
+                line: {
+                    width: 2.5
+                }
+            }
+          };
+          
+          var data = [ trace1 ];
+          
+          var layout = { 
+            title: 'Responsive to window\'s size!',
+            font: {size: 18}
+          };
+          
+          
+          
+          Plotly.newPlot('myDiv', data, layout, config );
+
+        // CREATE SALES vs. GOALS
 
         var sales = {
             x: ['Majorstuen', 'Storo', 'Skippergata', 'Ensjø'],
@@ -78,20 +101,18 @@ const salesInfo = (() => {
           
         var layoutSales = {
             barmode: 'group',
-            height: 400,
-            width: 700
+            //height: 400,
+            //width: 700
         };
 
-        var config = {responsive: true};
-          
-          Plotly.newPlot('sales-vs-goals', data, layoutSales, config);
+        Plotly.newPlot('sales-vs-goals', data, layoutSales, config);
 
         
         // CREATE "PIE" CHARTS
         var layoutPie = {
-            height: 300,
-            width: 300,
-            margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+            //height: 300,
+            //width: 300,
+            //margin: {"t": 0, "b": 0, "l": 0, "r": 0},
             showlegend: false,
             paper_bgcolor:'rgba(0,0,0,0)'
         };
@@ -102,8 +123,8 @@ const salesInfo = (() => {
         values: [20000, 95000, 30000, 65000],
         labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
         textinfo: "label+percent",
-        textposition: "outside",
-        automargin: true
+        textposition: "inside",
+        margin: {"t": -10, "b": -10, "l": -10, "r": -10}
         }];
 
         Plotly.newPlot('majorstuen', majorstuenData, layoutPie, config);
@@ -115,7 +136,7 @@ const salesInfo = (() => {
         labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
         textinfo: "label+percent",
         textposition: "outside",
-        automargin: true
+        //automargin: true
         }];
 
         Plotly.newPlot('storo', storoData, layoutPie, config);
@@ -127,7 +148,7 @@ const salesInfo = (() => {
         labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
         textinfo: "label+percent",
         textposition: "outside",
-        automargin: true
+        //automargin: true
         }];
 
         Plotly.newPlot('skippergata', skippergataData, layoutPie, config);
@@ -139,7 +160,7 @@ const salesInfo = (() => {
         labels: ["Tilbehør", "Pizza", "Dessert", "Barvirksomhet"],
         textinfo: "label+percent",
         textposition: "outside",
-        automargin: true
+        //automargin: true
         }];
 
         Plotly.newPlot('ensjø', ensjøData, layoutPie, config);
