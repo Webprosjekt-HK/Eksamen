@@ -3,6 +3,11 @@ FARGER:
 Mørk: #e3d5cd
 Lys: #faece4
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
 
 #logo{
     position: absolute;
@@ -17,10 +22,12 @@ Lys: #faece4
 
 #hero .navbar.is-transparent {
     background-color: transparent;
+    margin: 0;
+    width: 100% !important;
 }
 
 .navbar-start {
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .navbar-item{
@@ -30,7 +37,11 @@ Lys: #faece4
     text-decoration: none;
 }
 
-.navbar-item:after{
+.navbar-item:hover{
+    color: #F9932F !important;
+}
+
+a.navbar-item:after{
     content: '';
     position: absolute;
     width: 100%;
@@ -39,12 +50,14 @@ Lys: #faece4
     bottom: 0;
     left: 0;
     background-color: #F9932F !important;
+    color: #F9932F !important;
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
 
-.navbar-item:hover:after{
+a.navbar-item:hover:after{
     background-color: #F9932F !important;
+    color: #F9932F !important;
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -58,12 +71,15 @@ Lys: #faece4
     color: white;
 }
 
-.navbar-link:hover{
+a.navbar-link:hover{
     color: #F9932F !important;
 }
 
 .navbar-dropdown {
-    color: black;
+    background-color: #030305 !important;
+}
+.navbar-dropdown:hover {
+    color: #F9932F !important;
 }
 
 .bx.bxs-user{
