@@ -24,7 +24,7 @@ const salesInfo = (() => {
         );
         makeTile.apply(
             "2021",
-            "Tittel",
+            "Omsetning 2021",
             '<div id="myDiv"></div>',
             "is-6"
         );
@@ -58,28 +58,20 @@ const salesInfo = (() => {
         // TEST
 
         var config = {responsive: true}
-        var trace1 = {
-            type: 'bar',
-            x: [1, 2, 3, 4],
-            y: [5, 10, 2, 8],
-            marker: {
-                color: '#faece4',
-                line: {
-                    width: 2.5
-                }
+
+
+        var data = [
+            {
+              x: ['2021-01-01', '2021-02-01', '2021-03-01','2021-04-01',
+              '2021-05-01', '2021-06-01','2021-07-01', '2021-08-01',
+              '2021-09-01','2021-10-01', '2021-11-01', '2021-12-31',],
+              y: [4000000, 3600000, 5000000, 4300000, 3300000, 4100000,
+                4300000, 3600000, 4700000, 4900000, 5900000, 6000000],
+              type: 'scatter'
             }
-          };
+          ];
           
-          var data = [ trace1 ];
-          
-          var layout = { 
-            title: 'Responsive to window\'s size!',
-            font: {size: 18}
-          };
-          
-          
-          
-          Plotly.newPlot('myDiv', data, layout, config );
+          Plotly.newPlot('myDiv', data, config);
 
         // CREATE SALES vs. GOALS
 
