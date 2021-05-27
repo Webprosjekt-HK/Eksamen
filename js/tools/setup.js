@@ -7,6 +7,7 @@ import menu from "/js/pages/menu.js";
 import profile from "/js/pages/profile.js";
 import shiftOverview from "/js/pages/shiftOverview.js";
 import departments from "/js/pages/departments.js";
+import Ingredient from "../classes/Ingredient";
 
 const employees = [
     new Employee(
@@ -250,6 +251,37 @@ const menuItems = [
         113
     ),
 ];
+
+const ingredients = [
+    new Ingredient(
+        "Pizzasaus",
+        50,
+        1000,
+        3
+    ),
+    new Ingredient(
+        "Mel",
+        20,
+        1500,
+        2
+    ),
+    new Ingredient(
+        "Olje",
+        5,
+        1000,
+        1
+    ),
+    new Ingredient(
+        "Ost",
+        100,
+        2000,
+        3
+    )
+];
+
+export function saveIngredients(){
+    localStorage.setItem("ingredients", JSON.stringify(ingredients));
+}
 
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
