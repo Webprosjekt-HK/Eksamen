@@ -49,8 +49,24 @@ document.querySelector(".profile-name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
 
 // Event handler for links
-document.getElementById("profile-link").onclick = () => profile.init(state);
-document.getElementById("shift-link").onclick = () => shiftOverview.init(state);
-document.getElementById("department-link").onclick = () => departments.init();
-document.getElementById("sales-link").onclick = () => salesInfo.init();
-document.getElementById("menu-link").onclick = () => menu.init();
+const pageTitleElement = document.getElementById("page-title");
+document.getElementById("profile-link").onclick = () => {
+    pageTitleElement.innerHTML = "Min Side";
+    profile.init(state);
+};
+document.getElementById("shift-link").onclick = () => {
+    shiftOverview.init(state);
+    pageTitleElement.innerHTML = "Skift";
+};
+document.getElementById("department-link").onclick = () => {
+    pageTitleElement.innerHTML = "Avdelinger";
+    departments.init();
+};
+document.getElementById("sales-link").onclick = () => {
+    salesInfo.init();
+    pageTitleElement.innerHTML = "Omsetning";
+};
+document.getElementById("menu-link").onclick = () => {
+    menu.init();
+    pageTitleElement.innerHTML = "Meny";
+};

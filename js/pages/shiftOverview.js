@@ -16,7 +16,6 @@ const shiftOverview = ((state) => {
         useDetailPopup: false,
         template: {
             timegridDisplayPrimaryTime: function (time) {
-                console.log(time);
                 const hour =
                     parseInt(time.hour) > 9 ? time.hour : "0" + time.hour;
                 const minutes =
@@ -263,7 +262,6 @@ const shiftOverview = ((state) => {
         // Since I used the date as an ID, i dont want to use the
         // available update method. Instead I'll just delete the schedule and
         // create another one, with a fresh ID.
-
         const newID = createScheduleId(schedule.employeeID, schedule.start);
 
         calendar.deleteSchedule(oldID, "1");
@@ -300,31 +298,38 @@ const shiftOverview = ((state) => {
 
     const init = (state) => {
         generateScaffold();
-
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
-        shifts.forEach((shift) => {
-            const userObject = employeeCollection.findEmployeeById(
-                shift.employeeID
-            );
-            schedules.push({
-                id: shift.id,
-                employeeID: shift.employeeID,
-                calendarId: "1",
-                title: userObject.firstName + " " + userObject.lastName,
-                category: "time",
-                dueDateClass: "",
-                body: "",
-                start: shift.start,
-                end: shift.end,
+        let selectedLocation = document.getElementById("avdelinger");
+        shifts
+            .filter((e) => e.departmentID == selectedLocation.value)
+            .forEach((shift) => {
+                const userObject = employeeCollection.findEmployeeById(
+                    shift.employeeID
+                );
+                schedules.push({
+                    id: shift.id,
+                    employeeID: shift.employeeID,
+                    calendarId: "1",
+                    title: userObject.firstName + " " + userObject.lastName,
+                    category: "time",
+                    dueDateClass: "",
+                    body: "",
+                    start: shift.start,
+                    end: shift.end,
+                });
             });
-        });
 
         const calendar = makeCalendar(
             document.getElementById("calendar"),
             calendarOption,
             schedules
         );
+
+        selectedLocation.addEventListener("change", (e) => {
+            calendar.destroy();
+            init(state);
+        });
 
         calendar.on({
             clickSchedule: function (e) {

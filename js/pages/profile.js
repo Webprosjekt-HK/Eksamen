@@ -1,11 +1,12 @@
 import MakeTile from "/js/modules/MakeTile.js";
 import makeCalendar from "/js/modules/makeCalendar.js";
 import ShiftCollection from "/js/classes/ShiftCollection.js";
+import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 
 const profile = (() => {
     const shiftCollection = new ShiftCollection();
     const shifts = shiftCollection.fetchShifts();
-
+    const departmentCollection = new DepartmentCollection();
     // The container in the index-file
     const mainElement = document.getElementById("main");
 
@@ -36,12 +37,25 @@ const profile = (() => {
                 return "All Day";
             },
             time: function (schedule) {
+                const departmentId = shiftCollection.getShiftById(
+                    schedule.id
+                ).departmentID;
+                const departmentName =
+                    departmentCollection.filterDepartmentsById(
+                        departmentId
+                    ).name;
+
                 return (
                     '<div class="calendar-mark" >' +
                     new Date(schedule.start).getHours() +
                     " - " +
                     new Date(schedule.end).getHours() +
-                    "</div>"
+                    "</div>" +
+                    '<span title="' +
+                    departmentName +
+                    '" class="department-name">' +
+                    departmentName +
+                    "</span>"
                 );
             },
         },
@@ -120,11 +134,7 @@ const profile = (() => {
         const schedules = [];
         let selectedDepartment = document.getElementById("avdelinger").value;
         shifts
-            .filter(
-                (s) =>
-                    s.employeeID === userObject.id &&
-                    s.departmentID == selectedDepartment
-            )
+            .filter((s) => s.employeeID === userObject.id)
             .forEach((shift) => {
                 schedules.push({
                     id: shift.id,
