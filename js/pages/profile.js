@@ -84,8 +84,9 @@ const profile = (() => {
                     </div>
                     <div class="column is-12" id="outer-calendar">
                         <div id="calendar-menu">
-                            <button id="prev-btn" class="button">Previous</button>
-                            <button id="next-btn" class="button">Next</button>
+                            <button id="prev-btn" class="button nav-button">Forrige</button>
+                            <button id="today-btn" class="button nav-button">I dag</button>
+                            <button id="next-btn" class="button nav-button">Neste</button>
                             <span id="render-range" class="render-range"></span>
                         </div>
                         <div class="container" id="calendar"></div>
@@ -163,11 +164,22 @@ const profile = (() => {
             schedules
         );
 
-        document.getElementById("prev-btn").onclick = () => calendar.prev();
-        document.getElementById("next-btn").onclick = () => calendar.next();
+        document.getElementById("prev-btn").onclick = () => {
+            calendar.prev();
+            document.getElementById("render-range").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+        }
+        document.getElementById("next-btn").onclick = () => {
+             calendar.next() ;
+             document.getElementById("render-range").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+             }
         document.getElementById("render-range").innerHTML = new Date(
             calendar.getDate()
         ).toLocaleString("nb-NO", { month: "long" });
+
         // Legg til tiles
         const makeTile = new MakeTile("work-info");
         const nextShift = shiftCollection.getNextShiftByUserId(userObject.id);
