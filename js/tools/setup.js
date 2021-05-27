@@ -35,7 +35,7 @@ const employees = [
         420000,
         "images/ansatt_2.png",
         [1, 2, 3, 4],
-        [1, 2, 3, 4]
+        [1, 2, 3]
     ),
     new Employee(
         3,

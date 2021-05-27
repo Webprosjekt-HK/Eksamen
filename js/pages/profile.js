@@ -37,9 +37,6 @@ const profile = (() => {
                 return "All Day";
             },
             time: function (schedule) {
-                console.log(shiftCollection.getShiftById(
-                    schedule.id
-                ));
 
                 const departmentId = shiftCollection.getShiftById(
                     schedule.id
@@ -84,9 +81,9 @@ const profile = (() => {
                     </div>
                     <div class="column is-12" id="outer-calendar">
                         <div id="calendar-menu">
-                            <button id="prev-btn" class="button nav-button">Forrige</button>
-                            <button id="today-btn" class="button nav-button">I dag</button>
-                            <button id="next-btn" class="button nav-button">Neste</button>
+                            <button id="prev-btn" class="button is-info is-outlined nav-button">Forrige</button>
+                            <button id="today-btn" class="button is-info is-outlined nav-button">I dag</button>
+                            <button id="next-btn" class="button is-info is-outlined nav-button">Neste</button>
                             <span id="render-range" class="render-range"></span>
                         </div>
                         <div class="container" id="calendar"></div>
