@@ -34,7 +34,9 @@ document.getElementById("avdelinger").innerHTML +=
         const dep = depColl.filterDepartmentsById(e);
         return `<option value="${dep.id}">${dep.name}</option>`;
     });
-
+// sette profilbilde i thumbnail
+document.getElementById("employee-thumbnail").src =
+    state.loggedInUser.pictureUrl;
 // Midlertidig fiks på ødelagt localStorage-objekter
 try {
     profile.init(state);

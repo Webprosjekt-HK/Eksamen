@@ -93,7 +93,7 @@ const shiftOverview = ((state) => {
     }
     function generatePopupMenu(calendar, users, schedule, update) {
         const containerElement = document.createElement("div");
-
+        containerElement.id = "popup-panel";
         const htmlContent = `
             <div class="panel is-primary">
                 <div class="panel-heading">
@@ -112,7 +112,7 @@ const shiftOverview = ((state) => {
                 <div class="panel-block">
                     <div class="control has-icons-left">
                         <div class="select">
-                            <select>
+                            <select id="select-employee">
                                 ${users.map((e) => {
                                     return (
                                         '<option value="' +
@@ -177,7 +177,6 @@ const shiftOverview = ((state) => {
             </div>
         `;
         containerElement.innerHTML = htmlContent;
-        containerElement.id = "popup-panel";
 
         containerElement.querySelector("#popup-close").onclick = () =>
             containerElement.remove();
@@ -234,6 +233,10 @@ const shiftOverview = ((state) => {
                 };
                 updateSchedule(calendar, schedule.schedule.id, newSchedule);
                 containerElement.remove();
+            };
+        } else {
+            confirmButton.onclick = () => {
+                createSchedule(calendar, schedule, picker1, picker2);
             };
         }
         picker1.setDate(new Date(start));
@@ -293,8 +296,37 @@ const shiftOverview = ((state) => {
             },
         ]);
         calendar.render();
+        document.getElementById("popup-panel").remove();
     }
-    function createSchedule(calendar, schedule) {}
+    function createSchedule(calendar, schedule, startPicker, endPicker) {
+        console.log(startPicker.getDate());
+        const start = new Date(startPicker.getDate());
+        const end = new Date(endPicker.getDate());
+        const userId = parseInt(
+            document.getElementById("select-employee").value
+        );
+        const shiftId = createScheduleId(userId, start);
+        const departmentId = document.getElementById("avdelinger").value;
+        const shift = new Shift(shiftId, start, end, userId, departmentId);
+        shiftCollection.addShift(shift);
+
+        calendar.createSchedules([
+            {
+                id: shiftId,
+                employeeID: userId,
+                calendarId: "1",
+                title: document.getElementById("select-employee")
+                    .selectedOptions[0].text,
+                category: "time",
+                dueDateClass: "",
+                body: "",
+                start: start.toISOString(),
+                end: end.toISOString(),
+            },
+        ]);
+
+        document.getElementById("popup-panel").remove();
+    }
 
     const init = (state) => {
         generateScaffold();
@@ -304,8 +336,9 @@ const shiftOverview = ((state) => {
         shifts
             .filter((e) => e.departmentID == selectedLocation.value)
             .forEach((shift) => {
+                console.log(shift);
                 const userObject = employeeCollection.findEmployeeById(
-                    shift.employeeID
+                    parseInt(shift.employeeID)
                 );
                 schedules.push({
                     id: shift.id,

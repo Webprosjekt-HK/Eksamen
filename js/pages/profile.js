@@ -41,10 +41,11 @@ const profile = (() => {
                     schedule.id
                 ).departmentID;
                 const departmentName =
-                    departmentCollection.filterDepartmentsById(
-                        departmentId
-                    ).name;
-
+                    departmentCollection.filterDepartmentsById(departmentId)
+                        ? departmentCollection.filterDepartmentsById(
+                              departmentId
+                          ).name
+                        : "";
                 return (
                     '<div class="calendar-mark" >' +
                     new Date(schedule.start).getHours() +
