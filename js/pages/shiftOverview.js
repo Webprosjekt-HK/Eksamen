@@ -22,7 +22,7 @@ const shiftOverview = ((state) => {
                     parseInt(time.minutes) > 9
                         ? time.minutes
                         : "0" + time.minutes;
-                return hour + " : " + minutes;
+                return hour + ":" + minutes;
             },
             timegridDisplayTime: function (time) {
                 console.log(this);
