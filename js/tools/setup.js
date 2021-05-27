@@ -280,7 +280,7 @@ export function addEventListeners(state) {
     const pageTitleElement = document.getElementById("page-title");
     document.getElementById("profile-link").onclick = () => {
         pageTitleElement.innerHTML = "Min Side";
-        profile.init(state);
+        profile.init(state).render();
     };
     document.getElementById("shift-link").onclick = () => {
         shiftOverview.init(state);

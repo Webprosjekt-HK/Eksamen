@@ -152,7 +152,6 @@ const profile = (() => {
                     end: shift.end,
                 });
             });
-
         // Gets the object reference to the calendar back from the
         // function-call. Might get usefull
         const calendar = makeCalendar(
@@ -160,7 +159,7 @@ const profile = (() => {
             calendarOptions,
             schedules
         );
-        console.log(calendar.getDate());
+
         document.getElementById("prev-btn").onclick = () => calendar.prev();
         document.getElementById("next-btn").onclick = () => calendar.next();
         document.getElementById("render-range").innerHTML = new Date(
@@ -203,6 +202,7 @@ const profile = (() => {
             }),
             "is-4"
         );
+        return calendar;
     };
     return { init };
 })();
