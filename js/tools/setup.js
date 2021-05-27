@@ -7,7 +7,7 @@ import menu from "/js/pages/menu.js";
 import profile from "/js/pages/profile.js";
 import shiftOverview from "/js/pages/shiftOverview.js";
 import departments from "/js/pages/departments.js";
-import Ingredient from "../classes/Ingredient";
+import Ingredient from "/js/classes/Ingredient.js";
 
 const employees = [
     new Employee(

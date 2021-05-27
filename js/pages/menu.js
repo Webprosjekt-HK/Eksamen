@@ -2,7 +2,6 @@ import MakeMenu from "/js/modules/MakeMenu.js";
 import * as setup from "/js/tools/setup.js";
 import PizzaCollection from "/js/classes/PizzaCollection.js";
 import MenuItems from "/js/modules/MenuItems.js";
-import Pizza from "/js/classes/Pizza.js";
 
 const menu = (() => {
     const init = () => {
