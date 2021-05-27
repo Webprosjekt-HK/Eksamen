@@ -76,17 +76,23 @@ const shiftOverview = ((state) => {
         mainContainer.innerHTML = `
             <div class="container column">
                 <div id="shift-menu" >
-                <div id="admin-text" ></div>
-                    <button
-                        id="prev-btn"
-                        class="button is-info"
-                        data-action="move-prev"
-                    >
-                        Forrige
-                    </button>
-                    <button id="today-btn" class="button is-info">I dag</button>
-                    <button id="next-btn" class="button is-info">Neste</button>
-                    
+                    <div class="columns">
+                        
+                        <div class="column">
+                            <button
+                                id="prev-btn"
+                                class="button is-info"
+                                data-action="move-prev"
+                            >
+                                Forrige
+                            </button>
+                            <button id="today-btn" class="button is-info">I dag</button>
+                            <button id="next-btn" class="button is-info">Neste</button>
+                        </div>
+                        <div class="column">
+                            <div id="admin-text" ></div>
+                        </div>
+                    </div>
                 </div>
                 <div id="calendar"></div>
             </div>
@@ -349,7 +355,7 @@ const shiftOverview = ((state) => {
                 ? true
                 : false;
         if (isAdmin) {
-            document.getElementById('admin-text').innerText = "Du er registrert som leder og kan endre vaktlistene ved denne avdelingen";
+            document.getElementById('admin-text').innerText = "Du er registrert som leder, og kan endre vaktlistene ved denne avdelingen";
         } else document.getElementById('admin-text').innerText = "";
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
