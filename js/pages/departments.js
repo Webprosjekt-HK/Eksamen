@@ -7,6 +7,13 @@ import makeInfoPage from "/js/modules/makeInfoPage.js";
 
 
 const departments = (() => {
+    /**
+     * TODO:
+     * - Automatisk oppdatere info om avdeling når man endrer i dropdown.
+     * - Endre så det faktisk er forskjellig gruppe ansatte når man velger forskjellige
+     * avdelinger. 
+     * - Mer hypping kommentering av kode. Tydelig forklar hva hver del gjør.
+     * **/
     const init = (department) => {
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
