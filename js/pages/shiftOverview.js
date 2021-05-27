@@ -283,8 +283,8 @@ const shiftOverview = ((state) => {
             newID,
             schedule.start,
             schedule.end,
-            selectedDepartment,
-            schedule.employeeID
+            parseInt(selectedDepartment),
+            parseInt(schedule.employeeID)
         );
         const userObject = employeeCollection.findEmployeeById(
             shift.employeeID

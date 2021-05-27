@@ -37,7 +37,10 @@ const profile = (() => {
                 return "All Day";
             },
             time: function (schedule) {
-                console.log(schedule);
+                console.log(shiftCollection.getShiftById(
+                    schedule.id
+                ));
+
                 const departmentId = shiftCollection.getShiftById(
                     schedule.id
                 ).departmentID;
