@@ -339,13 +339,22 @@ const shiftOverview = ((state) => {
 
     const init = (state) => {
         generateScaffold();
+        const selectedDepartment = document.getElementById("avdelinger").value;
+        let isAdmin =
+            state.loggedInUser.adminPrivileges.indexOf(
+                parseInt(selectedDepartment)
+            ) !== -1
+                ? true
+                : false;
+        console.log(isAdmin);
+
+        console.log(state);
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
         let selectedLocation = document.getElementById("avdelinger");
         shifts
             .filter((e) => e.departmentID == selectedLocation.value)
             .forEach((shift) => {
-                console.log(shift);
                 const userObject = employeeCollection.findEmployeeById(
                     parseInt(shift.employeeID)
                 );
@@ -361,7 +370,9 @@ const shiftOverview = ((state) => {
                     end: shift.end,
                 });
             });
-
+        calendarOption.disableClick = !isAdmin;
+        calendarOption.disableDblClick = !isAdmin;
+        console.log(calendarOption.disableClick);
         const calendar = makeCalendar(
             document.getElementById("calendar"),
             calendarOption,
@@ -375,6 +386,7 @@ const shiftOverview = ((state) => {
 
         calendar.on({
             clickSchedule: function (e) {
+                if (!isAdmin) return;
                 const popupBar = generatePopupMenu(
                     calendar,
                     employeeCollection.fetchEmployees(),
@@ -384,6 +396,7 @@ const shiftOverview = ((state) => {
                 mainContainer.append(popupBar);
             },
             beforeCreateSchedule: function (e) {
+                if (!isAdmin) return;
                 console.log("beforeCreateSchedule", e);
                 mainContainer.append(
                     generatePopupMenu(
@@ -396,10 +409,10 @@ const shiftOverview = ((state) => {
                 // open a creation popup
             },
             beforeUpdateSchedule: function (e) {
-                console.log("beforeUpdateSchedule", e);
+                if (!isAdmin) return;
                 e.schedule.start = e.start;
                 e.schedule.end = e.end;
-                console.log(shiftCollection.removeShift(e.schedule.id));
+                shiftCollection.removeShift(e.schedule.id);
                 const shiftId = createScheduleId(
                     e.schedule.id[0],
                     e.schedule.start
@@ -411,7 +424,6 @@ const shiftOverview = ((state) => {
                     document.getElementById("avdelinger").value,
                     e.schedule.id[0]
                 );
-                console.log(shift);
                 shiftCollection.addShift(shift);
                 calendar.updateSchedule(
                     e.schedule.id,

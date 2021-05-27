@@ -43,8 +43,8 @@ const employees = [
         "pizzaveien 1",
         420000,
         "images/ansatt_3.png",
-        [1, 2, 3, 4],
-        [1, 2, 3, 4]
+        [2, 3],
+        []
     ),
     new Employee(
         4,
@@ -57,8 +57,8 @@ const employees = [
         "pizzaveien 1",
         420000,
         "images/ansatt_4.png",
-        [1, 2, 3, 4],
-        [1, 2, 3, 4]
+        [1, 2, 4],
+        []
     ),
 ];
 const shifts = [

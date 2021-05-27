@@ -42,7 +42,7 @@ try {
     profile.init(state);
 } catch (error) {
     localStorage.removeItem("employees");
-    window.location.reload();
+    //window.location.reload();
     console.error(error);
     console.error("Attempting to reinstall data");
 }
