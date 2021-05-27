@@ -13,6 +13,6 @@ export default class MenuItems {
             </tr>
         `;
 
-        document.getElementById("menu_body").innerHTML += addPizza;
+        document.getElementById("menu-body").innerHTML += addPizza;
     };
 }

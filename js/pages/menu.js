@@ -26,7 +26,7 @@ const menu = (() => {
             );
         }
         var index,
-            table = document.getElementById("menu_table");
+            table = document.getElementById("menu-table");
         console.log(table);
         for (var i = 1; i < table.rows.length; i++) {
             table.rows[i].cells[5].onclick = function () {
