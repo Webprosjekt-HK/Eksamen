@@ -5,7 +5,7 @@ export default class StorageItems {
                 <td>${ name }</td>
                 <td>${ amount }</td>
                 <td>${ date }</td>
-                <td><img src="${ status }"></td>
+                <td>${ status }</td>
                 <td><img src=""></td>
                 <td></td>
             </tr>

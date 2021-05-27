@@ -1,6 +1,10 @@
 export default class MakeStorageTable {
     apply = () => {
+        let div = `
+            <div id="storage-container" class="columns is-multiline"></div>
+        `;
         let productsLeft = `
+        <div class="column is-12">
             <table id="products-left-table" class="table is-striped" width="90%">
                 <thead>
                     <tr>
@@ -14,9 +18,11 @@ export default class MakeStorageTable {
                 <tbody id="storage-body">
                 </tbody>
             </table>
+        </div>
         `;
 
         let orderTable = `
+        <div class="column is-12">
             <table id="order-list-table" class="table is-striped" width="90%">
                 <thead>
                     <tr>
@@ -31,9 +37,11 @@ export default class MakeStorageTable {
                 <tbody id="order-body">
                 </tbody>
             </table>
+        </div>
         `;
 
-        document.getElementById("main").innerHTML += productsLeft;
-        document.getElementById("main").innerHTML += orderTable;
+        document.getElementById("main").innerHTML += div;
+        document.getElementById("storage-container").innerHTML += productsLeft;
+        document.getElementById("storage-container").innerHTML += orderTable;
     };
 }

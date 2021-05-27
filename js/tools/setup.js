@@ -8,6 +8,7 @@ import profile from "/js/pages/profile.js";
 import shiftOverview from "/js/pages/shiftOverview.js";
 import departments from "/js/pages/departments.js";
 import Ingredient from "/js/classes/Ingredient.js";
+import storageOverview from "/js/pages/storageOverview.js";
 
 const employees = [
     new Employee(
@@ -332,6 +333,11 @@ export function addEventListeners(state) {
     document.getElementById("menu-link").onclick = () => {
         menu.init();
         pageTitleElement.innerHTML = "Meny";
+        document.getElementById("avdelinger").disabled = false;
+    };
+    document.getElementById("storage-link").onclick = () => {
+        storageOverview.init();
+        pageTitleElement.innerHTML = "Vareoversikt";
         document.getElementById("avdelinger").disabled = false;
     };
 }
