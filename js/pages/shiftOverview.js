@@ -42,13 +42,13 @@ const shiftOverview = ((state) => {
                 return "&nbsp;&nbsp;#" + schedule.title;
             },
             taskTitle: function () {
-                return '<label><input type="checkbox" />Task</label>';
+                return "<span>Oppgaver</span>";
             },
             allday: function (schedule) {
                 return schedule.title + ' <i class="fa fa-refresh"></i>';
             },
             alldayTitle: function () {
-                return "All Day";
+                return "Hel dag";
             },
             time: function (schedule) {
                 return (
@@ -81,10 +81,10 @@ const shiftOverview = ((state) => {
                         class="button is-info"
                         data-action="move-prev"
                     >
-                        Previous
+                        Forrige
                     </button>
-                    <button id="today-btn" class="button is-info">Today</button>
-                    <button id="next-btn" class="button is-info">Next</button>
+                    <button id="today-btn" class="button is-info">I dag</button>
+                    <button id="next-btn" class="button is-info">Neste</button>
                 </div>
                 <div id="calendar"></div>
             </div>
@@ -172,6 +172,7 @@ const shiftOverview = ((state) => {
                 <div class="panel-block">
                     <div class="control has-icons-left">
                         <button id="popup-confirm" class="button is-primary">Legg til</button>
+                        <button id="delete-button" class="button is-warning">Slett</button>
                     </div>
                 </div>
             </div>
@@ -212,6 +213,12 @@ const shiftOverview = ((state) => {
         );
         const headerText = containerElement.querySelector("#popup-header-text");
         const confirmButton = containerElement.querySelector("#popup-confirm");
+        const deleteButton = containerElement.querySelector("#delete-button");
+        deleteButton.onclick = () => {
+            calendar.deleteSchedule(schedule.schedule.id, "1");
+            shiftCollection.removeShift(schedule.schedule.id);
+            containerElement.remove();
+        };
         let start = schedule.start;
         let end = schedule.end;
         if (update) {
@@ -235,6 +242,8 @@ const shiftOverview = ((state) => {
                 containerElement.remove();
             };
         } else {
+            deleteButton.style.visibility = "hidden";
+
             confirmButton.onclick = () => {
                 createSchedule(calendar, schedule, picker1, picker2);
             };
@@ -390,8 +399,21 @@ const shiftOverview = ((state) => {
                 console.log("beforeUpdateSchedule", e);
                 e.schedule.start = e.start;
                 e.schedule.end = e.end;
-
-                cal.updateSchedule(
+                console.log(shiftCollection.removeShift(e.schedule.id));
+                const shiftId = createScheduleId(
+                    e.schedule.id[0],
+                    e.schedule.start
+                );
+                const shift = new Shift(
+                    shiftId,
+                    new Date(e.schedule.start),
+                    new Date(e.schedule.end),
+                    document.getElementById("avdelinger").value,
+                    e.schedule.id[0]
+                );
+                console.log(shift);
+                shiftCollection.addShift(shift);
+                calendar.updateSchedule(
                     e.schedule.id,
                     e.schedule.calendarId,
                     e.schedule

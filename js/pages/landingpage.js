@@ -1,6 +1,13 @@
 import checkCredentials from "/js/tools/loginService.js";
+import * as setup from "/js/tools/setup.js";
 
 function login(username, password) {
+    if (!localStorage.getItem("employees")) {
+        setup.saveEmployees();
+        setup.saveDepartments();
+        setup.savePizzas();
+        setup.saveShifts();
+    }
     const user = checkCredentials(username, password);
     console.log("click");
     if (user !== null) {
