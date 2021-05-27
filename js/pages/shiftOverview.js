@@ -75,7 +75,8 @@ const shiftOverview = ((state) => {
     function generateScaffold() {
         mainContainer.innerHTML = `
             <div class="container column">
-                <div id="shift-menu">
+                <div id="shift-menu" >
+                <div id="admin-text" ></div>
                     <button
                         id="prev-btn"
                         class="button is-info"
@@ -85,6 +86,7 @@ const shiftOverview = ((state) => {
                     </button>
                     <button id="today-btn" class="button is-info">I dag</button>
                     <button id="next-btn" class="button is-info">Neste</button>
+                    
                 </div>
                 <div id="calendar"></div>
             </div>
@@ -346,9 +348,9 @@ const shiftOverview = ((state) => {
             ) !== -1
                 ? true
                 : false;
-        console.log(isAdmin);
-
-        console.log(state);
+        if (isAdmin) {
+            document.getElementById('admin-text').innerText = "Du er registrert som leder og kan endre vaktlistene ved denne avdelingen";
+        } else document.getElementById('admin-text').innerText = "";
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
         let selectedLocation = document.getElementById("avdelinger");
@@ -368,6 +370,7 @@ const shiftOverview = ((state) => {
                     body: "",
                     start: shift.start,
                     end: shift.end,
+                    bgColor: '#e4f2fa'
                 });
             });
         calendarOption.disableClick = !isAdmin;

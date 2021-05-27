@@ -21,11 +21,11 @@ setup.saveEmployees();
 setup.saveDepartments();
 setup.addEventListeners(state);
 // Dev environment
-const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
-if (user !== null) state.loggedInUser = user;
+//const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
+//if (user !== null) state.loggedInUser = user;
 
 // prod
-//state.loggedInUser = JSON.parse(localStorage.getItem("user"));
+state.loggedInUser = JSON.parse(localStorage.getItem("user"));
 
 // kanskje kjøre denne på profiles siden det er den første som kjører..
 const depColl = new DepartmentCollection();
