@@ -276,13 +276,11 @@ export function addEventListeners(state) {
     document.getElementById("log-out").onclick = () => {
         localStorage.removeItem("user");
         window.location.href = "/landingpage.html";
-        document.getElementById("avdelinger").disabled = false;
     };
     const pageTitleElement = document.getElementById("page-title");
     document.getElementById("profile-link").onclick = () => {
         pageTitleElement.innerHTML = "Min Side";
         profile.init(state);
-        document.getElementById("avdelinger").disabled = true;
     };
     document.getElementById("shift-link").onclick = () => {
         shiftOverview.init(state);

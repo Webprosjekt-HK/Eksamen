@@ -37,6 +37,7 @@ const profile = (() => {
                 return "All Day";
             },
             time: function (schedule) {
+                console.log(schedule);
                 const departmentId = shiftCollection.getShiftById(
                     schedule.id
                 ).departmentID;
@@ -132,6 +133,7 @@ const profile = (() => {
         const userObject = state.loggedInUser;
         generateScaffold(userObject);
         document.getElementById("avdelinger").disabled = true;
+
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this
         const schedules = [];

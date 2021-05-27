@@ -275,7 +275,7 @@ const shiftOverview = ((state) => {
         // available update method. Instead I'll just delete the schedule and
         // create another one, with a fresh ID.
         const newID = createScheduleId(schedule.employeeID, schedule.start);
-
+        const selectedDepartment = document.getElementById("avdelinger").value;
         calendar.deleteSchedule(oldID, "1");
         console.log(oldID);
         shiftCollection.removeShift(oldID);
@@ -283,7 +283,7 @@ const shiftOverview = ((state) => {
             newID,
             schedule.start,
             schedule.end,
-            "depID",
+            selectedDepartment,
             schedule.employeeID
         );
         const userObject = employeeCollection.findEmployeeById(
@@ -316,9 +316,9 @@ const shiftOverview = ((state) => {
         );
         const shiftId = createScheduleId(userId, start);
         const departmentId = document.getElementById("avdelinger").value;
-        const shift = new Shift(shiftId, start, end, userId, departmentId);
+        const shift = new Shift(shiftId, start, end, departmentId, userId);
         shiftCollection.addShift(shift);
-
+        console.log(shift);
         calendar.createSchedules([
             {
                 id: shiftId,
