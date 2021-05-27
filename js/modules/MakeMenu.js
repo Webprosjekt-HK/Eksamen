@@ -2,7 +2,7 @@ export default class MakeMenu {
     apply = () => {
 
         let emptyTable = `
-            <table id="menu-table" class="table is-striped" width="100%">
+            <table id="menu-table" class="table is-striped" width="90%">
                 <thead>
                     <tr>
                         <th>Navn</th>
@@ -11,7 +11,6 @@ export default class MakeMenu {
                         <th>Utsalgspris</th>
                         <th>Profitt</th>
                         <th>Ta bort</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="menu-body">

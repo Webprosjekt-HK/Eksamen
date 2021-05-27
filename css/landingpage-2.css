@@ -30,34 +30,44 @@ Lys: #faece4
     text-decoration: none;
 }
 
-a.underline{
-    position: relative;
-}
-
-.underline :before {
-    content: "";
+.navbar-item:after{
+    content: '';
     position: absolute;
     width: 100%;
+    transform: scaleX(0);
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #FFF;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-  }
+    background-color: #F9932F !important;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
 
-  .underline :hover:before {
-    visibility: visible;
+.navbar-item:hover:after{
+    background-color: #F9932F !important;
     transform: scaleX(1);
-  }
+    transform-origin: bottom left;
+}
+/*.navbar-item:hover{
+    content: '';
+    color: #F9932F !important;
+    text-decoration: underline;
+}*/
 
 .navbar-link {
     color: white;
 }
 
+.navbar-link:hover{
+    color: #F9932F !important;
+}
+
 .navbar-dropdown {
     color: black;
+}
+
+.bx.bxs-user{
+    margin-right: 10px;
 }
 
 .columns.pt-6{
