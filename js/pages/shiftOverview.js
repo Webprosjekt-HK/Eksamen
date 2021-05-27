@@ -81,13 +81,13 @@ const shiftOverview = ((state) => {
                         <div class="column">
                             <button
                                 id="prev-btn"
-                                class="button is-info"
+                                class="button is-info is-outlined"
                                 data-action="move-prev"
                             >
                                 Forrige
                             </button>
-                            <button id="today-btn" class="button is-info">I dag</button>
-                            <button id="next-btn" class="button is-info">Neste</button>
+                            <button id="today-btn" class="button is-info is-outlined">I dag</button>
+                            <button id="next-btn" class="button is-info is-outlined">Neste</button>
                         </div>
                         <div class="column">
                             <div id="admin-text" ></div>

@@ -1,7 +1,5 @@
 import MakeProfileBanner from "/js/modules/MakeProfileBanner.js";
-import * as setup from "/js/tools/setup.js";
 import EmployeeCollection from "/js/classes/EmployeeCollection.js";
-import Department from "/js/classes/Department.js";
 import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 import makeInfoPage from "/js/modules/makeInfoPage.js";
 
