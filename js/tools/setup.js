@@ -2,6 +2,11 @@ import { Employee } from "/js/classes/Person.js";
 import Shift from "/js/classes/Shift.js";
 import Department from "/js/classes/Department.js";
 import Pizza from "/js/classes/Pizza.js";
+import salesInfo from "/js/pages/sales.js";
+import menu from "/js/pages/menu.js";
+import profile from "/js/pages/profile.js";
+import shiftOverview from "/js/pages/shiftOverview.js";
+import departments from "/js/pages/departments.js";
 
 const employees = [
     new Employee(
@@ -140,7 +145,7 @@ const shifts = [
         3
     ),
 ];
-const departments = [
+const _departments = [
     new Department(
         1,
         "Oslo - Majorstuen",
@@ -253,7 +258,7 @@ export function saveEmployees() {
 }
 
 export function saveDepartments() {
-    localStorage.setItem("departments", JSON.stringify(departments));
+    localStorage.setItem("departments", JSON.stringify(_departments));
 }
 
 export function savePizzas() {
@@ -266,7 +271,7 @@ export function saveShifts() {
     window.location.reload();
 }
 
-export function addEventListeners() {
+export function addEventListeners(state) {
     // Event handler for links
     document.getElementById("log-out").onclick = () => {
         localStorage.removeItem("user");
@@ -283,6 +288,7 @@ export function addEventListeners() {
     };
     document.getElementById("department-link").onclick = () => {
         pageTitleElement.innerHTML = "Avdelinger";
+
         departments.init();
     };
     document.getElementById("sales-link").onclick = () => {

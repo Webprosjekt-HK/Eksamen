@@ -14,6 +14,24 @@ const profile = (() => {
         defaultView: "month",
         scheduleView: true, // Can be also ['allday', 'time']
         template: {
+            monthGridHeader: function (dayModel) {
+                var date = parseInt(dayModel.date.split("-")[2], 10);
+                var classNames = ["tui-full-calendar-weekday-grid-date "];
+                console.log(dayModel);
+                if (dayModel.isToday) {
+                    classNames.push(
+                        "tui-full-calendar-weekday-grid-date-decorator"
+                    );
+                }
+
+                return (
+                    '<span class="' +
+                    classNames.join(" ") +
+                    '">' +
+                    date +
+                    "</span>"
+                );
+            },
             milestone: function (schedule) {
                 return (
                     '<span style="color:red;"><i class="fa fa-flag"></i> ' +
@@ -82,6 +100,7 @@ const profile = (() => {
                         <div id="calendar-menu">
                             <button id="prev-btn" class="button">Previous</button>
                             <button id="next-btn" class="button">Next</button>
+                            <span id="render-range" class="render-range"></span>
                         </div>
                         <div class="container" id="calendar"></div>
                     </div>

@@ -19,7 +19,7 @@ const state = {
 setup.saveShifts();
 setup.saveEmployees();
 setup.saveDepartments();
-
+setup.addEventListeners(state);
 // Dev environment
 const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 if (user !== null) state.loggedInUser = user;
@@ -49,5 +49,3 @@ try {
 // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
 document.querySelector(".profile-name").innerHTML =
     state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
-
-setup.addEventListeners();
