@@ -184,34 +184,10 @@ const departments = [
 ];
 
 const menuItems = [
-    new Pizza(
-        "Margarita",
-        "Mozarella og tomatsaus",
-        30,
-        94,
-        64
-    ),
-    new Pizza(
-        "Hawaii",
-        "Mozarella, tomatsaus, ananas og skinke",
-        40,
-        104,
-        64
-    ),
-    new Pizza(
-        "Pepperoni",
-        "Mozarella, tomatsaus og pepperoni",
-        35,
-        114,
-        79
-    ),
-    new Pizza(
-        "Ham",
-        "Mozarella, tomatsaus og skinke",
-        40,
-        94,
-        54
-    ),
+    new Pizza("Margarita", "Mozarella og tomatsaus", 30, 94, 64),
+    new Pizza("Hawaii", "Mozarella, tomatsaus, ananas og skinke", 40, 104, 64),
+    new Pizza("Pepperoni", "Mozarella, tomatsaus og pepperoni", 35, 114, 79),
+    new Pizza("Ham", "Mozarella, tomatsaus og skinke", 40, 94, 54),
     new Pizza(
         "The Tropical",
         "Mozarella, tomatsaus, osteblanding, ananas og oregano",
@@ -267,7 +243,7 @@ const menuItems = [
         45,
         158,
         113
-    )
+    ),
 ];
 
 export function saveEmployees() {
@@ -280,7 +256,7 @@ export function saveDepartments() {
     localStorage.setItem("departments", JSON.stringify(departments));
 }
 
-export function savePizzas(){
+export function savePizzas() {
     localStorage.setItem("pizzas", JSON.stringify(menuItems));
 }
 

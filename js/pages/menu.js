@@ -5,19 +5,18 @@ import MenuItems from "/js/modules/MenuItems.js";
 import Pizza from "/js/classes/Pizza.js";
 
 const menu = (() => {
-
     const init = () => {
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
-        if(!localStorage.getItem("pizzas")) setup.savePizzas();
+        if (!localStorage.getItem("pizzas")) setup.savePizzas();
         let pizzaList = new PizzaCollection().fetchPizza();
         console.log(pizzaList);
         const makeMenu = new MakeMenu();
         const menuItems = new MenuItems();
 
         makeMenu.apply();
-        
-        for (let i = 0; i < pizzaList.length; i++){
+
+        for (let i = 0; i < pizzaList.length; i++) {
             menuItems.apply(
                 `${pizzaList[i].name}`,
                 `${pizzaList[i].ingredients}`,
@@ -25,6 +24,19 @@ const menu = (() => {
                 `${pizzaList[i].outPrice}`,
                 `${pizzaList[i].profit}`
             );
+        }
+        var index,
+            table = document.getElementById("table");
+        for (var i = 1; i < table.rows.length; i++) {
+            table.rows[i].cells[5].onclick = function () {
+                var c = confirm(
+                    "Er du sikker på at du vil slette denne raden?"
+                );
+                if (c === true) {
+                    index = this.parentElement.rowIndex;
+                    table.deleteRow(index);
+                }
+            };
         }
     };
     return { init };

@@ -1,19 +1,17 @@
 import MakeTile from "/js/modules/MakeTile.js";
 
-
-
 const salesInfo = (() => {
-
     //const mainElement = document.getElementById("main");
 
     const init = () => {
         const containerElement = document.createElement("div");
         containerElement.classList.add("columns", "is-multiline")
+        containerElement.classList.add("columns", "is-multiline");
         containerElement.id = "sales-container";
-        
+
         document.getElementById("main").innerHTML = "";
         document.getElementById("main").append(containerElement);
-        
+
         const makeTile = new MakeTile("sales-container");
         //const mainElement = document.getElementById("main-sales");
 
@@ -43,6 +41,8 @@ const salesInfo = (() => {
             '<div id="storo"></div>',
             "is-3"
         );
+        makeTile.apply("Mai 2021", "Oslo", '<div id="oslo"></div>', "is-3");
+        makeTile.apply("Mai 2021", "Bergen", '<div id="bergen"></div>', "is-3");
         makeTile.apply(
             "Mai 2021",
             "Oslo - Skippergata",
