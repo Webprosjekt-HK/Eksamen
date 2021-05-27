@@ -5,7 +5,7 @@ function login(username, password) {
     console.log("click");
     if (user !== null) {
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.replace("/index-christian.html");
+        window.location.replace("/index.html");
         console.log("Logging in");
     } else {
         // some message
