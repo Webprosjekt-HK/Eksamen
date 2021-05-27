@@ -14,24 +14,6 @@ const profile = (() => {
         defaultView: "month",
         scheduleView: true, // Can be also ['allday', 'time']
         template: {
-            monthGridHeader: function (dayModel) {
-                var date = parseInt(dayModel.date.split("-")[2], 10);
-                var classNames = ["tui-full-calendar-weekday-grid-date "];
-                console.log(dayModel);
-                if (dayModel.isToday) {
-                    classNames.push(
-                        "tui-full-calendar-weekday-grid-date-decorator"
-                    );
-                }
-
-                return (
-                    '<span class="' +
-                    classNames.join(" ") +
-                    '">' +
-                    date +
-                    "</span>"
-                );
-            },
             milestone: function (schedule) {
                 return (
                     '<span style="color:red;"><i class="fa fa-flag"></i> ' +
@@ -153,7 +135,7 @@ const profile = (() => {
         // Get the shifts from logged in user, and format them for
         // further use in the calendar. Should probably move this
         const schedules = [];
-        let selectedDepartment = document.getElementById("avdelinger").value;
+
         shifts
             .filter((s) => s.employeeID === userObject.id)
             .forEach((shift) => {
@@ -176,9 +158,12 @@ const profile = (() => {
             calendarOptions,
             schedules
         );
+        console.log(calendar.getDate());
         document.getElementById("prev-btn").onclick = () => calendar.prev();
         document.getElementById("next-btn").onclick = () => calendar.next();
-
+        document.getElementById("render-range").innerHTML = new Date(
+            calendar.getDate()
+        ).toLocaleString("nb-NO", { month: "long" });
         // Legg til tiles
         const makeTile = new MakeTile("work-info");
         const nextShift = shiftCollection.getNextShiftByUserId(userObject.id);
@@ -190,7 +175,6 @@ const profile = (() => {
         previousMonth.setMonth(today.getMonth() - 1);
         const lastPaycheck = today.getDate() >= 15 ? today : previousMonth;
         lastPaycheck.setDate(15);
-        console.log(lastPaycheck);
         makeTile.apply(
             '<img src="/images/icons/id-card.svg" alt="id card icon"/>',
             "Neste vakt",

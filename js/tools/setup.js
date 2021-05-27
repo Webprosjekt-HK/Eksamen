@@ -276,27 +276,32 @@ export function addEventListeners(state) {
     document.getElementById("log-out").onclick = () => {
         localStorage.removeItem("user");
         window.location.href = "/landingpage.html";
+        document.getElementById("avdelinger").disabled = false;
     };
     const pageTitleElement = document.getElementById("page-title");
     document.getElementById("profile-link").onclick = () => {
         pageTitleElement.innerHTML = "Min Side";
         profile.init(state);
+        document.getElementById("avdelinger").disabled = true;
     };
     document.getElementById("shift-link").onclick = () => {
         shiftOverview.init(state);
         pageTitleElement.innerHTML = "Skift";
+        document.getElementById("avdelinger").disabled = false;
     };
     document.getElementById("department-link").onclick = () => {
         pageTitleElement.innerHTML = "Avdelinger";
-
+        document.getElementById("avdelinger").disabled = false;
         departments.init();
     };
     document.getElementById("sales-link").onclick = () => {
         salesInfo.init();
         pageTitleElement.innerHTML = "Omsetning";
+        document.getElementById("avdelinger").disabled = false;
     };
     document.getElementById("menu-link").onclick = () => {
         menu.init();
         pageTitleElement.innerHTML = "Meny";
+        document.getElementById("avdelinger").disabled = false;
     };
 }
