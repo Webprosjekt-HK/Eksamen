@@ -2,7 +2,7 @@ export default class makeInfoPage {
     deploy = (name, address, weekHours, weekendHours, phoneNumber, email, mapImage) => {
         //HTML-content to send to info section (parameters are contents deployed)
         let info = `
-        <p class="title">${name}</p>
+        <p class="title card-header">${name}</p>
         <p>${weekHours}</p>
         <p>${weekendHours}</p>
         <p>Telefon: ${phoneNumber}</p>
@@ -27,7 +27,7 @@ export default class makeInfoPage {
                             </div>
                             <div class="tile is-parent">
                               <div class="is-child box card">
-                                <p class="title">Ansatte</p>
+                                <p class="title card-header">Ansatte</p>
                                 <div id="employees" class="columns is-multiline is-gapless employees-box"></div>
                               </div>
                             </div>

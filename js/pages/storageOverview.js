@@ -27,9 +27,9 @@ const storage = (() => {
         
         //Deploys all base ingredients to storage-section
         for (let i = 0; i < 4; i++){
-            if(ingredients[i].status == 1) stockStatus = `<a class="button is-danger is-rounded">Tomt</a>`;
-            if(ingredients[i].status == 2) stockStatus = `<a class="button is-warning is-rounded">Lav</a>`;
-            if(ingredients[i].status == 3) stockStatus = `<a class="button is-primary is-rounded">Normal</a>`;
+            if(ingredients[i].status == 1) stockStatus = `<div class="storage-empty">Tomt</div>`;
+            if(ingredients[i].status == 2) stockStatus = `<div class="storage-low">Lav</div>`;
+            if(ingredients[i].status == 3) stockStatus = `<div class="storage-normal">Normal</div>`;
             storageItems.apply(
                 `${ingredients[i].name}`,
                 `${ingredients[i].stock}`,

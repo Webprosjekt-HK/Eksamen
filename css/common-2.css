@@ -63,7 +63,7 @@
 
 
 #profile-info .card {
-    background: #dde1e7;
+    background: #fff;
     padding: 20px 5px 10px 5px;
     margin-top: 24px;
     max-width: 260px;
@@ -187,3 +187,37 @@
     background: #f4f4f4;
     border-radius: 12px;
 }
+
+/* Vareoversikt */
+
+.storage-normal {
+    background: #29CC97bb;
+    padding: 12px 12px 12px 12px;
+    border-radius: 25px;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.storage-low {
+    background: #FEC400bb;
+    padding: 12px 12px 12px 12px;
+    border-radius: 25px;
+    width: 100px;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.storage-empty {
+    background: #fe4e4ebb;
+    padding: 12px 12px 12px 12px;
+    border-radius: 25px;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
