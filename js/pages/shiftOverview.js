@@ -96,7 +96,6 @@ const shiftOverview = ((state) => {
                 </div>
                 <div id="calendar"></div>
             </div>
-            <div class="column is-2"></div>
         `;
     }
     function generatePopupMenu(calendar, users, schedule, update) {
@@ -134,9 +133,7 @@ const shiftOverview = ((state) => {
                                 })}
                             </select>
                         </div>
-                        <span class="icon is-left">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </span>
+                        
                     </div>
                 </div>
                 <div class="panel-block">
@@ -179,8 +176,8 @@ const shiftOverview = ((state) => {
                 </div>
                 <div class="panel-block">
                     <div class="control has-icons-left">
-                        <button id="popup-confirm" class="button is-primary">Legg til</button>
-                        <button id="delete-button" class="button is-warning">Slett</button>
+                        <button id="popup-confirm" class="button is-outlined is-primary">Legg til</button>
+                        <button id="delete-button" class="button is-outlined is-danger">Slett</button>
                     </div>
                 </div>
             </div>
