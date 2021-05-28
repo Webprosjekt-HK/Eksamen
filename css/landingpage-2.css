@@ -3,11 +3,11 @@ FARGER:
 Mørk: #e3d5cd
 Lys: #faece4
 */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
 
 * {
     font-family: "Poppins", sans-serif;
-}
+}*/
 
 #logo{
     position: absolute;
@@ -27,12 +27,16 @@ Lys: #faece4
 }
 
 .navbar-start {
-    margin-left: 15%;
+    margin-left: 20%;
+}
+
+.navbar-end {
+    margin-right: 5%;
 }
 
 .navbar-item{
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     color: white;
     text-decoration: none;
 }
@@ -88,6 +92,7 @@ a.navbar-link:hover{
 
 .columns.pt-6{
     margin-top: 12%;
+    margin-left: 10%;
 }
 
 h1 {
