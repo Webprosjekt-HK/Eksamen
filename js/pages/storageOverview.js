@@ -10,6 +10,7 @@ const storage = (() => {
         //Clears main-section
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
+        //Checks if list of ingredients is present in localStorage. Adds them if they are not
         if(!localStorage.getItem("ingredients")) setup.saveIngredients();
         let ingredientList = new IngredientCollection();
         let ingredients = ingredientList.fetchIngredient();
