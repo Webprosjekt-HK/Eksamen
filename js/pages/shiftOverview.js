@@ -42,7 +42,7 @@ const shiftOverview = ((state) => {
                 return "&nbsp;&nbsp;#" + schedule.title;
             },
             taskTitle: function () {
-                return "<span>Oppgaver</span>";
+                return "<span>Opp- gaver</span>";
             },
             allday: function (schedule) {
                 return schedule.title + ' <i class="fa fa-refresh"></i>';
@@ -352,8 +352,9 @@ const shiftOverview = ((state) => {
                 ? true
                 : false;
         if (isAdmin) {
-            document.getElementById('admin-text').innerText = "Du er registrert som leder, og kan endre vaktlistene ved denne avdelingen";
-        } else document.getElementById('admin-text').innerText = "";
+            document.getElementById("admin-text").innerText =
+                "Du er registrert som leder, og kan endre vaktlistene ved denne avdelingen";
+        } else document.getElementById("admin-text").innerText = "";
         const shifts = shiftCollection.fetchShifts();
         const schedules = [];
         let selectedLocation = document.getElementById("avdelinger");
@@ -373,7 +374,7 @@ const shiftOverview = ((state) => {
                     body: "",
                     start: shift.start,
                     end: shift.end,
-                    bgColor: '#e4f2fa'
+                    bgColor: "#e4f2fa",
                 });
             });
         calendarOption.disableClick = !isAdmin;

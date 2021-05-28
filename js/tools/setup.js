@@ -9,6 +9,7 @@ import shiftOverview from "/js/pages/shiftOverview.js";
 import departments from "/js/pages/departments.js";
 import Ingredient from "/js/classes/Ingredient.js";
 import storageOverview from "/js/pages/storageOverview.js";
+import admin from "/js/pages/admin.js";
 
 const employees = [
     new Employee(
@@ -254,33 +255,13 @@ const menuItems = [
 ];
 
 const ingredients = [
-    new Ingredient(
-        "Pizzasaus",
-        50,
-        1000,
-        3
-    ),
-    new Ingredient(
-        "Mel",
-        20,
-        1500,
-        2
-    ),
-    new Ingredient(
-        "Olje",
-        5,
-        1000,
-        1
-    ),
-    new Ingredient(
-        "Ost",
-        100,
-        2000,
-        3
-    )
+    new Ingredient("Pizzasaus", 50, 1000, 3),
+    new Ingredient("Mel", 20, 1500, 2),
+    new Ingredient("Olje", 5, 1000, 1),
+    new Ingredient("Ost", 100, 2000, 3),
 ];
 
-export function saveIngredients(){
+export function saveIngredients() {
     localStorage.setItem("ingredients", JSON.stringify(ingredients));
 }
 
@@ -339,5 +320,8 @@ export function addEventListeners(state) {
         storageOverview.init();
         pageTitleElement.innerHTML = "Vareoversikt";
         document.getElementById("avdelinger").disabled = false;
+    };
+    document.getElementById("admin-page").onclick = () => {
+        admin.init(state);
     };
 }
