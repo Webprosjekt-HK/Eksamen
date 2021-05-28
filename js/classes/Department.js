@@ -1,4 +1,5 @@
 export default class Department {
+    //Class constructor for Department objects
     id;
     name;
     address;

@@ -12,11 +12,11 @@ const departments = (() => {
      * - Mer hypping kommentering av kode. Tydelig forklar hva hver del gjør.
      * **/
     const init = (department) => {
+        //Creating necessary objects to manipulate and deploy to DOM
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;
         let employeeList = new EmployeeCollection().fetchEmployees();
         let makeProfileBanner = new MakeProfileBanner("main-body");
-        let departmentList = new DepartmentCollection().fetchDepartments();
         let selectedDepartment = document.getElementById("avdelinger").value;
         let currentDepartment =
             new DepartmentCollection().filterDepartmentsById(
@@ -24,8 +24,7 @@ const departments = (() => {
             );
         let profileInfo = new makeInfoPage("info-page");
 
-        console.log(departmentList);
-
+        //Deploy info about selected department (Selected in dropdown menu)
         profileInfo.deploy(
             `${currentDepartment.name}`,
             `${currentDepartment.address}`,
@@ -36,6 +35,7 @@ const departments = (() => {
             `${currentDepartment.mapLocation}`
         );
 
+        //Deploy info about each employee
         for (let i = 1; i < 4; i++) {
             for (let j = 0; i < 4; j++) {
                 makeProfileBanner.apply(

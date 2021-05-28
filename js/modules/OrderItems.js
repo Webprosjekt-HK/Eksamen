@@ -1,5 +1,9 @@
 export default class OrderItems {
     apply = (name, amount, price, totalPrice) => {
+        /**
+         * Table row to be added to order-list table
+         * Parameters defines value of each cell (Object values)
+         * **/
         let addItem = `
             <tr>
                 <td>${ name }</td>
@@ -11,6 +15,7 @@ export default class OrderItems {
             </tr>
         `;
 
+        //Applying the table row to the empty table
         document.getElementById("order-body").innerHTML += addItem;
     };
 }
