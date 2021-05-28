@@ -1,5 +1,9 @@
 export default class StorageItems {
     apply = (name, amount, date, status) => {
+        /**
+         * Table row for empty storage table.
+         * Parameters define each cell value (Object values)
+         * **/
         let addItem =  `
             <tr>
                 <td>${ name }</td>
@@ -11,6 +15,7 @@ export default class StorageItems {
             </tr>
         `;
 
+        //Applying the table row to storage table
         document.getElementById("storage-body").innerHTML += addItem;
     };
 }

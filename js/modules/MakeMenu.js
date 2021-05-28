@@ -1,6 +1,6 @@
 export default class MakeMenu {
     apply = () => {
-
+        //Empty menu table deployed to main-section of HTML document
         let emptyTable = `
             <table id="menu-table" class="table is-striped" width="90%">
                 <thead>
@@ -17,6 +17,8 @@ export default class MakeMenu {
                 </tbody>
             </table>
         `;
+
+        //Sending emptyTable (Empty menu) to main-section
         document.getElementById("main").innerHTML += emptyTable;
     };
 }

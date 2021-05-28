@@ -1,4 +1,5 @@
 export default class Ingredient {
+    //Class constructor for Ingredient objects
     name;
     stock;
     price;

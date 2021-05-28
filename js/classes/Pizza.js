@@ -1,4 +1,5 @@
 export default class Pizza {
+    //Class constructor for Pizza objects
     name;
     ingredients;
     inPrice;
