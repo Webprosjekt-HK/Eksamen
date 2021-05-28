@@ -192,7 +192,7 @@ const profile = (() => {
         const lastPaycheck = today.getDate() >= 15 ? today : previousMonth;
         lastPaycheck.setDate(15);
         makeTile.apply(
-            '<img src="/images/icons/id-card.svg" alt="id card icon"/>',
+            '<i class="bx bxs-calendar card-icon" ></i>',
             "Neste vakt",
             nextShift.toLocaleString("nb-NO", {
                 weekday: "long",
@@ -202,13 +202,13 @@ const profile = (() => {
             "is-4"
         );
         makeTile.apply(
-            '<img src="/images/icons/clock.svg" alt="clock icon"/>',
+            '<i class="bx bxs-time-five card-icon" ></i>',
             "Timer jobbet",
             hoursWorked,
             "is-4"
         );
         makeTile.apply(
-            '<img src="/images/icons/paycheck.svg" alt="paycheck icon"/>',
+            '<i class="bx bxs-dollar-circle card-icon" ></i>',
             "Siste lønnsslipp",
             lastPaycheck.toLocaleString("nb-NO", {
                 weekday: "long",

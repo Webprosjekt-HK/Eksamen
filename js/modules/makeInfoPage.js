@@ -15,17 +15,17 @@ export default class makeInfoPage {
 
         let infoSection = `
         <div class="tile is-4 is-vertical is-parent">
-                              <div class="tile is-child box">
+                              <div class="tile is-child box card">
                                 <div id="resturant-info"></div>
                               </div>
-                              <div class="tile is-child box">
+                              <div class="tile is-child box card">
                                 <div id="map-image"></div>
                               </div>
                             </div>
                             <div class="tile is-parent">
-                              <div class="is-child box">
+                              <div class="is-child box card">
                                 <p class="title">Ansatte</p>
-                                <div id="employees" class="columns is-multiline is-gapless"></div>
+                                <div id="employees" class="columns is-multiline is-gapless employees-box"></div>
                               </div>
                             </div>
         `;

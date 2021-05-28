@@ -8,7 +8,7 @@ export default class MenuItems {
                 <td>${ inPrice }</td>
                 <td>${ outPrice }</td>
                 <td>${ profit }</td>
-                <td><img src="./images/stop-sign.png" width="24px" height="24px"></td>
+                <td><i class='bx bxs-x-circle remove-btn'></i></td>
                 <td><img src="./images/triple_dots.png" width="24px" height="24px"></td>
             </tr>
         `;
