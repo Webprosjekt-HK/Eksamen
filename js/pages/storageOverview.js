@@ -18,6 +18,11 @@ const storage = (() => {
         const orderItems = new OrderItems();
         makeStorageTable.apply();
         let stockStatus = "";
+        let currentTime = new Date().toLocaleString("nb-NO", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+        })
         
         for (let i = 0; i < 4; i++){
             if(ingredients[i].status == 1) stockStatus = `<a class="button is-danger is-rounded">Tomt</a>`;
@@ -26,7 +31,7 @@ const storage = (() => {
             storageItems.apply(
                 `${ingredients[i].name}`,
                 `${ingredients[i].stock}`,
-                `3. Mai`,
+                `${currentTime}`,
                 `${stockStatus}`
             );
         }
