@@ -10,7 +10,7 @@ export default class MakeStorageTable {
                     <tr>
                         <th>Varenavn</th>
                         <th>Antall på lager</th>
-                        <th>Dato</th>
+                        <th>Dato oppdatert</th>
                         <th>Lagerstatus</th>
                         <th></th>
                     </tr>
