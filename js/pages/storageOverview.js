@@ -47,7 +47,6 @@ const storage = (() => {
                         `${ingredientList[index].price / 10}`,
                         `${ingredientList[index].price}`
                     );
-                    table.deleteRow(index);
                 }
             };
         }
