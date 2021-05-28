@@ -137,6 +137,9 @@ const salesInfo = (() => {
         var layoutPie = {
             title: 'Total salg. Hold over kategoriene.',
             height: 400,
+            font: {
+                size: 10
+            },
             //width: 300,
             //margin: {"t": 0, "b": 0, "l": 0, "r": 0},
             showlegend: false,

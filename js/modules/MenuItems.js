@@ -1,6 +1,9 @@
 export default class MenuItems {
     apply = (name, ingredients, inPrice, outPrice, profit) => {
-
+        /**
+         * Adding a new table row to the empty menu section. 
+         * Parameters defines value of each cell (Object values) 
+         * **/
         let addPizza = `
             <tr>
                 <td>${ name }</td>
@@ -13,6 +16,7 @@ export default class MenuItems {
             </tr>
         `;
 
+        //Applying table row to menu table
         document.getElementById("menu-body").innerHTML += addPizza;
     };
 }

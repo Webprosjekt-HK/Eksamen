@@ -26,8 +26,7 @@
 
 /* Svartfargen er muligens feil på denne */
 .card,
-.panel-heading,
-.button {
+.panel-heading {
     background: #faece4 !important;
     color: black !important;
 }
@@ -47,6 +46,9 @@
 }
 #calendar-menu, #shift-menu {
     padding-bottom: 10px;
+}
+#shift-menu .column {
+    padding-left: 0;
 }
 #profile-info .card {
     box-shadow: none;

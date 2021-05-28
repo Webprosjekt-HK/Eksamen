@@ -1,12 +1,18 @@
 export default class MakeStorageTable {
     apply = () => {
+        //Empty div-tag with format according to style
+        let div = `
+            <div id="storage-container" class="columns is-multiline"></div>
+        `;
+        //Empty table to store current product stock
         let productsLeft = `
+        <div class="column is-12">
             <table id="products-left-table" class="table is-striped" width="90%">
                 <thead>
                     <tr>
                         <th>Varenavn</th>
                         <th>Antall på lager</th>
-                        <th>Dato</th>
+                        <th>Dato oppdatert</th>
                         <th>Lagerstatus</th>
                         <th></th>
                     </tr>
@@ -14,9 +20,11 @@ export default class MakeStorageTable {
                 <tbody id="storage-body">
                 </tbody>
             </table>
+        </div>
         `;
-
+        //Empty table to store products that are to be ordered
         let orderTable = `
+        <div class="column is-12">
             <table id="order-list-table" class="table is-striped" width="90%">
                 <thead>
                     <tr>
@@ -31,9 +39,12 @@ export default class MakeStorageTable {
                 <tbody id="order-body">
                 </tbody>
             </table>
+        </div>
         `;
 
-        document.getElementById("main").innerHTML += productsLeft;
-        document.getElementById("main").innerHTML += orderTable;
+        //Deploys empty div to main and the two empty tables to the div mentioned
+        document.getElementById("main").innerHTML += div;
+        document.getElementById("storage-container").innerHTML += productsLeft;
+        document.getElementById("storage-container").innerHTML += orderTable;
     };
 }

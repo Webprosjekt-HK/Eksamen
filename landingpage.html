@@ -14,46 +14,49 @@
         <img src="/images/logo.svg" alt="logo" height="132px" width="160px" class="my-6 mx-6" id="logo">
 
         <section class="section" id="hero">
-            <div class="container">
+            <!--<div class="container">-->
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
+                        <a class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                            <span aria-hidden="true" style="color: #F9932F;"></span>
+                            <span aria-hidden="true" style="color: #F9932F;"></span>
+                            <span aria-hidden="true" style="color: #F9932F;"></span>
                         </a>
                     </div>
                   
 
-                      <div class="navbar-start">
-                        <a class="navbar-item" href="#">
-                          Meny
-                        </a>
-                  
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link" href="#">
-                                Restauranter
-                            </a>
-                  
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item">
-                                    Oslo - Majorstuen
-                                </a>
-                                <a class="navbar-item">
-                                    Oslo - Storo
-                                </a>
-                                <a class="navbar-item">
-                                    Oslo - Skippergata
-                                </a>
-                                <a class="navbar-item">
-                                    Oslo - Ensjø
-                                </a>
-                            </div>
-                        </div>
+                    <div class="navbar-menu" id="nav-links">
+
+                        <div class="navbar-start">
                             <a class="navbar-item" href="#">
-                                Kontakt oss
+                            Meny
                             </a>
-                      </div>
+                    
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link" href="#">
+                                    Restauranter
+                                </a>
+                    
+                                <div class="navbar-dropdown has-text-centered">
+                                    <a class="navbar-item">
+                                        Oslo - Majorstuen
+                                    </a>
+                                    <a class="navbar-item">
+                                        Oslo - Storo
+                                    </a>
+                                    <a class="navbar-item">
+                                        Oslo - Skippergata
+                                    </a>
+                                    <a class="navbar-item">
+                                        Oslo - Ensjø
+                                    </a>
+                                </div>
+                            </div>
+                                <a class="navbar-item" href="#">
+                                    Kontakt oss
+                                </a>
+                        </div>
+                     
                   
                       <div class="navbar-end">
                         
@@ -64,6 +67,7 @@
                             </a>
                         </div>
                       </div>
+                    </div>
 
                   </nav>
 
@@ -78,7 +82,7 @@
                         </div>
                     </div>
 
-            </div>
+            <!--</div>-->
         </section>
         <section class="section" id="meny">
 
@@ -110,33 +114,43 @@
 
     <script>
 
-        // Burger menu script
+        // BURGER MENU SCRIPT
 
-        document.addEventListener('DOMContentLoaded', function () {
+        const burgerIcon = document.querySelector('#burger');
+        const navbarMenu = document.querySelector('#nav-links');
+
+        burgerIcon.addEventListener('click', () => {
+            navbarMenu.classList.toggle('is-active')
+        });
+
+
+
+
+        //document.addEventListener('DOMContentLoaded', function () {
 
         // Get all "navbar-burger" elements
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        //var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
         // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
+        //if ($navbarBurgers.length > 0) {
 
         // Add a click event on each of them
-        $navbarBurgers.forEach(function ($el) {
-            $el.addEventListener('click', function () {
+        //$navbarBurgers.forEach(function ($el) {
+            //$el.addEventListener('click', function () {
 
             // Get the target from the "data-target" attribute
-            var target = $el.dataset.target;
-            var $target = document.getElementById(target);
+           // var target = $el.dataset.target;
+            //var $target = document.getElementById(target);
 
             // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-            $el.classList.toggle('is-active', 'has-black-text');
-            $target.classList.toggle('is-active', 'has-black-text');
+            //$el.classList.toggle('is-active', 'has-black-text');
+            //$target.classList.toggle('is-active', 'has-black-text');
 
-            });
-        });
-        }
+            //});
+        //});
+        //}
 
-        });
+        //});
 
         // OPEN LOGIN BOX SCRIPT
 

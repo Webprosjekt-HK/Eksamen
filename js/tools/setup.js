@@ -8,6 +8,8 @@ import profile from "/js/pages/profile.js";
 import shiftOverview from "/js/pages/shiftOverview.js";
 import departments from "/js/pages/departments.js";
 import Ingredient from "/js/classes/Ingredient.js";
+import storageOverview from "/js/pages/storageOverview.js";
+import admin from "/js/pages/admin.js";
 
 const employees = [
     new Employee(
@@ -28,15 +30,15 @@ const employees = [
         2,
         "Soussjef",
         45533312,
-        "Gjerdmunn",
+        "Solveig",
         "Hanssen",
-        "gjerdmunn@gylnepizza.no",
+        "solveig@gylnepizza.no",
         "1234",
         "pizzaveien 1",
         420000,
         "images/ansatt_2.png",
         [1, 2, 3, 4],
-        [1, 2, 3, 4]
+        [1, 2, 3]
     ),
     new Employee(
         3,
@@ -253,33 +255,13 @@ const menuItems = [
 ];
 
 const ingredients = [
-    new Ingredient(
-        "Pizzasaus",
-        50,
-        1000,
-        3
-    ),
-    new Ingredient(
-        "Mel",
-        20,
-        1500,
-        2
-    ),
-    new Ingredient(
-        "Olje",
-        5,
-        1000,
-        1
-    ),
-    new Ingredient(
-        "Ost",
-        100,
-        2000,
-        3
-    )
+    new Ingredient("Pizzasaus", 50, 1000, 3),
+    new Ingredient("Mel", 20, 1500, 2),
+    new Ingredient("Olje", 5, 1000, 1),
+    new Ingredient("Ost", 100, 2000, 3),
 ];
 
-export function saveIngredients(){
+export function saveIngredients() {
     localStorage.setItem("ingredients", JSON.stringify(ingredients));
 }
 
@@ -333,5 +315,13 @@ export function addEventListeners(state) {
         menu.init();
         pageTitleElement.innerHTML = "Meny";
         document.getElementById("avdelinger").disabled = false;
+    };
+    document.getElementById("storage-link").onclick = () => {
+        storageOverview.init();
+        pageTitleElement.innerHTML = "Vareoversikt";
+        document.getElementById("avdelinger").disabled = false;
+    };
+    document.getElementById("admin-page").onclick = () => {
+        admin.init(state);
     };
 }
