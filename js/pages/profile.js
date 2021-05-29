@@ -114,7 +114,12 @@ const profile = (() => {
                             </div>
                         </div>
                         <div class="content">
-                            <p class="italic" style="color: red;">Fødselsdato:<br />FIKS MEG</p>
+                            <p class="italic"">Fødselsdato:<br />${new Date(userObject.birthDate).toLocaleString("nb-NO", {
+                                weekday: "long",
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric"
+                            })}</p>
                             <p class="italic">Telefon:<br />${
                                 userObject.phoneNumber
                             }</p>

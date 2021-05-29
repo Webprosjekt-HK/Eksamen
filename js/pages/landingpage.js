@@ -9,13 +9,13 @@ function login(username, password) {
         setup.saveShifts();
     }
     const user = checkCredentials(username, password);
-    console.log("click");
+    console.log(user);
+    
     if (user !== null) {
         localStorage.setItem("user", JSON.stringify(user));
         window.location.replace("/index.html");
         console.log("Logging in");
     } else {
-        // some message
         console.error("wrong username or password");
     }
 }

@@ -7,6 +7,7 @@ export default class Person {
     username;
     password;
     address;
+    birthDate;
     constructor(
         id,
         role,
@@ -15,7 +16,8 @@ export default class Person {
         lastName,
         username,
         password,
-        address
+        address,
+        birthDate
     ) {
         this.id = id;
         this.role = role;
@@ -25,6 +27,7 @@ export default class Person {
         this.username = username;
         this.password = password;
         this.address = address;
+        this.birthDate = birthDate;
     }
 }
 
@@ -45,7 +48,8 @@ export class Employee extends Person {
         salary,
         pictureUrl,
         departmentID,
-        adminPrivileges
+        adminPrivileges,
+        birthDate
     ) {
         super(
             id,
@@ -55,7 +59,7 @@ export class Employee extends Person {
             lastName,
             username,
             password,
-            address
+            address, birthDate
         );
         this.departmentID = departmentID;
         this.adminPrivileges = adminPrivileges;

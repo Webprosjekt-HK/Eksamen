@@ -24,7 +24,8 @@ const employees = [
         420000,
         "images/ansatt_1.png",
         [1, 2, 3, 4],
-        [1, 2, 3, 4]
+        [1, 2, 3, 4],
+        new Date("01.08.1988")
     ),
     new Employee(
         2,
@@ -38,7 +39,8 @@ const employees = [
         420000,
         "images/ansatt_2.png",
         [1, 2, 3, 4],
-        [1, 2, 3]
+        [1, 2, 3],
+        new Date("01.03.1979")
     ),
     new Employee(
         3,
@@ -52,7 +54,8 @@ const employees = [
         420000,
         "images/ansatt_3.png",
         [2, 3],
-        []
+        [],
+        new Date("06.09.1995")
     ),
     new Employee(
         4,
@@ -67,6 +70,8 @@ const employees = [
         "images/ansatt_4.png",
         [1, 2, 4],
         []
+        ,
+        new Date("01.12.2000")
     ),
 ];
 const shifts = [

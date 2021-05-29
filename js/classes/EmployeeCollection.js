@@ -15,7 +15,8 @@ export default class EmployeeCollection {
             userObject.salary,
             userObject.pictureUrl,
             userObject.departmentID,
-            userObject.adminPrivileges
+            userObject.adminPrivileges,
+            new Date(userObject.birthDate)
         );
     fetchEmployees = () => {
         // The map method returns a new array with the result of the action done to the elements.
