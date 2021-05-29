@@ -191,11 +191,11 @@ const profile = (() => {
         makeTile.apply(
             '<i class="bx bxs-calendar card-icon" ></i>',
             "Neste vakt",
-            nextShift.toLocaleString("nb-NO", {
+            nextShift != null ? nextShift.toLocaleString("nb-NO", {
                 weekday: "long",
                 month: "long",
                 day: "numeric",
-            }),
+            }) : 'Ingen vakt satt opp',
             "is-4"
         );
         makeTile.apply(

@@ -41,7 +41,7 @@ export default class EmployeeCollection {
         return { status: "User added ", code: 200 };
     };
     findEmployeeById = (id) => {
-        return this.fetchEmployees().find((el) => el.id === id);
+        return this.fetchEmployees().find((el) => el.id == id);
     };
     removeEmployee = (username) => {
         const employees = this.fetchEmployees();

@@ -51,17 +51,23 @@ export default class ShiftCollection {
         return -1;
     };
     getNextShiftByUserId = (userId) => {
+        console.log(userId);
         const shifts = this.filterShiftsEmployeeID(userId).filter((d) => {
             const today = new Date();
+            console.log(d);
+            console.log(d.start);
             if (new Date(d.start) >= today) return d;
         });
+        if (shifts.length > 0) {
         let lowestDate = new Date(shifts[0].start);
-
+        
         for (let i = 1; i < shifts.length; i++) {
             if (new Date(shifts[i].start) < lowestDate)
                 lowestDate = new Date(shifts[i].start);
         }
+        
         return lowestDate;
+    } else return null
     };
     getHoursWorkedByUserId = (userId) => {
         const today = new Date();
