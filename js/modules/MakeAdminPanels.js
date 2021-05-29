@@ -12,7 +12,7 @@ export default class MakeAdminPanels {
             .fetchDepartments()
             .map((e) => {
                 return (
-                    '<div class="panel-block"><div class="control"><p class="subtitle is-5">Ansatt ved: </p><input type="checkbox" name="' +
+                    '<div class="panel-block department-registration"><div class="control"><p class="subtitle is-5">Ansatt ved: </p><input type="checkbox" name="' +
                     e.name +
                     '" value="' +
                     e.id +
@@ -20,7 +20,7 @@ export default class MakeAdminPanels {
                     e.name +
                     '">' +
                     e.name +
-                    '</label></div><div class="control"><p>Er leder?</span><br /><input type="radio" value="true" name="' +
+                    '</label></div><div class="control"><p>Er leder?</p><input type="radio" value="true" name="' +
                     e.id +
                     '" ><label for="' +
                     e.id +
@@ -41,6 +41,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        id="add-first-name"
                         class="input is-focuesed first-name"
                         type="text"
                         placeholder="Fornavn"
@@ -50,6 +51,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        id="add-last-name"
                         class="input last-name"
                         type="text"
                         placeholder="etternavn"
@@ -59,6 +61,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        id="add-birth-date"
                         class="input birth-date"
                         type="date"
                         placeholder="YYYY-MM-DD"
@@ -68,6 +71,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <textarea
+                        id="add-address"
                         class="input address"
                         type="text"
                         rows="5"
@@ -76,7 +80,7 @@ export default class MakeAdminPanels {
                 </div>
             </div>
             ${checkBoxes}
-            <div class="panel-block"><button class="button">Lagre</button> </div>
+            <div class="panel-block"><button class="button" id="admin-save-btn">Lagre</button> </div>
         </div>`;
         return containerElement;
     };
