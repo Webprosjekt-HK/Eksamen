@@ -12,6 +12,7 @@ const departments = (() => {
      * - Mer hypping kommentering av kode. Tydelig forklar hva hver del gjør.
      * **/
     const init = (department) => {
+        document.getElementById('avdelinger').addEventListener('change', () => init(department));
         //Creating necessary objects to manipulate and deploy to DOM
         const mainElement = document.getElementById("main");
         mainElement.innerHTML = ``;

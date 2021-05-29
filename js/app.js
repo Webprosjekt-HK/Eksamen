@@ -26,8 +26,8 @@ setup.addEventListeners(state);
 
 // prod
 state.loggedInUser = JSON.parse(localStorage.getItem("user"));
-
-// kanskje kjøre denne på profiles siden det er den første som kjører..
+console.log(state);
+// Flytt til setup
 const depColl = new DepartmentCollection();
 document.getElementById("avdelinger").innerHTML +=
     state.loggedInUser.departmentID.map((e) => {

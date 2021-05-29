@@ -1,12 +1,14 @@
 import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 
 export default class MakeAdminPanels {
-    constructor() {}
+    constructor(departmentsWithAdmin) {
+        this.departmentsWithAdmin = departmentsWithAdmin;
+    }
 
     getPanel = () => {
         const containerElement = document.createElement("div");
         const departmentCollection = new DepartmentCollection();
-        let checkBoxes = departmentCollection
+        const checkBoxes = departmentCollection
             .fetchDepartments()
             .map((e) => {
                 return (
