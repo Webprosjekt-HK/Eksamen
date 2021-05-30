@@ -69,8 +69,7 @@ const employees = [
         420000,
         "images/ansatt_4.png",
         [1, 2, 4],
-        []
-        ,
+        [],
         new Date("01.12.2000")
     ),
 ];

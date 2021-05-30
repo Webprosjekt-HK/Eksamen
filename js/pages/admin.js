@@ -21,7 +21,6 @@ const admin = (() => {
             const profilePicture = adminPanel.querySelector('#add-profile-picture').value;
             const role = adminPanel.querySelector('#add-role').value;
             const phoneNumber = adminPanel.querySelector('#add-phone').value;
-
             const departmentId = [];
             const adminPriv = [];
 
@@ -31,12 +30,13 @@ const admin = (() => {
                 const isEmployee = e.querySelector('input[type="checkbox"]');
                 const isLeader = e.querySelector('input[type="radio"].is-leader').checked;
                 if (isEmployee.checked || isLeader) departmentId.push(parseInt(isEmployee.value));
-                if (isLeader.checked) adminPriv.push(parseInt(isEmployee.value));
+                if (isLeader) adminPriv.push(parseInt(isEmployee.value));
                 
                 
             })
-            const employee = new Employee(employeeCollection.getNewId(),role,phoneNumber,firstName,lastName,userName,password,address, 400000,profilePicture,departmentId,adminPriv);
-            employeeCollection.addEmployee(employee);
+            const employee = new Employee(employeeCollection.getNewId(),role,phoneNumber,firstName,lastName,userName,password,address, 400000,profilePicture,departmentId,adminPriv,new Date(birthDate));
+            const msg = employeeCollection.addEmployee(employee);
+            if (msg.code != 200) console.error(msg.status);
         }
     };
     return { init };
