@@ -39,10 +39,12 @@ Lys: #faece4
     margin-right: 10%;
     color: white;
     text-decoration: none;
+    background-color: #030305;
 }
 
 .navbar-item:hover{
     color: #F9932F !important;
+    background-color: #030305 !important;
 }
 
 a.navbar-item:after{
@@ -64,6 +66,7 @@ a.navbar-item:hover:after{
     color: #F9932F !important;
     transform: scaleX(1);
     transform-origin: bottom left;
+    background: transparent;
 }
 /*.navbar-item:hover{
     content: '';
@@ -71,12 +74,17 @@ a.navbar-item:hover:after{
     text-decoration: underline;
 }*/
 
+.navbar-menu {
+    background: transparent;
+}
+
 .navbar-link {
     color: white;
 }
 
 a.navbar-link:hover{
     color: #F9932F !important;
+    background: transparent;
 }
 
 .navbar-dropdown {
