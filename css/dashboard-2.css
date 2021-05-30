@@ -171,7 +171,7 @@ nav .avdeling-box select {
     width: 100%;
     border-radius: 12px;
     padding: 0 15px;
-    font-size: 18px;
+    font-size: 16px;
     background: #f4f4f4;
     border: 1px solid #25232e;
     outline: none;
@@ -262,5 +262,8 @@ nav .profile-details .profile-name {
     nav .profile-details .profile-name,
     .dashboard {
         display: none;
+    }
+    .dashboard-section nav .burger-btn {
+        margin-left: 20px;
     }
 }
