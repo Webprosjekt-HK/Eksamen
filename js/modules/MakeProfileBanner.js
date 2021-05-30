@@ -7,7 +7,9 @@ export default class MakeProfileBanner {
                 <img src="images/ansatt_${employeeNum}.png" width="150" height="150">
                 <h2>${employeeName}</h2>
                 <p>${role}</p>
-                <p>${phoneNumber}</p>
+                <i class='bx bxs-phone bx-flip-horizontal' ></i>
+                <span>${phoneNumber}</span></br>
+                <i class='bx bxs-envelope bx-flip-horizontal' ></i>
                 <a href="${emailAdress}">${emailAdress}</a>
             </div>
         `;

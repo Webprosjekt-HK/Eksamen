@@ -5,8 +5,11 @@ export default class makeInfoPage {
         <p class="title card-header">${name}</p>
         <p>${weekHours}</p>
         <p>${weekendHours}</p>
-        <p>Telefon: ${phoneNumber}</p>
-        <p>Adresse: ${address}</p>
+        <i class='bx bxs-phone bx-flip-horizontal' ></i>
+        <span>Telefon: ${phoneNumber}</span></br>
+        <i class='bx bxs-home bx-flip-horizontal' ></i>
+        <span>Adresse: ${address}</snap></br>
+        <i class='bx bxs-envelope bx-flip-horizontal' ></i>
         <a href="mailto:${email}">${email}</a>
         `;
 
