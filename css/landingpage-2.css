@@ -135,6 +135,22 @@ h1 {
     animation: scale 0.4s ease-out;
 }
 
+.button {
+    background:#f7c354 !important;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 3px 3px 5px #cbced1, -3px -3px 5px #fff;
+    font-size: 16px;
+    font-weight: bold;
+    color: #25232e !important;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background: #ffd67e !important;
+    color: #25232e !important;
+}
+
 @keyframes scale {
     to {
         transform: translate(-50%, -50%) scale(3);
