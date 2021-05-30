@@ -1,7 +1,10 @@
+import { Employee } from "/js/classes/Person.js";
+import EmployeeCollection from "/js/classes/EmployeeCollection.js";
 import MakeAdminPanels from "/js/modules/MakeAdminPanels.js";
 
 const admin = (() => {
     const init = (state) => {
+        const employeeCollection = new EmployeeCollection();
         const departmentsWithAdmin = state.loggedInUser.adminPrivileges;
         const adminPanel = new MakeAdminPanels(departmentsWithAdmin).getPanel();
         const mainContainer = document.getElementById("main");
@@ -13,11 +16,27 @@ const admin = (() => {
             const lastName = adminPanel.querySelector('#add-last-name').value;
             const address = adminPanel.querySelector('#add-address').value;
             const birthDate = adminPanel.querySelector('#add-birth-date').value;
+            const userName = adminPanel.querySelector('#add-username').value;
+            const password = adminPanel.querySelector('#add-password').value;
+            const profilePicture = adminPanel.querySelector('#add-profile-picture').value;
+            const role = adminPanel.querySelector('#add-role').value;
+            const phoneNumber = adminPanel.querySelector('#add-phone').value;
 
-            console.log(departmentsInfo,firstName,lastName,address,birthDate);
+            const departmentId = [];
+            const adminPriv = [];
+
+            console.log(firstName,lastName,address,birthDate, userName,password,profilePicture);
             Array.from(departmentsInfo).forEach(e => {
-                console.log(e);
+
+                const isEmployee = e.querySelector('input[type="checkbox"]');
+                const isLeader = e.querySelector('input[type="radio"].is-leader').checked;
+                if (isEmployee.checked || isLeader) departmentId.push(parseInt(isEmployee.value));
+                if (isLeader.checked) adminPriv.push(parseInt(isEmployee.value));
+                
+                
             })
+            const employee = new Employee(employeeCollection.getNewId(),role,phoneNumber,firstName,lastName,userName,password,address, 400000,profilePicture,departmentId,adminPriv);
+            employeeCollection.addEmployee(employee);
         }
     };
     return { init };

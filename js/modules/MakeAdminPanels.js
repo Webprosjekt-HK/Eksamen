@@ -12,7 +12,7 @@ export default class MakeAdminPanels {
             .fetchDepartments()
             .map((e) => {
                 return (
-                    '<div class="panel-block department-registration"><div class="control"><p class="subtitle is-5">Ansatt ved: </p><input type="checkbox" name="' +
+                    '<div class="panel-block department-registration"><div class="control"><p class="subtitle is-5 add-location">Ansatt ved: </p><input class="checkbox" type="checkbox" name="' +
                     e.name +
                     '" value="' +
                     e.id +
@@ -20,12 +20,12 @@ export default class MakeAdminPanels {
                     e.name +
                     '">' +
                     e.name +
-                    '</label></div><div class="control"><p>Er leder?</p><input type="radio" value="true" name="' +
+                    '</label></div><div class="control"><p>Er leder?</p><input class="radio is-leader" type="radio" value="true" name="' +
                     e.id +
                     '" ><label for="' +
                     e.id +
                     '">Ja</label>' +
-                    '</label><input type="radio" value="false" name="' +
+                    '</label><input class="radio" checked type="radio" value="false" name="' +
                     e.id +
                     '"><label for="' +
                     e.id +
@@ -41,6 +41,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        required
                         id="add-first-name"
                         class="input is-focuesed first-name"
                         type="text"
@@ -51,6 +52,7 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        required
                         id="add-last-name"
                         class="input last-name"
                         type="text"
@@ -61,16 +63,73 @@ export default class MakeAdminPanels {
             <div class="panel-block">
                 <div class="control">
                     <input
+                        required
+                        id="add-username"
+                        class="input add-username"
+                        type="text"
+                        placeholder="brukernavn/epost"
+                    >
+                </div>
+            </div>      
+            <div class="panel-block">
+                <div class="control">
+                    <input
+                        required
+                        id="add-password"
+                        class="input"
+                        type="password"
+                        placeholder="Passord"
+                    >
+                </div>
+            </div>                  
+            <div class="panel-block">
+                <div class="control">
+                    <input
+                        required
+                        id="add-role"
+                        class="input add-role"
+                        type="text"
+                        placeholder="Rolle"
+                    >
+                </div>
+            </div>    
+            <div class="panel-block">
+                <div class="control">
+                    <input
+                        required
+                        id="add-phone"
+                        class="input"
+                        type="text"
+                        placeholder="telefonnummer"
+                    >
+                </div>
+            </div>                    
+            <div class="panel-block">
+                <div class="control">
+                    <input
+                        required
+                        id="add-profile-picture"
+                        class="input profile-picture"
+                        type="text"
+                        placeholder="profilbilde"
+                    >
+                </div>
+            </div>
+            <div class="panel-block">
+                <div class="control">
+                    <input
+                        required
                         id="add-birth-date"
                         class="input birth-date"
                         type="date"
-                        placeholder="YYYY-MM-DD"
+                        placeholder="MM-DD-YYYY"
                     />
                 </div>
             </div>
             <div class="panel-block">
                 <div class="control">
                     <textarea
+                        required
                         id="add-address"
                         class="input address"
                         type="text"

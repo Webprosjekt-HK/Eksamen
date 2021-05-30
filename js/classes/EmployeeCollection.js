@@ -44,6 +44,17 @@ export default class EmployeeCollection {
     findEmployeeById = (id) => {
         return this.fetchEmployees().find((el) => el.id == id);
     };
+    getNewId = () => {
+        const employees = this.fetchEmployees();
+        let highestId = employees[0].id;
+
+        for (let i = 1; i<employees.length;i++ ) {
+            if (parseInt(employees[i].id) > highestId) {
+                highestId = parseInt(employees[i].id);
+            } 
+        }
+        return highestId + 1;
+    };
     removeEmployee = (username) => {
         const employees = this.fetchEmployees();
         const indexOfEmployee = employees.indexOf(username);
