@@ -30,14 +30,14 @@
     background: #fff;
     color: #25232e !important;
     font-size: 16px;
-    border-radius: 20px;
-    box-shadow: 3px 3px 10px rgba(94, 104, 121, .288);
+    /*border-radius: 20px;
+    box-shadow: 3px 3px 10px rgba(94, 104, 121, .288);*/
 }
 
 .card-icon {
     font-size: 35px;
-    background:#f7c354;
-    box-shadow: 3px 3px 10px rgba(94, 104, 121, .288);
+    background: #f7c354;
+    box-shadow: 3px 3px 10px rgba(94, 104, 121, 0.288);
     padding: 10px;
     color: #25232e;
     border-radius: 50%;
@@ -45,7 +45,7 @@
 }
 
 .button {
-    background:#f7c354 !important;
+    background: #f7c354 !important;
     border: none;
     border-radius: 12px;
     box-shadow: 3px 3px 5px #cbced1, -3px -3px 5px #fff;
@@ -59,8 +59,6 @@
     background: #ffd67e !important;
     color: #25232e !important;
 }
-
-
 
 #profile-info .card {
     background: #fff;
@@ -88,10 +86,11 @@
     padding-top: 20px;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 1px 1px 20px rgba(94, 104, 121, .288);
+    box-shadow: 1px 1px 20px rgba(94, 104, 121, 0.288);
 }
 
-#calendar-menu, #shift-menu {
+#calendar-menu,
+#shift-menu {
     padding-bottom: 10px;
 }
 #profile-info .card {
@@ -171,7 +170,7 @@
 .remove-btn {
     font-size: 24px;
     color: rgb(177, 2, 2);
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 }
 
 .remove-btn:hover {
@@ -191,7 +190,7 @@
 /* Vareoversikt */
 
 .storage-normal {
-    background: #29CC97bb;
+    background: #29cc97bb;
     padding: 12px 12px 12px 12px;
     border-radius: 25px;
     width: 100px;
@@ -201,7 +200,7 @@
 }
 
 .storage-low {
-    background: #FEC400bb;
+    background: #fec400bb;
     padding: 12px 12px 12px 12px;
     border-radius: 25px;
     width: 100px;
@@ -220,4 +219,3 @@
     font-size: 16px;
     font-weight: bold;
 }
-
