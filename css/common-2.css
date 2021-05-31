@@ -25,15 +25,16 @@
 }
 
 /* Svartfargen er muligens feil på denne */
-.card,
-.panel-heading {
+.card {
     background: #fff;
     color: #25232e !important;
     font-size: 16px;
-    /*border-radius: 20px;
-    box-shadow: 3px 3px 10px rgba(94, 104, 121, .288);*/
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px rgba(94, 104, 121, 0.288);
 }
-
+.panel-heading {
+    background: #fff;
+}
 .card-icon {
     font-size: 35px;
     background: #f7c354;
