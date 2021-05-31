@@ -259,6 +259,30 @@ const menuItems = [
     ),
 ];
 
+const extraPizza = [
+    new Pizza(
+        "Quattro formaggi",
+        "Fire typer oster - Ricotta, gorgonzola, mozarella og parmesan",
+        40,
+        160,
+        120
+    ),
+    new Pizza(
+        "Diavolo",
+        "Salami, jalapenos, ost og pizzasaus",
+        35,
+        158,
+        123
+    ),
+    new Pizza(
+        "Særingen",
+        "Tomatsaus og ost toppet med skinke, ananas, agurk, mais",
+        40,
+        140,
+        100
+    )
+];
+
 const ingredients = [
     new Ingredient("Pizzasaus", 50, 1000, 3),
     new Ingredient("Mel", 20, 1500, 2),
@@ -302,6 +326,10 @@ export function saveDepartments() {
 
 export function savePizzas() {
     localStorage.setItem("pizzas", JSON.stringify(menuItems));
+}
+
+export function saveExtraPizza(){
+    localStorage.setItem("extra-pizzas", JSON.stringify(extraPizza));
 }
 
 export function saveShifts() {
@@ -349,4 +377,5 @@ export function addEventListeners(state) {
     document.getElementById("admin-page").onclick = () => {
         admin.init(state);
     };
+    
 }
