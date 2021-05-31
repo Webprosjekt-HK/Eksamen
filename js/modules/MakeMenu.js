@@ -18,7 +18,17 @@ export default class MakeMenu {
             </table>
         `;
 
+        let dropdown = `
+        <select name="pizzavalg" id="pizza-valg">
+            <option value="0">Quattro Formaggi</option>
+            <option value="1">Diavolo</option>
+            <option value="2">Særingen</option>
+        </select>
+        <button id="add-pizza">Add Pizza</button>
+        `;
+
         //Sending emptyTable (Empty menu) to main-section
+        document.getElementById("main").innerHTML += dropdown;
         document.getElementById("main").innerHTML += emptyTable;
     };
 }
