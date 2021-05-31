@@ -37,7 +37,6 @@ const profile = (() => {
                 return "All Day";
             },
             time: function (schedule) {
-
                 const departmentId = shiftCollection.getShiftById(
                     schedule.id
                 ).departmentID;
@@ -114,11 +113,13 @@ const profile = (() => {
                             </div>
                         </div>
                         <div class="content">
-                            <p class="italic"">Fødselsdato:<br />${new Date(userObject.birthDate).toLocaleString("nb-NO", {
+                            <p class="italic"">Fødselsdato:<br />${new Date(
+                                userObject.birthDate
+                            ).toLocaleString("nb-NO", {
                                 weekday: "long",
                                 month: "long",
                                 day: "numeric",
-                                year: "numeric"
+                                year: "numeric",
                             })}</p>
                             <p class="italic">Telefon:<br />${
                                 userObject.phoneNumber
@@ -171,16 +172,22 @@ const profile = (() => {
             document.getElementById("render-range").innerHTML = new Date(
                 calendar.getDate()
             ).toLocaleString("nb-NO", { month: "long" });
-        }
+        };
         document.getElementById("next-btn").onclick = () => {
-             calendar.next() ;
-             document.getElementById("render-range").innerHTML = new Date(
+            calendar.next();
+            document.getElementById("render-range").innerHTML = new Date(
                 calendar.getDate()
             ).toLocaleString("nb-NO", { month: "long" });
-             }
+        };
         document.getElementById("render-range").innerHTML = new Date(
             calendar.getDate()
         ).toLocaleString("nb-NO", { month: "long" });
+        document.getElementById("today-btn").onclick = () => {
+            calendar.today();
+            document.getElementById("render-range").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+        };
 
         // Legg til tiles
         const makeTile = new MakeTile("work-info");
@@ -196,11 +203,13 @@ const profile = (() => {
         makeTile.apply(
             '<i class="bx bxs-calendar card-icon" ></i>',
             "Neste vakt",
-            nextShift != null ? nextShift.toLocaleString("nb-NO", {
-                weekday: "long",
-                month: "long",
-                day: "numeric",
-            }) : 'Ingen vakt satt opp',
+            nextShift != null
+                ? nextShift.toLocaleString("nb-NO", {
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
+                  })
+                : "Ingen vakt satt opp",
             "is-4"
         );
         makeTile.apply(

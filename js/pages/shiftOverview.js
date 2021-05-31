@@ -90,7 +90,10 @@ const shiftOverview = ((state) => {
                             <button id="next-btn" class="button is-info is-outlined">Neste</button>
                         </div>
                         <div class="column">
-                            <div id="admin-text" ></div>
+                            <p id="shift-month"></p>
+                        </div>
+                        <div class="column">
+                            <p id="admin-text" ></p>
                         </div>
                     </div>
                 </div>
@@ -385,7 +388,9 @@ const shiftOverview = ((state) => {
             calendarOption,
             schedules
         );
-
+        document.getElementById("shift-month").innerHTML = new Date(
+            calendar.getDate()
+        ).toLocaleString("nb-NO", { month: "long" });
         selectedLocation.addEventListener("change", (e) => {
             calendar.destroy();
             init(state);
@@ -443,12 +448,26 @@ const shiftOverview = ((state) => {
                 cal.deleteSchedule(e.schedule.id, e.schedule.calendarId);
             },
         });
-        mainContainer.querySelector("#next-btn").onclick = () =>
+        mainContainer.querySelector("#next-btn").onclick = () => {
             calendar.next();
-        mainContainer.querySelector("#prev-btn").onclick = () =>
+            document.getElementById("shift-month").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+        };
+
+        mainContainer.querySelector("#prev-btn").onclick = () => {
             calendar.prev();
-        mainContainer.querySelector("#today-btn").onclick = () =>
+            document.getElementById("shift-month").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+        };
+
+        mainContainer.querySelector("#today-btn").onclick = () => {
             calendar.today();
+            document.getElementById("shift-month").innerHTML = new Date(
+                calendar.getDate()
+            ).toLocaleString("nb-NO", { month: "long" });
+        };
     };
     return { init };
 })();
