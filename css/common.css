@@ -62,10 +62,11 @@
 #profile-info .card-content .media {
     border-radius: 6px 6px 0 0;
 }
-.italic {
+
+/*.italic {
     font-style: italic;
-    font-size: 70%;
-}
+    font-size: 14pt;
+}*/
 
 /* --------------------------------- */
 
