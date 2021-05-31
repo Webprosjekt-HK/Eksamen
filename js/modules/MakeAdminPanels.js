@@ -12,24 +12,24 @@ export default class MakeAdminPanels {
             .fetchDepartments()
             .map((e) => {
                 return (
-                    '<div class="panel-block department-registration"><div class="control"><p class="subtitle is-5 add-location">Ansatt ved: </p><input class="checkbox" type="checkbox" name="' +
+                    '<div class="panel-block department-registration"><div class="control"><label class="checkbox" for="' +
+                    e.id +
+                    '"> Ansatt ved: ' +
                     e.name +
+                    '</label><input class="checkbox" type="checkbox" name="' +
+                    e.id +
                     '" value="' +
                     e.id +
-                    '"><label class="checkbox" for="' +
-                    e.name +
-                    '">' +
-                    e.name +
-                    '</label></div><div class="control"><p>Er leder?</p><input class="radio is-leader" type="radio" value="true" name="' +
+                    '"></div><div class="control"><p>Er leder?</p><input class="radio is-leader" type="radio" value="true" name="' +
                     e.id +
                     '" ><label for="' +
                     e.id +
-                    '">Ja</label>' +
+                    '"> Ja </label>' +
                     '</label><input class="radio" checked type="radio" value="false" name="' +
                     e.id +
                     '"><label for="' +
                     e.id +
-                    '">Nei</label></div></div>'
+                    '"> Nei </label></div></div>'
                 );
             })
             .join(" ");
