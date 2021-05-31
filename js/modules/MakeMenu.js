@@ -19,16 +19,18 @@ export default class MakeMenu {
         `;
 
         let dropdown = `
+        <div class="select">
         <select name="pizzavalg" id="pizza-valg">
             <option value="0">Quattro Formaggi</option>
             <option value="1">Diavolo</option>
             <option value="2">Særingen</option>
         </select>
+        </div>
         <button id="add-pizza" class="button">Add Pizza</button>
         `;
 
         let div = `
-        <div class="column" id="dropdowndiv"></div>
+        <div class="column" id="dropdowndiv" class="dropdown"></div>
         `;
         //Sending emptyTable (Empty menu) to main-section
         document.getElementById("main").innerHTML += div;
