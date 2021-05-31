@@ -2,7 +2,7 @@ export default class MakeMenu {
     apply = () => {
         //Empty menu table deployed to main-section of HTML document
         let emptyTable = `
-            <table id="menu-table" class="table is-striped" width="90%">
+            <table id="menu-table" class="table is-striped column is-12" width="90%">
                 <thead>
                     <tr>
                         <th>Navn</th>
@@ -27,8 +27,12 @@ export default class MakeMenu {
         <button id="add-pizza">Add Pizza</button>
         `;
 
+        let div = `
+        <div class="column" id="dropdowndiv"></div>
+        `;
         //Sending emptyTable (Empty menu) to main-section
-        document.getElementById("main").innerHTML += dropdown;
+        document.getElementById("main").innerHTML += div;
+        document.getElementById("dropdowndiv").innerHTML += dropdown;
         document.getElementById("main").innerHTML += emptyTable;
     };
 }

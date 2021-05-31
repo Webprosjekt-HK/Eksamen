@@ -16,7 +16,6 @@ const menu = (() => {
         const makeMenu = new MakeMenu();
         const menuItems = new MenuItems();
         let extraPizza = new PizzaCollection().fetchExtraPizza();
-        console.log(extraPizza);
 
         //Creates empty menu table
         makeMenu.apply();
@@ -28,7 +27,6 @@ const menu = (() => {
         function addPizzas(){
             let selectedPizza = document.querySelector('#pizza-valg');
             let output = selectedPizza.options[selectedPizza.selectedIndex].value;
-            console.log(output);
             menuItems.apply(
                 `${extraPizza[output].name}`,
                 `${extraPizza[output].ingredients}`,
