@@ -1,6 +1,7 @@
 import { Employee } from "/js/classes/Person.js";
 import Shift from "/js/classes/Shift.js";
 import Department from "/js/classes/Department.js";
+import DepartmentCollection from "/js/classes/DepartmentCollection.js";
 import Pizza from "/js/classes/Pizza.js";
 import salesInfo from "/js/pages/sales.js";
 import menu from "/js/pages/menu.js";
@@ -82,51 +83,51 @@ const shifts = [
         2
     ),
     new Shift(
-        "1-2021-05-25T08:30:00",
-        "2021-05-25T08:30:00",
-        "2021-05-25T16:30:00",
+        "1-2021-06-25T08:30:00",
+        "2021-06-25T08:30:00",
+        "2021-06-25T16:30:00",
         1,
         1
     ),
     new Shift(
-        "2-2021-05-26T08:30:00",
-        "2021-05-26T08:30:00",
-        "2021-05-26T16:30:00",
+        "2-2021-06-26T08:30:00",
+        "2021-06-26T08:30:00",
+        "2021-06-26T16:30:00",
         1,
         2
     ),
     new Shift(
-        "3-2021-05-27T08:30:00",
-        "2021-05-27T08:30:00",
-        "2021-05-27T16:30:00",
+        "3-2021-06-27T08:30:00",
+        "2021-06-27T08:30:00",
+        "2021-06-27T16:30:00",
         1,
         3
     ),
     new Shift(
-        "4-2021-05-28T08:30:00",
-        "2021-05-28T08:30:00",
-        "2021-05-28T16:30:00",
+        "4-2021-06-28T08:30:00",
+        "2021-06-28T08:30:00",
+        "2021-06-28T16:30:00",
         1,
         4
     ),
     new Shift(
-        "1-2021-05-29T08:30:00",
-        "2021-05-29T08:30:00",
-        "2021-05-29T16:30:00",
+        "1-2021-06-29T08:30:00",
+        "2021-06-29T08:30:00",
+        "2021-06-29T16:30:00",
         1,
         1
     ),
     new Shift(
-        "1-2021-05-22T08:30:00",
-        "2021-05-22T08:30:00",
-        "2021-05-22T16:30:00",
+        "1-2021-06-22T08:30:00",
+        "2021-06-22T08:30:00",
+        "2021-06-22T16:30:00",
         1,
         1
     ),
     new Shift(
-        "1-2021-05-21T08:30:00",
-        "2021-05-21T08:30:00",
-        "2021-05-21T16:30:00",
+        "1-2021-06-21T08:30:00",
+        "2021-06-21T08:30:00",
+        "2021-06-21T16:30:00",
         1,
         1
     ),
@@ -265,6 +266,26 @@ const ingredients = [
     new Ingredient("Ost", 100, 2000, 3),
 ];
 
+export function initPageSettings(user) {
+    const departmentCollection = new DepartmentCollection();
+    // if user's not admin, remove settings button
+    if (user.adminPrivileges.length == 0)
+        document.getElementById("admin-page").parentElement.remove();
+
+    const depColl = new DepartmentCollection();
+    document.getElementById("avdelinger").innerHTML += user.departmentID.map(
+        (e) => {
+            const dep = depColl.filterDepartmentsById(e);
+            return `<option value="${dep.id}">${dep.name}</option>`;
+        }
+    );
+    // sette profilbilde i thumbnail
+    document.getElementById("employee-thumbnail").src = user.pictureUrl;
+
+    // Legger inn info i sidemenyen.. flytte et annet sted etterhvert
+    document.querySelector(".profile-name").innerHTML =
+        user.firstName + " " + user.lastName;
+}
 export function saveIngredients() {
     localStorage.setItem("ingredients", JSON.stringify(ingredients));
 }
@@ -272,7 +293,7 @@ export function saveIngredients() {
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
     localStorage.setItem("employees", JSON.stringify(employees));
-   // window.location.reload();
+    // window.location.reload();
 }
 
 export function saveDepartments() {

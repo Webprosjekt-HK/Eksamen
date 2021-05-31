@@ -13,39 +13,27 @@ import menu from "/js/pages/menu.js";
 const state = {
     loggedInUser: {},
 };
-// profilknapp onclick - kjør denne.. osv
 
 // Denne importerer brukerene våre ved første kjøring
 setup.saveShifts();
 setup.saveEmployees();
 setup.saveDepartments();
 setup.addEventListeners(state);
-// Dev environment
+// Dev environment. Use this to skip going through the landingpage
 //const user = checkCredentials("gjerdmunn@gylnepizza.no", "1234");
 //if (user !== null) state.loggedInUser = user;
 
 // prod
 state.loggedInUser = JSON.parse(localStorage.getItem("user"));
-console.log(state);
-// Flytt til setup
-const depColl = new DepartmentCollection();
-document.getElementById("avdelinger").innerHTML +=
-    state.loggedInUser.departmentID.map((e) => {
-        const dep = depColl.filterDepartmentsById(e);
-        return `<option value="${dep.id}">${dep.name}</option>`;
-    });
-// sette profilbilde i thumbnail
-document.getElementById("employee-thumbnail").src =
-    state.loggedInUser.pictureUrl;
+if (!state.loggedInUser) window.location.replace("/landingpage.html");
+setup.initPageSettings(state.loggedInUser);
 // Midlertidig fiks på ødelagt localStorage-objekter
+
 try {
     profile.init(state);
 } catch (error) {
     localStorage.removeItem("employees");
-    //window.location.reload();
+    window.location.reload();
     console.error(error);
     console.error("Attempting to reinstall data");
 }
-// Legger inn info i sidemenyen.. flytte et annet sted etterhvert
-document.querySelector(".profile-name").innerHTML =
-    state.loggedInUser.firstName + " " + state.loggedInUser.lastName;
