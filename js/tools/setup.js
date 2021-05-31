@@ -331,7 +331,15 @@ export function saveShifts() {
     localStorage.setItem("shifts", JSON.stringify(shifts));
     window.location.reload();
 }
-
+function setActiveElement(el) {
+    Array.from(document.querySelectorAll(".nav-list a")).forEach((button) => {
+        if (button.classList.contains("is-active")) {
+            button.classList.toggle("is-active");
+        }
+        console.log(el);
+        el.classList.toggle("is-active");
+    });
+}
 export function addEventListeners(state) {
     // Event handler for links
     document.getElementById("log-out").onclick = () => {
@@ -339,36 +347,44 @@ export function addEventListeners(state) {
         window.location.href = "/landingpage.html";
     };
     const pageTitleElement = document.getElementById("page-title");
-    document.getElementById("profile-link").onclick = () => {
+    document.getElementById("profile-link").onclick = (el) => {
         pageTitleElement.innerHTML = "Min Side";
         profile.init(state).render();
+        setActiveElement(el.target);
     };
-    document.getElementById("shift-link").onclick = () => {
+    document.getElementById("shift-link").onclick = (el) => {
         shiftOverview.init(state);
         pageTitleElement.innerHTML = "Skift";
         document.getElementById("avdelinger").disabled = false;
+        setActiveElement(el.target);
     };
-    document.getElementById("department-link").onclick = () => {
+    document.getElementById("department-link").onclick = (el) => {
         pageTitleElement.innerHTML = "Avdelinger";
         document.getElementById("avdelinger").disabled = false;
         departments.init();
+        setActiveElement(el.target);
     };
-    document.getElementById("sales-link").onclick = () => {
+    document.getElementById("sales-link").onclick = (el) => {
         salesInfo.init();
         pageTitleElement.innerHTML = "Omsetning";
         document.getElementById("avdelinger").disabled = false;
+        setActiveElement(el.target);
     };
-    document.getElementById("menu-link").onclick = () => {
+    document.getElementById("menu-link").onclick = (el) => {
         menu.init();
         pageTitleElement.innerHTML = "Meny";
         document.getElementById("avdelinger").disabled = false;
+        setActiveElement(el.target);
     };
-    document.getElementById("storage-link").onclick = () => {
+    document.getElementById("storage-link").onclick = (el) => {
         storageOverview.init();
         pageTitleElement.innerHTML = "Vareoversikt";
         document.getElementById("avdelinger").disabled = false;
+        setActiveElement(el.target);
     };
-    document.getElementById("admin-page").onclick = () => {
+    document.getElementById("admin-page").onclick = (el) => {
         admin.init(state);
+        pageTitleElement.innerHTML = "Innstillinger";
+        setActiveElement(el.target);
     };
 }

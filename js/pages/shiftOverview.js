@@ -25,7 +25,6 @@ const shiftOverview = ((state) => {
                 return hour + ":" + minutes;
             },
             timegridDisplayTime: function (time) {
-                console.log(this);
                 return getPadStart(time.hour) + ":" + getPadStart(time.hour);
             },
             milestone: function (schedule) {
@@ -285,7 +284,7 @@ const shiftOverview = ((state) => {
         const newID = createScheduleId(schedule.employeeID, schedule.start);
         const selectedDepartment = document.getElementById("avdelinger").value;
         calendar.deleteSchedule(oldID, "1");
-        console.log(oldID);
+
         shiftCollection.removeShift(oldID);
         const shift = new Shift(
             newID,
@@ -316,7 +315,6 @@ const shiftOverview = ((state) => {
         document.getElementById("popup-panel").remove();
     }
     function createSchedule(calendar, schedule, startPicker, endPicker) {
-        console.log(startPicker.getDate());
         const start = new Date(startPicker.getDate());
         const end = new Date(endPicker.getDate());
         const userId = parseInt(
@@ -326,7 +324,7 @@ const shiftOverview = ((state) => {
         const departmentId = document.getElementById("avdelinger").value;
         const shift = new Shift(shiftId, start, end, departmentId, userId);
         shiftCollection.addShift(shift);
-        console.log(shift);
+
         calendar.createSchedules([
             {
                 id: shiftId,
@@ -382,7 +380,7 @@ const shiftOverview = ((state) => {
             });
         calendarOption.disableClick = !isAdmin;
         calendarOption.disableDblClick = !isAdmin;
-        console.log(calendarOption.disableClick);
+
         const calendar = makeCalendar(
             document.getElementById("calendar"),
             calendarOption,
@@ -408,7 +406,7 @@ const shiftOverview = ((state) => {
             },
             beforeCreateSchedule: function (e) {
                 if (!isAdmin) return;
-                console.log("beforeCreateSchedule", e);
+
                 mainContainer.append(
                     generatePopupMenu(
                         calendar,
@@ -443,7 +441,6 @@ const shiftOverview = ((state) => {
                 );
             },
             beforeDeleteSchedule: function (e) {
-                console.log("beforeDeleteSchedule", e);
                 cal.deleteSchedule(e.schedule.id, e.schedule.calendarId);
             },
         });
