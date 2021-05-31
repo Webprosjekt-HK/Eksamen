@@ -105,7 +105,7 @@ const shiftOverview = ((state) => {
         const containerElement = document.createElement("div");
         containerElement.id = "popup-panel";
         const htmlContent = `
-            <div class="panel is-primary">
+            <div class="panel">
                 <div class="panel-heading">
                     <div class="block">
                         <p id="popup-header-text">Legg til vakt</p>
@@ -392,7 +392,6 @@ const shiftOverview = ((state) => {
             calendar.getDate()
         ).toLocaleString("nb-NO", { month: "long" });
         selectedLocation.addEventListener("change", (e) => {
-            calendar.destroy();
             init(state);
         });
 

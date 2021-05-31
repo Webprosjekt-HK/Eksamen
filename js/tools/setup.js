@@ -317,7 +317,7 @@ export function saveIngredients() {
 export function saveEmployees() {
     if (localStorage.getItem("employees")) return;
     localStorage.setItem("employees", JSON.stringify(employees));
-    // window.location.reload();
+    window.location.reload();
 }
 
 export function saveDepartments() {
@@ -335,7 +335,7 @@ export function saveExtraPizza(){
 export function saveShifts() {
     if (localStorage.getItem("shifts")) return;
     localStorage.setItem("shifts", JSON.stringify(shifts));
-    //window.location.reload();
+    window.location.reload();
 }
 
 export function addEventListeners(state) {
