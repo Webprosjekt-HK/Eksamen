@@ -24,7 +24,7 @@ export default class MakeMenu {
             <option value="1">Diavolo</option>
             <option value="2">Særingen</option>
         </select>
-        <button id="add-pizza">Add Pizza</button>
+        <button id="add-pizza" class="button">Add Pizza</button>
         `;
 
         let div = `
