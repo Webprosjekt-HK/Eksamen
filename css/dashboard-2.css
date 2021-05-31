@@ -206,6 +206,10 @@ nav .profile-details .profile-name {
     padding-top: 100px;
     justify-content: center;
 }
+.italic {
+    font-style: italic;
+    font-size: 10pt;
+}
 
 @media (max-width: 1216px) {
     .sidebar {
