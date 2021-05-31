@@ -26,7 +26,7 @@ const employees = [
         "images/ansatt_1.png",
         [1, 2, 3, 4],
         [1, 2, 3, 4],
-        new Date("01.08.1988")
+        new Date("01.08.1978")
     ),
     new Employee(
         2,
@@ -267,20 +267,14 @@ const extraPizza = [
         160,
         120
     ),
-    new Pizza(
-        "Diavolo",
-        "Salami, jalapenos, ost og pizzasaus",
-        35,
-        158,
-        123
-    ),
+    new Pizza("Diavolo", "Salami, jalapenos, ost og pizzasaus", 35, 158, 123),
     new Pizza(
         "Særingen",
         "Tomatsaus og ost toppet med skinke, ananas, agurk, mais",
         40,
         140,
         100
-    )
+    ),
 ];
 
 const ingredients = [
@@ -328,7 +322,7 @@ export function savePizzas() {
     localStorage.setItem("pizzas", JSON.stringify(menuItems));
 }
 
-export function saveExtraPizza(){
+export function saveExtraPizza() {
     localStorage.setItem("extra-pizzas", JSON.stringify(extraPizza));
 }
 
@@ -377,5 +371,4 @@ export function addEventListeners(state) {
     document.getElementById("admin-page").onclick = () => {
         admin.init(state);
     };
-    
 }

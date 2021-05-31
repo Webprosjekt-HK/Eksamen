@@ -31,13 +31,17 @@ export default class MakeAdminPanels {
                     e.id +
                     '">Nei</label></div></div>'
                 );
-            }).join(" ");
-            console.log(checkBoxes);
+            })
+            .join(" ");
+
         containerElement.innerHTML = ` 
         <div class="panel">
             <p class="panel-heading">
                 Legg til ansatt
             </p>
+            <div class="panel-block">
+                <p class="is-danger" id="status-msg-admin"></p>
+            </div>
             <div class="panel-block">
                 <div class="control">
                     <input
