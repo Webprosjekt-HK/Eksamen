@@ -42,7 +42,6 @@ const storage = (() => {
         //Functionality to order products from storage-section and add to order-list
         var index,
             table = document.getElementById("products-left-table");
-        console.log(table);
         for (var i = 1; i < table.rows.length; i++) {
             table.rows[i].cells[4].onclick = function () {
                 let name = this.parentElement.cells[0].innerHTML;
